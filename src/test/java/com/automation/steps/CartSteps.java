@@ -43,7 +43,7 @@ public class CartSteps {
 
     @Then("verify cart contains correct products count and cart value")
     public void verifyCartContainsCorrectProductsCountAndCartValue() {
-        cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice();
-        //Assert.assertTrue(cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice());
+        //cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice();
+        Assert.assertTrue(cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice());
     }
 }

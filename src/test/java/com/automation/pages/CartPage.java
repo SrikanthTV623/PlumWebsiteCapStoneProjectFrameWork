@@ -23,7 +23,7 @@ public class CartPage extends BasePage {
     List<WebElement> priceOfIndividualItem;
 
     @FindBy(xpath = "//div[@class='total_cc']/span")
-    List<WebElement> totalCartPrice;
+    WebElement totalCartPrice;
 
     public boolean cartContentsIsDisplayed() {
         return cartContentsTxt.isDisplayed();
@@ -45,24 +45,27 @@ public class CartPage extends BasePage {
         return cartEmptyTxt.getText();
     }
 
-    public void validatingTheCartPriceIsMatchingWithCalculatedPrice(){
+    public boolean validatingTheCartPriceIsMatchingWithCalculatedPrice(){
 
         double caluclatedTotalCartValue = 0;
         for(WebElement price : priceOfIndividualItem){
             caluclatedTotalCartValue = caluclatedTotalCartValue + Double.parseDouble(price.getText().split("\\₹")[1]);
         }
 
-        for (WebElement prices : totalCartPrice){
-            double item = Double.parseDouble(prices.getText().split("\\₹")[1]);
-            System.out.println(item);
-        }
+        String totalCartValueTxt = totalCartPrice.getText().split("\\₹")[1];
+        double totalCartValueOnWeb = Double.parseDouble(parsePrice(totalCartValueTxt));
 
-        //double totalCartValueOnWeb = Double.parseDouble(totalCartPrice.getText().split("\\₹")[1]);
-
-        //System.out.println("Price on Web===" + totalCartValueOnWeb);
+        System.out.println("Price on Web===" + totalCartValueOnWeb);
         System.out.println("Price after calculation===" + caluclatedTotalCartValue);
 
-        //return totalCartValueOnWeb == caluclatedTotalCartValue;
+        return totalCartValueOnWeb == caluclatedTotalCartValue;
+    }
+
+    public String parsePrice(String priceText) {
+        // Remove commas
+        priceText = priceText.replace(",", "");
+
+        return priceText;
     }
 
 }
