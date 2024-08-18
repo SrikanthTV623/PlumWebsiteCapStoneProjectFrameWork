@@ -17,9 +17,11 @@ public class Hooks {
     }
     @After
     public void cleanUp(Scenario scenario){
+        /*
         if(scenario.isFailed()){
             ReportManager.attachScreenshot();
         }
+        */
         //DriverManager.getDriver().quit();
     }
 }
