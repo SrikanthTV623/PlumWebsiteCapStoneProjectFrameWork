@@ -1,6 +1,8 @@
 package com.automation.steps;
 
 import com.automation.pages.HomePage;
+import com.automation.utils.ConfigReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +13,6 @@ public class HomeSteps {
     @Given("user opens website")
     public void user_opens_website() {
         homePage.openWebsite();
-
     }
 
     @Then("verify user is on the Plum Goodness homepage")
@@ -24,5 +25,11 @@ public class HomeSteps {
         homePage.clickOnLoginButton();
     }
 
-    
+
+    @When("the user enters {string} into the search bar")
+    public void theUserEntersIntoTheSearchBar(String searchKey) {
+        homePage.enterValueOnSearchBar(ConfigReader.getConfigValue(searchKey));
+    }
+
+
 }
