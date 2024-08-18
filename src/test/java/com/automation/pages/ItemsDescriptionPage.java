@@ -1,6 +1,7 @@
 package com.automation.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,18 +18,22 @@ public class ItemsDescriptionPage extends BasePage {
     WebElement addToCartBtn;
 
     public void clickOnAddToCartBtn(){
+        scrollToElement(addToCartBtn);
         addToCartBtn.click();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[@class='product-title h5']"))); // Any condition that is always true
-        //WebElement addToCartButton = wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn));
     }
 
     public boolean itemDescriptionPageDisplayed(){
         return itemDescriptionTxt.isDisplayed() && addToCartBtn.isDisplayed();
+    }
+
+    public void scrollToElement(WebElement element) {
+        // Use JavaScript to scroll to the element if it's not in view
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }
