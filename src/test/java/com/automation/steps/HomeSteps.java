@@ -9,7 +9,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class HomeSteps {
-    HomePage homePage=new HomePage();
+    HomePage homePage = new HomePage();
+
     @Given("user opens website")
     public void user_opens_website() {
         homePage.openWebsite();
@@ -30,6 +31,28 @@ public class HomeSteps {
     public void theUserEntersIntoTheSearchBar(String searchKey) {
         homePage.enterValueOnSearchBar(ConfigReader.getConfigValue(searchKey));
     }
+
+    @When("user selects product category {string}")
+    public void userSelectsProductCategory(String category) {
+        homePage.selectProductCategory(ConfigReader.getConfigValue(category));
+    }
+
+    @And("user selects product type {string} from the drop down")
+    public void userSelectsProductTypeFromTheDropDown(String productType) {
+        homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
+    }
+
+//    @When("user clicks on hair dropdown")
+//    public void userClicksOnHairDropdown() {
+//        homePage.clickOnHairDropdown();
+//    }
+//
+//    @And("user selects hair mask from the dropdown")
+//    public void userSelectsHairMaskFromTheDropdown() {
+//        homePage.selectHairMaskFromDropDown();
+//    }
+
+
 
 
 }
