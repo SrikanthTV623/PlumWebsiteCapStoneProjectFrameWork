@@ -1,8 +1,13 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class CartPage extends BasePage {
@@ -28,30 +33,36 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//div[@class='gokwik-checkout']")
     WebElement checkOutBtn;
 
+    @FindBy(xpath = "//input[@id='pincode_input_cart']")
+    WebElement enterPinCodeTxtInCart;
+
+    @FindBy(xpath = "//p[@class='expected_cart']")
+    WebElement deliveryMessage;
+
     public boolean cartContentsIsDisplayed() {
         return cartContentsTxt.isDisplayed();
     }
 
-    public void clickOnRemoveButton(){
+    public void clickOnRemoveButton() {
         removeBtn.click();
     }
 
-    public String getCartContentText(){
+    public String getCartContentText() {
         return cartContentsTxt.getText();
     }
 
-    public String takesCartCount(){
+    public String takesCartCount() {
         return cartCount.getText();
     }
 
-    public String sendCartEmptyText(){
+    public String sendCartEmptyText() {
         return cartEmptyTxt.getText();
     }
 
-    public boolean validatingTheCartPriceIsMatchingWithCalculatedPrice(){
+    public boolean validatingTheCartPriceIsMatchingWithCalculatedPrice() {
 
         double caluclatedTotalCartValue = 0;
-        for(WebElement price : priceOfIndividualItem){
+        for (WebElement price : priceOfIndividualItem) {
             caluclatedTotalCartValue = caluclatedTotalCartValue + Double.parseDouble(price.getText().split("\\₹")[1]);
         }
 
@@ -71,8 +82,40 @@ public class CartPage extends BasePage {
         return priceText;
     }
 
-    public void clicksOnCheckOutButton(){
+    public void clicksOnCheckOutButton() {
         checkOutBtn.click();
     }
+
+    public void enterPinCodeText(String pinCodeTxt) {
+        enterPinCodeTxtInCart.sendKeys(pinCodeTxt);
+    }
+
+    public String findPinCodeIsValidOrNot() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        String validationMessageTxt = deliveryMessage.getText().toLowerCase().split("\n")[0];
+        System.out.println(validationMessageTxt);
+
+        return validationMessageTxt;
+    }
+
+    /*
+    //p[@class='expected_cart' and (text()='Delivery by ' or text()='Enter a valid pincode')]
+
+    public String findPinCodeIsValidOrNot() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement deliveryMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Delivery by ' or text()='Enter a valid pincode']"))); // Adjust selector as needed
+
+        String validationMessageTxt = deliveryMessage.getText().toLowerCase().split("\n")[0];
+        System.out.println(validationMessageTxt);
+
+        return validationMessageTxt;
+    }
+
+     */
 
 }

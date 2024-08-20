@@ -12,7 +12,7 @@ public class CartSteps {
 
     @Then("verify item is added into cart and should displays {string}")
     public void verifyItemIsAddedIntoCartAndShouldDisplays(String cartItemsCount) {
-        Assert.assertEquals(cartItemsCount,cartPage.takesCartCount());
+        Assert.assertEquals(cartItemsCount, cartPage.takesCartCount());
     }
 
     @And("user views the cart contents")
@@ -27,7 +27,7 @@ public class CartSteps {
 
     @Then("verify shopping cart is empty")
     public void verifyShoppingCartIsEmpty() {
-        Assert.assertEquals("Your cart is empty",cartPage.sendCartEmptyText());
+        Assert.assertEquals("Your cart is empty", cartPage.sendCartEmptyText());
     }
 
     @Then("the item should be removed from the cart")
@@ -53,4 +53,13 @@ public class CartSteps {
     }
 
 
+    @And("user enters pin code {string}")
+    public void userEntersPinCode(String pinCodeKey) {
+        cartPage.enterPinCodeText(pinCodeKey);
+    }
+
+    @Then("then validate whether pin code is valid or not")
+    public void thenValidateWhetherPinCodeIsValidOrNot() {
+        Assert.assertEquals("delivery by", cartPage.findPinCodeIsValidOrNot());
+    }
 }
