@@ -2,6 +2,8 @@ package com.automation.pages;
 
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,6 +26,19 @@ public class ProductPage extends BasePage{
     @FindBy(xpath = "//span[@class='quick-add-btn-text'][text()='Add to cart']//ancestor::div[@class='card__info-container flex flex-col flex-auto relative']//a[contains(@class,'text-current ')]")
     List<WebElement> productList;
 
+    //all products price which excludes only sold out products
+    @FindBy(xpath = "//span[@class='quick-add-btn-text'][text()='Add to cart']//ancestor::div[@class='card__info-container flex flex-col flex-auto relative']//div[@class='price price--on-sale']//strong/span")
+    List<WebElement> productsPricesList;
+
+    @FindBy(xpath = "//div[@class='usf-facets__body']/div[3]")
+    WebElement priceRangeFilter;
+
+    @FindBy(xpath = "//span[@class='usf-slider-input__from']/input")
+    WebElement minimumPriceField;
+
+    @FindBy(xpath = "//span[@class='usf-slider-input__to']/input")
+    WebElement maximumPriceField;
+
     public boolean verifySelectedProductPage() {
         return productPageHeading.isDisplayed();
     }
@@ -32,9 +47,9 @@ public class ProductPage extends BasePage{
         sortBy.click();
     }
 
-    public void sortBy(String sortByKey) {
+    public void sortBy(String sortByValue) {
         String sortByXpath="//div[@class='usf-c-select__list']/button[contains(text(),'%s')]";
-        driver.findElement(By.xpath(String.format(sortByXpath, ConfigReader.getConfigValue(sortByKey)))).click();
+        driver.findElement(By.xpath(String.format(sortByXpath,sortByValue))).click();
     }
 
     public boolean verifyProductsSortedATOZ() {
@@ -82,6 +97,79 @@ public class ProductPage extends BasePage{
             String individualProductName=product.getText();
             System.out.println(individualProductName);
             if(!individualProductName.contains(productName)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean verifyProductsPricesSortedLowToHigh() {
+        List<Double> priceValues = new ArrayList<>();
+        for (WebElement price : productsPricesList) {
+            String priceText = price.getText().replace("₹", "").replace("Rs. ", "").replace(",", "");
+            priceValues.add(Double.parseDouble(priceText));
+        }
+
+        List<Double> sortedPriceValues = new ArrayList<>(priceValues);
+        Collections.sort(sortedPriceValues);
+        System.out.println(priceValues+"\n"+sortedPriceValues);
+
+        if(priceValues.equals(sortedPriceValues)){
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean verifyProductsPricesSortedHighToLow() {
+        List<Double> priceValues = new ArrayList<>();
+        for (WebElement price : productsPricesList) {
+            String priceText = price.getText().replace("₹", "").replace("Rs. ", "").replace(",", "");
+            priceValues.add(Double.parseDouble(priceText));
+        }
+
+        List<Double> sortedPriceValues = new ArrayList<>(priceValues);
+        Collections.sort(sortedPriceValues, Collections.reverseOrder());
+
+        System.out.println(priceValues+"\n"+sortedPriceValues);
+
+        if(priceValues.equals(sortedPriceValues)){
+            return true;
+        }
+        return false;
+    }
+
+
+    public void scrollToElement(WebElement element) {
+        // Use JavaScript to scroll to the element if it's not in view
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void clickOnPriceFilter() {
+        scrollToElement(priceRangeFilter);
+        priceRangeFilter.click();
+    }
+
+    public void settingPriceRange(String fromPriceValue, String toPriceValue) {
+        maximumPriceField.click();
+        maximumPriceField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
+        maximumPriceField.sendKeys(toPriceValue);
+        minimumPriceField.click();
+        minimumPriceField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
+        minimumPriceField.sendKeys(fromPriceValue);
+
+    }
+
+    public boolean verifyProductsPricesSortedSpecifiedRange(){
+        double minPrice = 200.0;
+        double maxPrice = 800.0;
+
+        for (WebElement priceElement : productsPricesList) {
+            String priceText = priceElement.getText().replace("₹", "").replace("Rs. ", "").replace(",", "");
+            double priceValue = Double.parseDouble(priceText);
+
+            if (priceValue < minPrice || priceValue > maxPrice) {
                 return false;
             }
         }

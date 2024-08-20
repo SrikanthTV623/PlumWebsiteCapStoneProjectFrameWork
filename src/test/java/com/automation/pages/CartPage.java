@@ -25,6 +25,9 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//div[@class='total_cc']/span")
     WebElement totalCartPrice;
 
+    @FindBy(xpath = "//div[@class='gokwik-checkout']")
+    WebElement checkOutBtn;
+
     public boolean cartContentsIsDisplayed() {
         return cartContentsTxt.isDisplayed();
     }
@@ -66,6 +69,10 @@ public class CartPage extends BasePage {
         priceText = priceText.replace(",", "");
 
         return priceText;
+    }
+
+    public void clicksOnCheckOutButton(){
+        checkOutBtn.click();
     }
 
 }

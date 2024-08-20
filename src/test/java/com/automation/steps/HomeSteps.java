@@ -34,25 +34,13 @@ public class HomeSteps {
 
     @When("user selects product category {string}")
     public void userSelectsProductCategory(String category) {
-        homePage.selectProductCategory(ConfigReader.getConfigValue(category));
+        //homePage.selectProductCategory(ConfigReader.getConfigValue(category));
+        homePage.selectProductCategory(category);
     }
 
     @And("user selects product type {string} from the drop down")
     public void userSelectsProductTypeFromTheDropDown(String productType) {
-        homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
+        //homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
+        homePage.selectProductFromDropDown(productType);
     }
-
-//    @When("user clicks on hair dropdown")
-//    public void userClicksOnHairDropdown() {
-//        homePage.clickOnHairDropdown();
-//    }
-//
-//    @And("user selects hair mask from the dropdown")
-//    public void userSelectsHairMaskFromTheDropdown() {
-//        homePage.selectHairMaskFromDropDown();
-//    }
-
-
-
-
 }
