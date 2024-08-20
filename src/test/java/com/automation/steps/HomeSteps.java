@@ -40,7 +40,7 @@ public class HomeSteps {
 
     @And("user selects product type {string} from the drop down")
     public void userSelectsProductTypeFromTheDropDown(String productType) {
-        //homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
+       // homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
         homePage.selectProductFromDropDown(productType);
     }
 }
