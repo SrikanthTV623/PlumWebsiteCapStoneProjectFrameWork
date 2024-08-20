@@ -46,4 +46,11 @@ public class CartSteps {
         //cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice();
         Assert.assertTrue(cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice());
     }
+
+    @And("clicks on checkout button")
+    public void clicksOnCheckoutButton() {
+        cartPage.clicksOnCheckOutButton();
+    }
+
+
 }

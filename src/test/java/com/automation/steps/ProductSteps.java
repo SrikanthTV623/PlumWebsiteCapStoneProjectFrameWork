@@ -22,18 +22,23 @@ public class ProductSteps {
     }
 
     @And("selects {string} from the drop down")
-    public void selectsFromTheDropDown(String sortByKey) {
-        productPage.sortBy(sortByKey);
+    public void selectsFromTheDropDown(String sortByValue) {
+        //productPage.sortBy(ConfigReader.getConfigValue(sortByValue));
+        productPage.sortBy(sortByValue);
 
     }
 
     @Then("verify products are sorted {string} accordingly")
     public void verifyProductsAreSortedAccordingly(String sortType) {
-        sortType=ConfigReader.getConfigValue(sortType);
+        //sortType=ConfigReader.getConfigValue(sortType);
         if(sortType.equals("A-Z")){
             Assert.assertTrue(productPage.verifyProductsSortedATOZ());
         } else if (sortType.equals("Z-A")) {
             Assert.assertTrue(productPage.verifyProductsSortedZTOA());
+        } else if (sortType.equals("Low to High")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedLowToHigh());
+        } else if (sortType.equals("High to Low")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedHighToLow());
         }
     }
 
@@ -45,5 +50,20 @@ public class ProductSteps {
     @Then("verify searched product {string} and displayed product names are same")
     public void verifySearchedProductAndDisplayedProductNamesAreSame(String productName) {
         Assert.assertTrue(productPage.verifyProductName(ConfigReader.getConfigValue(productName)));
+    }
+
+    @When("user clicks on price range filter")
+    public void userClicksOnPriceRangeFilter() {
+        productPage.clickOnPriceFilter();
+    }
+
+    @And("user sets price range between {string} and {string}")
+    public void userSetsPriceRangeBetweenAnd(String fromPrice, String toPrice) {
+        productPage.settingPriceRange(fromPrice,toPrice);
+    }
+
+    @Then("displayed products should have prices within the specified range")
+    public void displayedProductsShouldHavePricesWithinTheSpecifiedRange() {
+        Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
     }
 }
