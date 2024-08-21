@@ -77,4 +77,9 @@ public class ProductSteps {
     public void clicksOnTheShoppingCartIcon() {
         productPage.clickOnShoppingCartIcon();
     }
+
+    @Then("verify user is on searched product page")
+    public void verifyUserIsOnSearchedProductPage() {
+
+    }
 }

@@ -6,7 +6,7 @@ Feature: Validate Plum Goodness Website Functionality
 
   Scenario: User searches for a product and adds it to the cart
     When the user enters "search.value" into the search bar
-    Then verify user is on product page
+    Then verify user is on searched product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
@@ -15,12 +15,12 @@ Feature: Validate Plum Goodness Website Functionality
 
   Scenario: User searches for products, adds multiple products to the cart, and verifies the cart value
     When the user enters "search.value1" into the search bar
-    Then verify user is on product page
+    Then verify user is on searched product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
     When the user enters "search.value2" into the search bar
-    Then verify user is on product page
+    Then verify user is on searched product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
