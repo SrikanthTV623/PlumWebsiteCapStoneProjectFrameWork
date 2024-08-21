@@ -1,10 +1,7 @@
 package com.automation.pages;
 
 import com.automation.utils.ConfigReader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -53,10 +50,11 @@ public class HomePage extends BasePage {
 
     public void selectProductFromDropDown(String productType) {
         String categoryXpath = "//a[contains(@href,'%s')]";
-        WebElement product=driver.findElement(By.xpath(String.format(categoryXpath,productType)));
+        WebElement product = driver.findElement(By.xpath(String.format(categoryXpath, productType)));
         scrollToElement(product);
         product.click();
     }
+
     public void scrollToElement(WebElement element) {
         // Use JavaScript to scroll to the element if it's not in view
         JavascriptExecutor js = (JavascriptExecutor) driver;
