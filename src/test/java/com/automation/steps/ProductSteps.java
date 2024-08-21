@@ -66,4 +66,19 @@ public class ProductSteps {
     public void displayedProductsShouldHavePricesWithinTheSpecifiedRange() {
         Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
     }
+
+    @Then("verify user is on product results page")
+    public void verifyUserIsOnProductResultsPage() {
+
+    }
+
+    @When("user clicks on a product from the search results")
+    public void userClicksOnAProductFromTheSearchResults() {
+        productPage.clicksOnItem();
+    }
+
+    @And("clicks on the shopping cart icon")
+    public void clicksOnTheShoppingCartIcon() {
+        productPage.clickOnShoppingCartIcon();
+    }
 }

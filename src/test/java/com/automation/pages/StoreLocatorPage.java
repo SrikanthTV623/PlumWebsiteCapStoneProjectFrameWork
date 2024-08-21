@@ -18,12 +18,13 @@ public class StoreLocatorPage extends BasePage{
     }
 
 
+    @FindBy(xpath = "//div[@id='progus-store-locator']/iframe")
+    WebElement iframe;
     public void selectCity(String cityName) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 300);");
-        String cityXpath="//div[@class='progus-store-locator-tags-container']//span[text()='Mumbai']/../input";
+        driver.switchTo().frame(iframe);
+        String cityXpath="//div[@class='progus-store-locator-tags-container']//span[text()='%s']/../input";
         WebElement city=driver.findElement(By.xpath(String.format(cityXpath,cityName)));
-        city.click();
+        jsClick(city);
     }
 
     @FindBy(xpath = "//div[@id='progus-store-locator-store-list-elements']//span//div[@class='progus-store-locator-popup-element-content']")

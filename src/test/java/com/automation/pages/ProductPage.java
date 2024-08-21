@@ -1,8 +1,6 @@
 package com.automation.pages;
 
-import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -140,12 +138,6 @@ public class ProductPage extends BasePage{
     }
 
 
-    public void scrollToElement(WebElement element) {
-        // Use JavaScript to scroll to the element if it's not in view
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-
     public void clickOnPriceFilter() {
         scrollToElement(priceRangeFilter);
         priceRangeFilter.click();
@@ -174,5 +166,20 @@ public class ProductPage extends BasePage{
             }
         }
         return true;
+    }
+
+    @FindBy(xpath = "//div[@id='usf_container']//ul//li[1]")
+    WebElement itemFieldClick;
+
+    @FindBy(xpath = "//div[@class='header__icons flex justify-end mis-auto js-closes-menu']/a[3]")
+    WebElement shoppingCartIcon;
+
+
+    public void clicksOnItem() {
+        itemFieldClick.click();
+    }
+
+    public void clickOnShoppingCartIcon() {
+        shoppingCartIcon.click();
     }
 }
