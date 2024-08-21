@@ -67,10 +67,6 @@ public class ProductSteps {
         Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
     }
 
-    @Then("verify user is on product results page")
-    public void verifyUserIsOnProductResultsPage() {
-
-    }
 
     @When("user clicks on a product from the search results")
     public void userClicksOnAProductFromTheSearchResults() {

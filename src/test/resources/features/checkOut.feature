@@ -4,7 +4,7 @@ Feature: Validate Plum Goodness Website Functionality
     Given user opens website
     Then verify user is on the Plum Goodness homepage
     When the user enters "search.value" into the search bar
-    Then verify user is on product results page
+    Then verify user is on product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
