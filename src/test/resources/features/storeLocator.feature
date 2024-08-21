@@ -10,5 +10,9 @@ Feature: Validate Plum Goodness Website Functionality
     And print all the store locations
 
     Examples:
-      | category       | sub category  | page          |cityName|
-      | get to know us | store-locator | store locator |Mumbai  |
+      | category       | sub category  | page          | cityName   |
+      | get to know us | store-locator | store locator | Trivandrum |
+      | get to know us | store-locator | store locator | Bengaluru  |
+      | get to know us | store-locator | store locator | Nagpur     |
+      | get to know us | store-locator | store locator | Pune       |
+
