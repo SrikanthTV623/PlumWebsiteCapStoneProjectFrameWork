@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+
 public class CheckOutPage extends BasePage{
 
     @FindBy(xpath = "//iframe[@id='gokwik-iframe']")
@@ -33,6 +35,8 @@ public class CheckOutPage extends BasePage{
 
     @FindBy(xpath = "//div[@class='payment-btn-group svelte-hzxz3n']/button[1]")
     WebElement paymentOption;
+    @FindBy(xpath = "//div[@class='payment-btn-group svelte-hzxz3n']/button//span[contains(text(),'Cash on Delivery')]")
+    WebElement cashOnDelivery;
 
     public void enterPhoneNo(){
         driver.switchTo().frame(iFrameID);
@@ -57,10 +61,45 @@ public class CheckOutPage extends BasePage{
         return paymentOption.isDisplayed();
     }
 
-    public void scrollToElement(WebElement element) {
-        // Use JavaScript to scroll to the element if it's not in view
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+    public void selectCashOnDelivery() {
+        scrollToElement(cashOnDelivery);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        cashOnDelivery.click();
     }
 
+    @FindBy(xpath = "//div[@class='order-successful svelte-1ny41cs']//p")
+    WebElement orderPlacedMsg;
+    public boolean verifyOrderIsPlaced() {
+        System.out.println(orderPlacedMsg.getText());
+        return orderPlacedMsg.isDisplayed();
+
+    }
+
+    @FindBy(xpath = "//div[@class='os-header__heading']//span")
+    WebElement orderIdAndText;
+    public void storeOrderId(String orderId) {
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+        driver.switchTo().defaultContent();
+        String text=orderIdAndText.getText();
+        String[] order=text.split("\\s+");
+        ConfigReader.setConfigValue(orderId,order[1]);
+        System.out.println(Arrays.toString(order));
+    }
+
+
+    @FindBy(xpath = "//a[@class='button-round']")
+    WebElement navigateToHomePageBtn;
+    public void navigateToHomePage() {
+        scrollToElement(navigateToHomePageBtn);
+        navigateToHomePageBtn.click();
+    }
 }

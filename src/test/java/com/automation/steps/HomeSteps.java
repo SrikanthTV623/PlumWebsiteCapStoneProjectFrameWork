@@ -21,6 +21,11 @@ public class HomeSteps {
         Assert.assertTrue(homePage.verifyHomePage());
     }
 
+    @When("user clicks on the login logo")
+    public void userClicksOnTheLoginLogo() {
+        homePage.clickOnLoginLogo();
+    }
+
     @When("user clicks on the login button")
     public void user_clicks_on_the_login_button() {
         homePage.clickOnLoginButton();
@@ -42,5 +47,10 @@ public class HomeSteps {
     public void userSelectsProductTypeFromTheDropDown(String productType) {
        // homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
         homePage.selectProductFromDropDown(productType);
+    }
+
+    @And("clicks on order history")
+    public void clicksOnOrderHistory() {
+        homePage.clickOnOrderHistory();
     }
 }
