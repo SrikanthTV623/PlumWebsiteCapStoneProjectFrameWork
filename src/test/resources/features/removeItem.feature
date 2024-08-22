@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Validate Remove Button In Plum Goodness Website
 
   Scenario: User removes an item from the cart
     Given user opens website

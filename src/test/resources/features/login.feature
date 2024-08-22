@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Functionality
+Feature: Do Login and Verify User is logged In Or Not
 
   Scenario: Verify user can login to plum account
     Given user opens website

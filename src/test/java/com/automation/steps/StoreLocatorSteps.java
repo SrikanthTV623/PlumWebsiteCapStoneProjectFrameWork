@@ -7,11 +7,11 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class StoreLocatorSteps {
-    StoreLocatorPage storeLocatorPage =new StoreLocatorPage();
+    StoreLocatorPage storeLocatorPage = new StoreLocatorPage();
 
     @Then("verify user is on {string}")
     public void verifyUserIsOn(String pageHeading) {
-        Assert.assertEquals(pageHeading,storeLocatorPage.verifyPage());
+        Assert.assertEquals(pageHeading, storeLocatorPage.verifyPage());
     }
 
     @When("user clicks on {string}")

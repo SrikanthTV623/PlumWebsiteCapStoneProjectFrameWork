@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Search for Out-of-Stock Products In Plum Goodness Website
 
 
   Scenario: Search for out-of-stock items and verify the out-of-stock message

@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Write a Review for a product in Plum Goodness Website
 
   Scenario: Write a review for the product
     Given user opens website

@@ -10,9 +10,9 @@ public class BasePage {
 
     WebDriver driver;
 
-    public BasePage(){
+    public BasePage() {
         this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public void scrollToElement(WebElement element) {

@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Take Search Keys from Text File and perform the Search Operations
 
 
   Scenario: Search for products using keywords from text file

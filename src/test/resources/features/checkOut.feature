@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Validate Check-Out Process In Plum Goodness Website
 
   Scenario: User searches for a product, adds it to the cart and do checkout
     Given user opens website

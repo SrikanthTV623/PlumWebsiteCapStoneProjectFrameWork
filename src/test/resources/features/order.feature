@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Place and Cancel the order In Plum Goodness Website
 
   Background:
     Given user opens website

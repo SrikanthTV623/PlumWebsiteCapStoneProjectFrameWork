@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Apply Price Filter In Plum Goodness Website
 
   Background:
     Given user opens website

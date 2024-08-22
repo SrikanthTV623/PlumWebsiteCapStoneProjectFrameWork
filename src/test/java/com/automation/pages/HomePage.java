@@ -71,7 +71,7 @@ public class HomePage extends BasePage {
         product.click();
     }
 
-    public void gettingSearchValueFromTextFile(){
+    public void gettingSearchValueFromTextFile() {
         String filePath = "src/test/resources/files/searchItems.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -81,13 +81,12 @@ public class HomePage extends BasePage {
                     keywords.add(keyword);
                 }
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void validateSearchResultsForSearchedItem(){
+    public void validateSearchResultsForSearchedItem() {
         for (String keyword : keywords) {
             searchBarField.clear();
             searchBarField.sendKeys(keyword);
@@ -106,9 +105,7 @@ public class HomePage extends BasePage {
         jsClick(orderHistory);
     }
 
-
     public void clickOnLoginButton() {
         jsClick(loginBtn);
     }
-
 }
