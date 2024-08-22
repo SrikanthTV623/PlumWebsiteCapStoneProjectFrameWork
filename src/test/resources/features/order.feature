@@ -4,7 +4,7 @@ Feature: Validate Plum Goodness Website Functionality
     Given user opens website
     Then verify user is on the Plum Goodness homepage
 
-  Scenario: User searches for a product and places the order
+  Scenario: Verify user can search for a product, place and cancel the order
     When the user enters "search.value" into the search bar
     Then verify user is on searched product page
     When user clicks on a product from the search results
@@ -30,13 +30,6 @@ Feature: Validate Plum Goodness Website Functionality
     And user clicks on cancel button
     And confirm cancellation
     Then verify user has successfully cancelled the order
-
-
-
-
-
-
-  Scenario: Verify user can cancel the placed order
 
 
 
