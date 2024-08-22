@@ -26,6 +26,11 @@ public class HomeSteps {
         homePage.clickOnLoginButton();
     }
 
+    @When("user clicks on the login logo")
+    public void userClicksOnTheLoginLogo() {
+        homePage.clickOnLoginLogoBtn();
+    }
+
     @When("the user enters {string} into the search bar")
     public void theUserEntersIntoTheSearchBar(String searchKey) {
         homePage.enterValueOnSearchBar(ConfigReader.getConfigValue(searchKey));
@@ -66,4 +71,6 @@ public class HomeSteps {
     public void clicksOnOrderHistory() {
         homePage.clickOnOrderHistory();
     }
+
+
 }

@@ -21,14 +21,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[@class='flex']/img")
     WebElement plumLogo;
 
-    @FindBy(id = "kp-login-button-header-logo")
-    WebElement loginBtn;
+    @FindBy(xpath = "//div[@id=\"kp-login-button-header-logo\"]")
+    WebElement loginLogoBtn;
 
-    @FindBy(xpath = "//div[@id='kwikpass-drawer-desktop']//a")
-    WebElement orderHistory;
+    @FindBy(xpath = "//div[@id='icon-kwikpass']")
+    WebElement loginBtn;
 
     @FindBy(xpath = "//input[@id='header-search']")
     WebElement searchBarField;
+
+    @FindBy(xpath = "//div[@id='kwikpass-drawer-desktop']//a")
+    WebElement orderHistory;
 
     public void openWebsite() {
         driver.get("https://plumgoodness.com/");
@@ -38,8 +41,9 @@ public class HomePage extends BasePage {
         return plumLogo.isDisplayed();
     }
 
-    public void clickOnLoginButton() {
-        loginBtn.click();
+
+    public void clickOnLoginLogoBtn() {
+        loginLogoBtn.click();
     }
 
     public void enterValueOnSearchBar(String searchValue) {
@@ -101,4 +105,10 @@ public class HomePage extends BasePage {
     public void clickOnOrderHistory() {
         jsClick(orderHistory);
     }
+
+
+    public void clickOnLoginButton() {
+        jsClick(loginBtn);
+    }
+
 }

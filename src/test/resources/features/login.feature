@@ -7,7 +7,5 @@ Feature: Validate Plum Goodness Functionality
     Then verify user is on login page
     When user enters a valid phone number "valid.phoneNo" and OTP
     Then verify user is logged in and print the welcome message to console
-    When user clicks on the login button
-    And clicks on order history
 
  
