@@ -21,6 +21,11 @@ public class HomeSteps {
         Assert.assertTrue(homePage.verifyHomePage());
     }
 
+    @When("user clicks on the login logo")
+    public void userClicksOnTheLoginLogo() {
+        homePage.clickOnLoginLogo();
+    }
+
     @When("user clicks on the login button")
     public void user_clicks_on_the_login_button() {
         homePage.clickOnLoginButton();
@@ -37,10 +42,6 @@ public class HomeSteps {
         //homePage.selectProductCategory(ConfigReader.getConfigValue(category));
         homePage.selectProductCategory(category);
     }
-    @And("user selects product sub-category {string}")
-    public void userSelectsProductSubCategory(String subCategory) {
-        homePage.selectProductCategory(subCategory);
-    }
 
     @And("user selects product type {string} from the drop down")
     public void userSelectsProductTypeFromTheDropDown(String productType) {
@@ -48,18 +49,8 @@ public class HomeSteps {
         homePage.selectProductFromDropDown(productType);
     }
 
-    @And("user selects specified product type {string}")
-    public void userSelectsSpecifiedProductType(String specifiedProduct) {
-        homePage.selectSpecifiedProductFromDropDown(specifiedProduct);
-    }
-
-    @When("user searches for search product names from text file")
-    public void userSearchesForSearchProductNamesFromTextFile() {
-        homePage.gettingSearchValueFromTextFile();
-    }
-
-    @Then("search results should display products related to all searched value")
-    public void searchResultsShouldDisplayProductsRelatedToAllSearchedValue() {
-        homePage.validateSearchResultsForSearchedItem();
+    @And("clicks on order history")
+    public void clicksOnOrderHistory() {
+        homePage.clickOnOrderHistory();
     }
 }

@@ -21,7 +21,6 @@ public class LoginPage extends BasePage{
 
     public void enterMobileNumber(String phoneNoVal) {
         mobileNumberField.sendKeys(phoneNoVal);
-//        driver.switchTo().defaultContent();
     }
 
     public boolean isLoggedInSuccessfully() {
