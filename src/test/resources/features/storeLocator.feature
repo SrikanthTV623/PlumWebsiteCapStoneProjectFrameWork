@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Find out Stores available in different locations Through Plum Goodness Website
 
   Background:
     Given user opens website

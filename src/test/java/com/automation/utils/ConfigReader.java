@@ -8,7 +8,7 @@ public class ConfigReader {
 
     static Properties prop;
 
-    public static void initConfig(){
+    public static void initConfig() {
 
         prop = new Properties();
         try {
@@ -19,9 +19,11 @@ public class ConfigReader {
 
     }
 
-    public static String getConfigValue(String key){
+    public static String getConfigValue(String key) {
         return prop.getProperty(key);
     }
 
-    public static void setConfigValue(String key,String value){ prop.setProperty(key, value);}
+    public static void setConfigValue(String key, String value) {
+        prop.setProperty(key, value);
+    }
 }

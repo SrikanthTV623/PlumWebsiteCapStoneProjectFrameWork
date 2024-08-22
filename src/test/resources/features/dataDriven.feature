@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website and Data Driven Functionality
+Feature: Data Driven Functionality In Plum Goodness Website
 
 
   Scenario Outline: Verify user can select different category and sub-category products

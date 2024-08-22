@@ -8,7 +8,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class AccountSteps {
-    AccountPage accountPage=new AccountPage();
+    AccountPage accountPage = new AccountPage();
+
     @Then("verify user is on account page")
     public void verify_user_is_on_account_page() {
         Assert.assertTrue(accountPage.verifyPage());
@@ -22,7 +23,7 @@ public class AccountSteps {
 
     @And("Enter order cancellation details {string} and {string}")
     public void enterOrderCancellationDetailsAnd(String orderId, String phoneNo) {
-        accountPage.enterOrderCancellationDetails(ConfigReader.getConfigValue(orderId),ConfigReader.getConfigValue(phoneNo));
+        accountPage.enterOrderCancellationDetails(ConfigReader.getConfigValue(orderId), ConfigReader.getConfigValue(phoneNo));
     }
 
 
@@ -45,6 +46,6 @@ public class AccountSteps {
 
     @Then("verify user has successfully cancelled the order")
     public void verifyUserHasSuccessfullyCancelledTheOrder() {
-        Assert.assertEquals("Your order has been canceled!",accountPage.verifyOrderCancellation());
+        Assert.assertEquals("Your order has been canceled!", accountPage.verifyOrderCancellation());
     }
 }

@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Validate Pin Code for Delivery of the Order
 
   Scenario Outline: Validating the PinCode
     Given user opens website

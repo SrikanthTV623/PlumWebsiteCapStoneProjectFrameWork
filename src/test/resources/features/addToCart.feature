@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Validate Add To Cart Button In Plum Goodness Website
 
   Background:
     Given user opens website

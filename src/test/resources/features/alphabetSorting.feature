@@ -1,4 +1,4 @@
-Feature: Validate Plum Goodness Website Functionality
+Feature: Apply Filter Button Validate Alphabet Sorting In Plum Goodness Website
 
   Scenario Outline: User sorting the products from AtoZ and ZtoA
     Given user opens website

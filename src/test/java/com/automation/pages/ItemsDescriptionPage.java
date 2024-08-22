@@ -4,7 +4,7 @@ package com.automation.pages;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 
 public class ItemsDescriptionPage extends BasePage {
@@ -19,7 +19,7 @@ public class ItemsDescriptionPage extends BasePage {
         scrollToElement(addToCartBtn);
         addToCartBtn.click();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -55,8 +55,8 @@ public class ItemsDescriptionPage extends BasePage {
 
     public void addReviewData(List<String> reviewData) {
 
-        String ratingXpath="//span[@class='jdgm-form__rating']//a[@data-alt='%s']";
-        WebElement stars=driver.findElement(By.xpath(String.format(ratingXpath,ConfigReader.getConfigValue(reviewData.get(0)))));
+        String ratingXpath = "//span[@class='jdgm-form__rating']//a[@data-alt='%s']";
+        WebElement stars = driver.findElement(By.xpath(String.format(ratingXpath, ConfigReader.getConfigValue(reviewData.get(0)))));
         jsClick(stars);
 
         reviewTitle.sendKeys(ConfigReader.getConfigValue(reviewData.get(1)));

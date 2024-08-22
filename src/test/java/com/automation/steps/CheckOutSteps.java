@@ -38,6 +38,6 @@ public class CheckOutSteps {
 
     @And("user navigates to home page")
     public void userNavigatesToHomePage() {
-         checkOutPage.navigateToHomePage();
+        checkOutPage.navigateToHomePage();
     }
 }

@@ -11,7 +11,7 @@ public class DriverManager {
 
     static WebDriver driver;
 
-    public static void createDriver(){
+    public static void createDriver() {
         //driver = new EdgeDriver();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-notifications");
@@ -20,7 +20,7 @@ public class DriverManager {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         return driver;
     }
 }
