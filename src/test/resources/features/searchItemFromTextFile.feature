@@ -1,5 +1,6 @@
 Feature: Validate Plum Goodness Website Functionality
 
+
   Scenario: Search for products using keywords from text file
     Given user opens website
     Then verify user is on the Plum Goodness homepage

@@ -1,5 +1,6 @@
 Feature: Validate Plum Goodness Website and Data Driven Functionality
 
+
   Scenario Outline: Verify user can select different category and sub-category products
     Given user opens website
     Then verify user is on the Plum Goodness homepage

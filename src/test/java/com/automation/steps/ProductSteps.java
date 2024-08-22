@@ -101,4 +101,5 @@ public class ProductSteps {
     public void printNamesOfAllOutOfStockProducts() {
         productPage.printOutOfStockProductList();
     }
+
 }
