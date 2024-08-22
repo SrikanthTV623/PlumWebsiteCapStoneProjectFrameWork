@@ -37,10 +37,29 @@ public class HomeSteps {
         //homePage.selectProductCategory(ConfigReader.getConfigValue(category));
         homePage.selectProductCategory(category);
     }
+    @And("user selects product sub-category {string}")
+    public void userSelectsProductSubCategory(String subCategory) {
+        homePage.selectProductCategory(subCategory);
+    }
 
     @And("user selects product type {string} from the drop down")
     public void userSelectsProductTypeFromTheDropDown(String productType) {
        // homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
         homePage.selectProductFromDropDown(productType);
+    }
+
+    @And("user selects specified product type {string}")
+    public void userSelectsSpecifiedProductType(String specifiedProduct) {
+        homePage.selectSpecifiedProductFromDropDown(specifiedProduct);
+    }
+
+    @When("user searches for search product names from text file")
+    public void userSearchesForSearchProductNamesFromTextFile() {
+        homePage.gettingSearchValueFromTextFile();
+    }
+
+    @Then("search results should display products related to all searched value")
+    public void searchResultsShouldDisplayProductsRelatedToAllSearchedValue() {
+        homePage.validateSearchResultsForSearchedItem();
     }
 }

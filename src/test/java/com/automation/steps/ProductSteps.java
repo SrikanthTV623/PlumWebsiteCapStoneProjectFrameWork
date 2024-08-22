@@ -8,7 +8,22 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class ProductSteps {
-    ProductPage productPage=new ProductPage();
+    ProductPage productPage = new ProductPage();
+
+    @Then("verify user is on searched product page")
+    public void verifyUserIsOnSearchedProductPage() {
+
+    }
+
+    @When("user clicks on a product from the search results")
+    public void userClicksOnAProductFromTheSearchResults() {
+        productPage.clicksOnItem();
+    }
+
+    @And("clicks on the shopping cart icon")
+    public void clicksOnTheShoppingCartIcon() {
+        productPage.clickOnShoppingCartIcon();
+    }
 
 
     @Then("verify user is on product page")
@@ -31,7 +46,7 @@ public class ProductSteps {
     @Then("verify products are sorted {string} accordingly")
     public void verifyProductsAreSortedAccordingly(String sortType) {
         //sortType=ConfigReader.getConfigValue(sortType);
-        if(sortType.equals("A-Z")){
+        if (sortType.equals("A-Z")) {
             Assert.assertTrue(productPage.verifyProductsSortedATOZ());
         } else if (sortType.equals("Z-A")) {
             Assert.assertTrue(productPage.verifyProductsSortedZTOA());
@@ -59,7 +74,7 @@ public class ProductSteps {
 
     @And("user sets price range between {string} and {string}")
     public void userSetsPriceRangeBetweenAnd(String fromPrice, String toPrice) {
-        productPage.settingPriceRange(fromPrice,toPrice);
+        productPage.settingPriceRange(fromPrice, toPrice);
     }
 
     @Then("displayed products should have prices within the specified range")
@@ -67,19 +82,23 @@ public class ProductSteps {
         Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
     }
 
-
-    @When("user clicks on a product from the search results")
-    public void userClicksOnAProductFromTheSearchResults() {
-        productPage.clicksOnItem();
+    @Then("verify specific-product type {string} of products are displayed")
+    public void verifySpecificProductTypeOfProductsAreDisplayed(String displayedSpecifiedProduct) {
+        Assert.assertTrue(productPage.verifySelectedProductPage());
     }
 
-    @And("clicks on the shopping cart icon")
-    public void clicksOnTheShoppingCartIcon() {
-        productPage.clickOnShoppingCartIcon();
+    @And("print product name and description")
+    public void printProductNameAndDescription() {
+        productPage.getProductNameAndDescriptionText();
     }
 
-    @Then("verify user is on searched product page")
-    public void verifyUserIsOnSearchedProductPage() {
+    @Then("verify product is out of stock")
+    public void verifyProductIsOutOfStock() {
+        Assert.assertEquals("sold out", productPage.checkOutOfStockButton());
+    }
 
+    @And("print names of all out of stock products")
+    public void printNamesOfAllOutOfStockProducts() {
+        productPage.printOutOfStockProductList();
     }
 }
