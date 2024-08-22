@@ -1,21 +1,25 @@
 package com.automation.pages;
 
-import com.automation.utils.ConfigReader;
+
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends BasePage {
 
     @FindBy(xpath = "//span[@class='flex']/img")
     WebElement plumLogo;
 
-    @FindBy(id = "kp-login-button-header-logo")
+    @FindBy(xpath = "//div[@id=\"kp-login-button-header-logo\"]")
+    WebElement loginLogoBtn;
+
+    @FindBy(xpath = "//div[@id='icon-kwikpass']")
     WebElement loginBtn;
 
     @FindBy(xpath = "//input[@id='header-search']")
     WebElement searchBarField;
+
+    @FindBy(xpath = "//div[@id='kwikpass-drawer-desktop']//a")
+    WebElement orderHistory;
 
 
     @FindBy(xpath = "//li[3]//summary/a")
@@ -33,9 +37,10 @@ public class HomePage extends BasePage {
         return plumLogo.isDisplayed();
     }
 
-    public void clickOnLoginButton() {
-        loginBtn.click();
+    public void clickOnLoginLogo() {
+        loginLogoBtn.click();
     }
+
 
     public void enterValueOnSearchBar(String searchValue) {
         searchBarField.sendKeys(searchValue);
@@ -47,7 +52,6 @@ public class HomePage extends BasePage {
         driver.findElement(By.xpath(String.format(categoryXpath, productCategory))).click();
     }
 
-
     public void selectProductFromDropDown(String productType) {
         String categoryXpath = "//a[contains(@href,'%s')]";
         WebElement product = driver.findElement(By.xpath(String.format(categoryXpath, productType)));
@@ -55,9 +59,15 @@ public class HomePage extends BasePage {
         product.click();
     }
 
-    public void scrollToElement(WebElement element) {
-        // Use JavaScript to scroll to the element if it's not in view
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    public void clickOnLoginButton() {
+        driver.switchTo().defaultContent();
+        jsClick(loginBtn);
     }
+
+    public void clickOnOrderHistory() {
+        jsClick(orderHistory);
+    }
+
+
+
 }
