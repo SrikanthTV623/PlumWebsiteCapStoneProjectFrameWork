@@ -1,6 +1,12 @@
 package com.automation.steps;
 
-import com.automation.pages.CheckOutPage;
+import com.automation.pages.mobile.MobileAccountPage;
+import com.automation.pages.mobile.MobileCheckOutPage;
+import com.automation.pages.ui.AccountPage;
+import com.automation.pages.ui.CheckOutPage;
+import com.automation.pages.web.WebAccountPage;
+import com.automation.pages.web.WebCheckOutPage;
+import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,7 +14,16 @@ import org.junit.Assert;
 
 public class CheckOutSteps {
 
-    CheckOutPage checkOutPage = new CheckOutPage();
+    CheckOutPage checkOutPage;
+
+    public CheckOutSteps() {
+        String env= ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            checkOutPage = new WebCheckOutPage();
+        } else {
+            checkOutPage = new MobileCheckOutPage();
+        }
+    }
 
     @And("enters phoneNo and address")
     public void entersPhoneNoAndAddress() {

@@ -1,6 +1,8 @@
 package com.automation.steps;
 
-import com.automation.pages.AccountPage;
+import com.automation.pages.mobile.MobileAccountPage;
+import com.automation.pages.ui.AccountPage;
+import com.automation.pages.web.WebAccountPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -8,7 +10,17 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class AccountSteps {
-    AccountPage accountPage = new AccountPage();
+    AccountPage accountPage;
+
+    public AccountSteps() {
+        String env=ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            accountPage = new WebAccountPage();
+        } else {
+            accountPage = new MobileAccountPage();
+        }
+    }
+    //accountPage = new accountPage();
 
     @Then("verify user is on account page")
     public void verify_user_is_on_account_page() {

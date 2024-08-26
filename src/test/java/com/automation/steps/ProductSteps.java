@@ -1,6 +1,8 @@
 package com.automation.steps;
 
-import com.automation.pages.ProductPage;
+import com.automation.pages.mobile.MobileProductPage;
+import com.automation.pages.ui.ProductPage;
+import com.automation.pages.web.WebProductPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -8,7 +10,16 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class ProductSteps {
-    ProductPage productPage = new ProductPage();
+    ProductPage productPage;
+
+    public ProductSteps() {
+        String env= ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            productPage = new WebProductPage();
+        } else {
+            productPage = new MobileProductPage();
+        }
+    }
 
     @Then("verify user is on searched product page")
     public void verifyUserIsOnSearchedProductPage() {

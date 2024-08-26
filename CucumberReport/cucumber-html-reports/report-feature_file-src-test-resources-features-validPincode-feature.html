@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>CucumberAutomation</td>
               <td>1</td>
-            <td>22 Aug 2024, 15:59</td>
+            <td>25 Aug 2024, 15:28</td>
     </tr>
   </tbody>
 </table>
@@ -129,18 +129,18 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Validate Pin Code for Delivery of the Order</td>
-                    <td      class="passed"    >45</td>
-          <td      class="failed"    >3</td>
+                    <td >0</td>
           <td >0</td>
+          <td     class="skipped"   >48</td>
           <td >0</td>
           <td >0</td>
           <td class="total">48</td>
 
-          <td  class="passed"    >3</td>
-          <td  class="failed"    >3</td>
+          <td >0</td>
+          <td  class="failed"    >6</td>
           <td class="total">6</td>
 
-          <td class="duration" data-value="144870143900">2m 24s 870ms</td>
+          <td class="duration" data-value="2330000">002ms</td>
           <td class="failed">Failed</td>
         </tr>
         </tbody>
@@ -191,9 +191,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
   <span class="name">Validating the PinCode</span>
   
@@ -204,12 +204,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details ">
+  <div id="element-1" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-2">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-2">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -219,17 +219,36 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-2" class="inner-level collapse collapsable-details ">
+    <div id="before-2" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 784ms</span>
+  <span class="lead-duration duration">001ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Error message</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -241,9 +260,9 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-4">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -253,14 +272,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details ">
+  <div id="steps-4" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">4s 425ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -277,11 +296,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">054ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -298,11 +317,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
   
-  <span class="lead-duration duration">2s 875ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -319,11 +338,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on a product from the search results</span>
   
-  <span class="lead-duration duration">3s 933ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -340,11 +359,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks the Add to Cart button</span>
   
-  <span class="lead-duration duration">5s 411ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -361,11 +380,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">clicks on the shopping cart icon</span>
   
-  <span class="lead-duration duration">3s 177ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -382,11 +401,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user enters pin code &quot;515201&quot;</span>
   
-  <span class="lead-duration duration">290ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -403,11 +422,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">then validate whether pin code is valid or not</span>
   
-  <span class="lead-duration duration">3s 060ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -428,7 +447,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -440,13 +459,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-4" class="inner-level collapse collapsable-details ">
+    <div id="after-5" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">745ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -470,7 +489,7 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-5">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-6">
     
 <div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
@@ -483,12 +502,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-5" class="collapse collapsable-details  in ">
+  <div id="element-6" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-6">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-7">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -498,199 +517,17 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-6" class="inner-level collapse collapsable-details ">
+    <div id="before-7" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 732ms</span>
+  <span class="lead-duration duration">002ms</span>
 
           </div>
 
                       
-
-          
-          
-  
-        </div>
-          </div>
-  </div>
-
-
-    
-<div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-7">
-    
-<div class="brief failed">
-  <span class="keyword indention">Steps</span>
-  <span class="name"></span>
-  
-
-       <i class="chevron fa fa-fw"></i>
-  </div>
-
-  </div>
-
-  <div id="steps-7" class="inner-level collapse collapsable-details  in ">
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Given</span>
-  <span class="name">user opens website</span>
-  
-  <span class="lead-duration duration">5s 930ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">verify user is on the Plum Goodness homepage</span>
-  
-  <span class="lead-duration duration">060ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
-  
-  <span class="lead-duration duration">3s 092ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks on a product from the search results</span>
-  
-  <span class="lead-duration duration">5s 006ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks the Add to Cart button</span>
-  
-  <span class="lead-duration duration">5s 292ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">clicks on the shopping cart icon</span>
-  
-  <span class="lead-duration duration">2s 644ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">And</span>
-  <span class="name">user enters pin code &quot;52200&quot;</span>
-  
-  <span class="lead-duration duration">161ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief failed">
-  <span class="keyword indention">Then</span>
-  <span class="name">then validate whether pin code is valid or not</span>
-  
-  <span class="lead-duration duration">3s 059ms</span>
-
-  </div>
-
-        
 
   <div class="inner-level">
     <div class="message indention">
@@ -698,16 +535,201 @@ $(document).ready(function() {
           <a>Error message</a>
       </div>
       <div id="msg-8" class="collapse collapsable-details">
-        <pre>org.junit.ComparisonFailure: expected:&lt;[delivery by]&gt; but was:&lt;[enter a valid pincode]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.automation.steps.CartSteps.thenValidateWhetherPinCodeIsValidOrNot(CartSteps.java:63)
-	at &#10045;.then validate whether pin code is valid or not(file:///C:/UST_Java/PlumWebsiteCapStoneProjectFrameWork/src/test/resources/features/validPincode.feature:11)
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
 </pre>
       </div>
     </div>
   </div>
 
+          
+          
+  
+        </div>
+          </div>
+  </div>
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-9">
+    
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-9" class="inner-level collapse collapsable-details  in ">
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Given</span>
+  <span class="name">user opens website</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">verify user is on the Plum Goodness homepage</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks on a product from the search results</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks the Add to Cart button</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">clicks on the shopping cart icon</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">And</span>
+  <span class="name">user enters pin code &quot;52200&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">then validate whether pin code is valid or not</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
 
         
         
@@ -723,7 +745,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-9">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-10">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -735,13 +757,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-9" class="inner-level collapse collapsable-details ">
+    <div id="after-10" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">959ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -749,21 +771,6 @@ $(document).ready(function() {
 
           
           
-    <div class="embeddings inner-level">
-                <div class="embedding indention">
-        <div data-toggle="collapse" data-target="#embedding-10" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_718332909.png" target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-10" class="collapse collapsable-details">
-      <span class="embedding-content">
-        <img src="embeddings/embedding_718332909.png">
-      </span>
-    </div>
-  </div>
-        </div>
   
         </div>
           </div>
@@ -780,9 +787,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-11">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-11">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
   <span class="name">Validating the PinCode</span>
   
@@ -793,12 +800,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-11" class="collapse collapsable-details ">
+  <div id="element-11" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-12">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-12">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -808,17 +815,36 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-12" class="inner-level collapse collapsable-details ">
+    <div id="before-12" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 430ms</span>
+  <span class="lead-duration duration">002ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-13">
+          <a>Error message</a>
+      </div>
+      <div id="msg-13" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -830,9 +856,9 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-13">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-14">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -842,14 +868,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-13" class="inner-level collapse collapsable-details ">
+  <div id="steps-14" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">4s 397ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -866,11 +892,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">060ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -887,11 +913,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
   
-  <span class="lead-duration duration">3s 017ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -908,11 +934,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on a product from the search results</span>
   
-  <span class="lead-duration duration">4s 645ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -929,11 +955,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks the Add to Cart button</span>
   
-  <span class="lead-duration duration">5s 199ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -950,11 +976,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">clicks on the shopping cart icon</span>
   
-  <span class="lead-duration duration">2s 970ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -971,11 +997,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user enters pin code &quot;220015&quot;</span>
   
-  <span class="lead-duration duration">131ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -992,11 +1018,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">then validate whether pin code is valid or not</span>
   
-  <span class="lead-duration duration">3s 062ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1017,7 +1043,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-14">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-15">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -1029,13 +1055,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-14" class="inner-level collapse collapsable-details ">
+    <div id="after-15" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">618ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -1059,7 +1085,7 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-15">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-16">
     
 <div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
@@ -1072,12 +1098,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-15" class="collapse collapsable-details  in ">
+  <div id="element-16" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-16">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-17">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -1087,199 +1113,17 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-16" class="inner-level collapse collapsable-details ">
+    <div id="before-17" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 828ms</span>
+  <span class="lead-duration duration">001ms</span>
 
           </div>
 
                       
-
-          
-          
-  
-        </div>
-          </div>
-  </div>
-
-
-    
-<div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-17">
-    
-<div class="brief failed">
-  <span class="keyword indention">Steps</span>
-  <span class="name"></span>
-  
-
-       <i class="chevron fa fa-fw"></i>
-  </div>
-
-  </div>
-
-  <div id="steps-17" class="inner-level collapse collapsable-details  in ">
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Given</span>
-  <span class="name">user opens website</span>
-  
-  <span class="lead-duration duration">6s 320ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">verify user is on the Plum Goodness homepage</span>
-  
-  <span class="lead-duration duration">060ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
-  
-  <span class="lead-duration duration">2s 911ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks on a product from the search results</span>
-  
-  <span class="lead-duration duration">4s 007ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks the Add to Cart button</span>
-  
-  <span class="lead-duration duration">5s 203ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">clicks on the shopping cart icon</span>
-  
-  <span class="lead-duration duration">3s 155ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">And</span>
-  <span class="name">user enters pin code &quot;98761&quot;</span>
-  
-  <span class="lead-duration duration">118ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief failed">
-  <span class="keyword indention">Then</span>
-  <span class="name">then validate whether pin code is valid or not</span>
-  
-  <span class="lead-duration duration">3s 052ms</span>
-
-  </div>
-
-        
 
   <div class="inner-level">
     <div class="message indention">
@@ -1287,16 +1131,201 @@ $(document).ready(function() {
           <a>Error message</a>
       </div>
       <div id="msg-18" class="collapse collapsable-details">
-        <pre>org.junit.ComparisonFailure: expected:&lt;[delivery by]&gt; but was:&lt;[enter a valid pincode]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.automation.steps.CartSteps.thenValidateWhetherPinCodeIsValidOrNot(CartSteps.java:63)
-	at &#10045;.then validate whether pin code is valid or not(file:///C:/UST_Java/PlumWebsiteCapStoneProjectFrameWork/src/test/resources/features/validPincode.feature:11)
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
 </pre>
       </div>
     </div>
   </div>
 
+          
+          
+  
+        </div>
+          </div>
+  </div>
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-19">
+    
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-19" class="inner-level collapse collapsable-details  in ">
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Given</span>
+  <span class="name">user opens website</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">verify user is on the Plum Goodness homepage</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks on a product from the search results</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks the Add to Cart button</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">clicks on the shopping cart icon</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">And</span>
+  <span class="name">user enters pin code &quot;98761&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">then validate whether pin code is valid or not</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
 
         
         
@@ -1312,7 +1341,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-19">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-20">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -1324,13 +1353,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-19" class="inner-level collapse collapsable-details ">
+    <div id="after-20" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">912ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -1338,21 +1367,6 @@ $(document).ready(function() {
 
           
           
-    <div class="embeddings inner-level">
-                <div class="embedding indention">
-        <div data-toggle="collapse" data-target="#embedding-20" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_539046195.png" target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-20" class="collapse collapsable-details">
-      <span class="embedding-content">
-        <img src="embeddings/embedding_539046195.png">
-      </span>
-    </div>
-  </div>
-        </div>
   
         </div>
           </div>
@@ -1369,9 +1383,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-21">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-21">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
   <span class="name">Validating the PinCode</span>
   
@@ -1382,12 +1396,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-21" class="collapse collapsable-details ">
+  <div id="element-21" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-22">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-22">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -1397,17 +1411,36 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-22" class="inner-level collapse collapsable-details ">
+    <div id="before-22" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">3s 558ms</span>
+  <span class="lead-duration duration">002ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-23">
+          <a>Error message</a>
+      </div>
+      <div id="msg-23" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -1419,9 +1452,9 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-23">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-24">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -1431,14 +1464,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-23" class="inner-level collapse collapsable-details ">
+  <div id="steps-24" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">5s 464ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1455,11 +1488,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">069ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1476,11 +1509,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
   
-  <span class="lead-duration duration">3s 264ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1497,11 +1530,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on a product from the search results</span>
   
-  <span class="lead-duration duration">3s 975ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1518,11 +1551,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks the Add to Cart button</span>
   
-  <span class="lead-duration duration">5s 308ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1539,11 +1572,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">clicks on the shopping cart icon</span>
   
-  <span class="lead-duration duration">2s 793ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1560,11 +1593,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user enters pin code &quot;695583&quot;</span>
   
-  <span class="lead-duration duration">187ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1581,11 +1614,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">then validate whether pin code is valid or not</span>
   
-  <span class="lead-duration duration">3s 070ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -1606,7 +1639,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-24">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-25">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -1618,13 +1651,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-24" class="inner-level collapse collapsable-details ">
+    <div id="after-25" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">699ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -1648,7 +1681,7 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-25">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-26">
     
 <div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
@@ -1661,12 +1694,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-25" class="collapse collapsable-details  in ">
+  <div id="element-26" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-26">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-27">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -1676,199 +1709,17 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-26" class="inner-level collapse collapsable-details ">
+    <div id="before-27" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 208ms</span>
+  <span class="lead-duration duration">001ms</span>
 
           </div>
 
                       
-
-          
-          
-  
-        </div>
-          </div>
-  </div>
-
-
-    
-<div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-27">
-    
-<div class="brief failed">
-  <span class="keyword indention">Steps</span>
-  <span class="name"></span>
-  
-
-       <i class="chevron fa fa-fw"></i>
-  </div>
-
-  </div>
-
-  <div id="steps-27" class="inner-level collapse collapsable-details  in ">
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Given</span>
-  <span class="name">user opens website</span>
-  
-  <span class="lead-duration duration">4s 695ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">verify user is on the Plum Goodness homepage</span>
-  
-  <span class="lead-duration duration">079ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
-  
-  <span class="lead-duration duration">3s 201ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks on a product from the search results</span>
-  
-  <span class="lead-duration duration">4s 498ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks the Add to Cart button</span>
-  
-  <span class="lead-duration duration">5s 169ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">clicks on the shopping cart icon</span>
-  
-  <span class="lead-duration duration">3s 065ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">And</span>
-  <span class="name">user enters pin code &quot;69558&quot;</span>
-  
-  <span class="lead-duration duration">153ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief failed">
-  <span class="keyword indention">Then</span>
-  <span class="name">then validate whether pin code is valid or not</span>
-  
-  <span class="lead-duration duration">3s 078ms</span>
-
-  </div>
-
-        
 
   <div class="inner-level">
     <div class="message indention">
@@ -1876,15 +1727,200 @@ $(document).ready(function() {
           <a>Error message</a>
       </div>
       <div id="msg-28" class="collapse collapsable-details">
-        <pre>org.junit.ComparisonFailure: expected:&lt;[delivery by]&gt; but was:&lt;[enter a valid pincode]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.automation.steps.CartSteps.thenValidateWhetherPinCodeIsValidOrNot(CartSteps.java:63)
-	at &#10045;.then validate whether pin code is valid or not(file:///C:/UST_Java/PlumWebsiteCapStoneProjectFrameWork/src/test/resources/features/validPincode.feature:11)
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
 </pre>
       </div>
     </div>
   </div>
+
+          
+          
+  
+        </div>
+          </div>
+  </div>
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-29">
+    
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-29" class="inner-level collapse collapsable-details  in ">
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Given</span>
+  <span class="name">user opens website</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">verify user is on the Plum Goodness homepage</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks on a product from the search results</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks the Add to Cart button</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">When</span>
+  <span class="name">clicks on the shopping cart icon</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">And</span>
+  <span class="name">user enters pin code &quot;69558&quot;</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">then validate whether pin code is valid or not</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
+  </div>
+
+        
 
 
         
@@ -1901,7 +1937,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-29">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-30">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -1913,13 +1949,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-29" class="inner-level collapse collapsable-details ">
+    <div id="after-30" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">794ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 
@@ -1927,21 +1963,6 @@ $(document).ready(function() {
 
           
           
-    <div class="embeddings inner-level">
-                <div class="embedding indention">
-        <div data-toggle="collapse" data-target="#embedding-30" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_531646782.png" target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-30" class="collapse collapsable-details">
-      <span class="embedding-content">
-        <img src="embeddings/embedding_531646782.png">
-      </span>
-    </div>
-  </div>
-        </div>
   
         </div>
           </div>
