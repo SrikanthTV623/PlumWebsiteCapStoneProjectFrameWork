@@ -1,6 +1,8 @@
 package com.automation.steps;
 
-import com.automation.pages.HomePage;
+import com.automation.pages.mobile.MobileHomePage;
+import com.automation.pages.ui.HomePage;
+import com.automation.pages.web.WebHomePage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,7 +11,16 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class HomeSteps {
-    HomePage homePage = new HomePage();
+    HomePage homePage;
+
+    public HomeSteps() {
+        String env = ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            homePage = new WebHomePage();
+        } else {
+            homePage = new MobileHomePage();
+        }
+    }
 
     @Given("user opens website")
     public void user_opens_website() {

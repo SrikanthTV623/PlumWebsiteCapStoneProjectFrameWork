@@ -1,14 +1,28 @@
 package com.automation.steps;
 
-import com.automation.pages.CartPage;
+import com.automation.pages.mobile.MobileAccountPage;
+import com.automation.pages.mobile.MobileCartPage;
+import com.automation.pages.ui.AccountPage;
+import com.automation.pages.ui.CartPage;
+import com.automation.pages.web.WebAccountPage;
+import com.automation.pages.web.WebCartPage;
+import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class CartSteps {
+    CartPage cartPage;
 
-    CartPage cartPage = new CartPage();
+    public CartSteps() {
+        String env= ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            cartPage = new WebCartPage();
+        } else {
+            cartPage = new MobileCartPage();
+        }
+    }
 
     @Then("verify item is added into cart and should displays {string}")
     public void verifyItemIsAddedIntoCartAndShouldDisplays(String cartItemsCount) {

@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>CucumberAutomation</td>
               <td>1</td>
-            <td>22 Aug 2024, 15:59</td>
+            <td>25 Aug 2024, 15:28</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Search for Out-of-Stock Products In Plum Goodness Website</td>
-                    <td      class="passed"    >6</td>
+                    <td >0</td>
           <td >0</td>
-          <td >0</td>
+          <td     class="skipped"   >6</td>
           <td >0</td>
           <td >0</td>
           <td class="total">6</td>
 
-          <td  class="passed"    >1</td>
           <td >0</td>
+          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="19315945600">19s 315ms</td>
-          <td class="passed">Passed</td>
+          <td class="duration" data-value="0">000ms</td>
+          <td class="failed">Failed</td>
         </tr>
         </tbody>
 
@@ -173,7 +173,7 @@ $(document).ready(function() {
   </div>
 
         
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Feature</span>
   <span class="name">Search for Out-of-Stock Products In Plum Goodness Website</span>
   
@@ -191,9 +191,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario</span>
   <span class="name">Search for out-of-stock items and verify the out-of-stock message</span>
   
@@ -204,12 +204,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details ">
+  <div id="element-1" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-2">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-2">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -219,17 +219,36 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-2" class="inner-level collapse collapsable-details ">
+    <div id="before-2" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 256ms</span>
+  <span class="lead-duration duration">002ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Error message</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -241,9 +260,9 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-4">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -253,14 +272,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details ">
+  <div id="steps-4" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">15s 004ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -277,11 +296,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">058ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -298,11 +317,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">the user enters &quot;search.value.out&quot; into the search bar</span>
   
-  <span class="lead-duration duration">4s 133ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -319,7 +338,7 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on searched product page</span>
   
@@ -340,11 +359,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify product is out of stock</span>
   
-  <span class="lead-duration duration">061ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -361,11 +380,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">print names of all out of stock products</span>
   
-  <span class="lead-duration duration">056ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -386,7 +405,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -398,13 +417,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-4" class="inner-level collapse collapsable-details ">
+    <div id="after-5" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">556ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 

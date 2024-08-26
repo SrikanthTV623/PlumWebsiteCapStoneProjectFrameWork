@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>CucumberAutomation</td>
               <td>1</td>
-            <td>22 Aug 2024, 15:59</td>
+            <td>25 Aug 2024, 15:28</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Place and Cancel the order In Plum Goodness Website</td>
-                    <td      class="passed"    >27</td>
+                    <td >0</td>
           <td >0</td>
-          <td >0</td>
+          <td     class="skipped"   >27</td>
           <td >0</td>
           <td >0</td>
           <td class="total">27</td>
 
-          <td  class="passed"    >1</td>
           <td >0</td>
+          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="85554365300">1m 25s 554ms</td>
-          <td class="passed">Passed</td>
+          <td class="duration" data-value="3089100">003ms</td>
+          <td class="failed">Failed</td>
         </tr>
         </tbody>
 
@@ -173,7 +173,7 @@ $(document).ready(function() {
   </div>
 
         
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Feature</span>
   <span class="name">Place and Cancel the order In Plum Goodness Website</span>
   
@@ -191,9 +191,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Background</span>
   <span class="name"></span>
   
@@ -204,15 +204,15 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details ">
+  <div id="element-1" class="collapse collapsable-details  in ">
     
 
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-2">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -222,14 +222,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-2" class="inner-level collapse collapsable-details ">
+  <div id="steps-2" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">8s 054ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -246,11 +246,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">049ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -282,9 +282,9 @@ $(document).ready(function() {
   </div>
 
 
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-3">
+    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-3">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario</span>
   <span class="name">Verify user can search for a product, place and cancel the order</span>
   
@@ -295,12 +295,12 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-3" class="collapse collapsable-details ">
+  <div id="element-3" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-4">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-4">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -310,17 +310,36 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-4" class="inner-level collapse collapsable-details ">
+    <div id="before-4" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">2s 483ms</span>
+  <span class="lead-duration duration">001ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-5">
+          <a>Error message</a>
+      </div>
+      <div id="msg-5" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchMethodError: 'void org.openqa.selenium.remote.service.DriverFinder.&lt;init&gt;(org.openqa.selenium.remote.service.DriverService, org.openqa.selenium.Capabilities)'
+	at org.openqa.selenium.edge.EdgeDriver.generateExecutor(EdgeDriver.java:70)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:60)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:56)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:48)
+	at org.openqa.selenium.edge.EdgeDriver.&lt;init&gt;(EdgeDriver.java:44)
+	at com.automation.utils.DriverManager.createDriver(DriverManager.java:31)
+	at com.automation.steps.Hooks.setUp(Hooks.java:16)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -332,9 +351,9 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-5">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-6">
     
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -344,14 +363,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-5" class="inner-level collapse collapsable-details ">
+  <div id="steps-6" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">the user enters &quot;search.value&quot; into the search bar</span>
   
-  <span class="lead-duration duration">2s 910ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -368,7 +387,7 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on searched product page</span>
   
@@ -389,11 +408,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on a product from the search results</span>
   
-  <span class="lead-duration duration">4s 334ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -410,11 +429,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">user should be redirected to the product details page</span>
   
-  <span class="lead-duration duration">235ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -431,11 +450,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks the Add to Cart button</span>
   
-  <span class="lead-duration duration">5s 207ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -452,11 +471,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify item is added into cart and should displays &quot;1&quot;</span>
   
-  <span class="lead-duration duration">069ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -473,11 +492,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">clicks on the shopping cart icon</span>
   
-  <span class="lead-duration duration">2s 610ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -494,11 +513,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user views the cart contents</span>
   
-  <span class="lead-duration duration">123ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -515,11 +534,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">clicks on checkout button</span>
   
-  <span class="lead-duration duration">131ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -536,11 +555,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">enters phoneNo and address</span>
   
-  <span class="lead-duration duration">2s 688ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -557,11 +576,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify payment option is displayed</span>
   
-  <span class="lead-duration duration">12s 555ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -578,11 +597,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on cash on delivery option</span>
   
-  <span class="lead-duration duration">2s 148ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -599,11 +618,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify the order is placed</span>
   
-  <span class="lead-duration duration">2s 659ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -620,11 +639,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">store the order id as &quot;order.id&quot;</span>
   
-  <span class="lead-duration duration">8s 117ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -641,11 +660,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user navigates to home page</span>
   
-  <span class="lead-duration duration">5s 243ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -662,11 +681,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">098ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -683,11 +702,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on the login button</span>
   
-  <span class="lead-duration duration">063ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -704,11 +723,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">clicks on order history</span>
   
-  <span class="lead-duration duration">053ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -725,11 +744,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on account page</span>
   
-  <span class="lead-duration duration">5s 545ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -746,11 +765,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on order cancellation</span>
   
-  <span class="lead-duration duration">070ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -767,11 +786,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">Enter order cancellation details &quot;order.id&quot; and &quot;valid.phoneNo&quot;</span>
   
-  <span class="lead-duration duration">173ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -788,11 +807,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">select reason for order cancellation as &quot;cancel.reason&quot;</span>
   
-  <span class="lead-duration duration">144ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -809,11 +828,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">user clicks on cancel button</span>
   
-  <span class="lead-duration duration">127ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -830,11 +849,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">And</span>
   <span class="name">confirm cancellation</span>
   
-  <span class="lead-duration duration">22s 004ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -851,11 +870,11 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">verify user has successfully cancelled the order</span>
   
-  <span class="lead-duration duration">129ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -876,7 +895,7 @@ $(document).ready(function() {
 
     
   <div class="inner-level hooks-after">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-6">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-7">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -888,13 +907,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-6" class="inner-level collapse collapsable-details ">
+    <div id="after-7" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">1s 191ms</span>
+  <span class="lead-duration duration">000ms</span>
 
           </div>
 

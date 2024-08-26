@@ -1,13 +1,24 @@
 package com.automation.steps;
 
-import com.automation.pages.LoginPage;
+import com.automation.pages.mobile.MobileLoginPage;
+import com.automation.pages.ui.LoginPage;
+import com.automation.pages.web.WebLoginPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginSteps {
-    LoginPage loginPage = new LoginPage();
+    LoginPage loginPage;
+
+    public LoginSteps() {
+        String env= ConfigReader.getConfigValue("application.type");
+        if (env.equals("web")) {
+            loginPage = new WebLoginPage();
+        } else {
+            loginPage = new MobileLoginPage();
+        }
+    }
 
     @Then("verify user is on login page")
     public void verify_user_is_on_login_page() {
