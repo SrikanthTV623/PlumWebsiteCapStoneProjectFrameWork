@@ -52,6 +52,11 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     @FindBy(xpath = "//button/span[@class='quick-add-btn-text'][text()='Sold out']//ancestor::div[@class='card__info-container flex flex-col flex-auto relative']//p/a")
     List<WebElement> listOfOutOfStockProductNames;
 
+    @Override
+    public void verifySearchedProductPageIsDisplayed() {
+
+    }
+
     public void clicksOnItem() {
         itemFieldClick.click();
     }
