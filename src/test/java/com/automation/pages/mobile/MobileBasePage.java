@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Collections;
 
-public abstract class MobileBasePage {
+public class MobileBasePage {
 
     WebDriver driver;
     WebDriverWait wait;
