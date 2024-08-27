@@ -1,6 +1,9 @@
 package com.automation.pages.ui;
 
 public interface ProductPage {
+
+    void verifySearchedProductPageIsDisplayed();
+
     void clicksOnItem();
 
     void clickOnShoppingCartIcon();
@@ -34,4 +37,5 @@ public interface ProductPage {
     String checkOutOfStockButton();
 
     void printOutOfStockProductList();
+
 }

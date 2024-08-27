@@ -1,11 +1,9 @@
 package com.automation.utils;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
@@ -20,12 +18,13 @@ public class DriverManager {
         if(ConfigReader.getConfigValue("application.type").equals("mobile")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
-            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
+            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.original.mobile"));
             capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
             capabilities.setCapability("app", ConfigReader.getConfigValue("app.path"));
             capabilities.setCapability("appActivity", "com.esmagico.plum.MainActivity");
             capabilities.setCapability("appPackage", "com.esmagico.plum");
-            driver = new AndroidDriver(capabilities);
+            capabilities.setCapability("autoGrantPermissions", true);
+            driver = new AppiumDriver(capabilities);
         }
         else {
             //driver = new EdgeDriver();

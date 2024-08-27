@@ -27,8 +27,7 @@ public class ProductDescriptionSteps {
 
     @Then("user should be redirected to the product details page")
     public void userShouldBeRedirectedToTheProductDetailsPage() {
-        Assert.assertTrue("Items Description Page is not displayed",
-                productDescriptionPage.productDescriptionPageDisplayed());
+        Assert.assertTrue("Items Description Page is not displayed",productDescriptionPage.productDescriptionPageDisplayed());
     }
 
     @When("user clicks the Add to Cart button")

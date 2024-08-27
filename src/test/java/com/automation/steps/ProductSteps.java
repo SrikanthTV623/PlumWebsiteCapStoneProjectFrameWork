@@ -23,7 +23,10 @@ public class ProductSteps {
 
     @Then("verify user is on searched product page")
     public void verifyUserIsOnSearchedProductPage() {
-
+        String env= ConfigReader.getConfigValue("application.type");
+        if (env.equals("mobile")) {
+            productPage.verifySearchedProductPageIsDisplayed();
+        }
     }
 
     @When("user clicks on a product from the search results")

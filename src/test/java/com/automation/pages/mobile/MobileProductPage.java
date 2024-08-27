@@ -1,16 +1,35 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductPage;
+import com.automation.utils.ConfigReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class MobileProductPage implements ProductPage {
+public class MobileProductPage extends MobileBasePage implements ProductPage {
+
+    //@FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/(android.view.View)[1]")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']/../android.view.View/android.view.View/android.view.View[1]")
+    WebElement itemFieldClick;
+
+    @FindBy(xpath = "//android.view.View[@content-desc=\"view cart\"]")
+    WebElement viewCartBtn;
+
+    @Override
+    public void verifySearchedProductPageIsDisplayed() {
+        String searchedProductXpath = "//android.view.View[@content-desc='%s']";
+        String productName = ConfigReader.getConfigValue("search.value");
+        driver.findElement(By.xpath(String.format(searchedProductXpath, productName))).isDisplayed();
+    }
+
     @Override
     public void clicksOnItem() {
-
+        itemFieldClick.click();
     }
 
     @Override
     public void clickOnShoppingCartIcon() {
-
+        viewCartBtn.click();
     }
 
     @Override
