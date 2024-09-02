@@ -53,12 +53,17 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     List<WebElement> listOfOutOfStockProductNames;
 
     @Override
-    public void verifySearchedProductPageIsDisplayed() {
+    public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
 
     }
 
     public void clicksOnItem() {
         itemFieldClick.click();
+    }
+
+    @Override
+    public void navigatesForNextProductSearching() {
+
     }
 
     public void clickOnShoppingCartIcon() {

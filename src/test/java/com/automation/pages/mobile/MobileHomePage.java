@@ -22,6 +22,10 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.EditText")
     WebElement searchBoxTxt;
 
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='my profile']")
+    WebElement profileLoginOptionBeforeLogin;
+
+
     @Override
     public void openWebsite() {
         clickOnElementIfPresent(allowNotificationPopUp);
@@ -40,7 +44,7 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     @Override
     public void clickOnLoginLogoBtn() {
-
+        profileLoginOptionBeforeLogin.click();
     }
 
     @Override

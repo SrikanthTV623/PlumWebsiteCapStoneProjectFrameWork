@@ -1,6 +1,8 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductDescriptionPage;
+import com.automation.pages.web.WebLoginPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,11 +16,8 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='add to cart']")
     WebElement addToCartBtn;
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[1]")
-    WebElement navigateBackProductListedPage;
-
-    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[2]")
-    WebElement searchOptionInProductListedPage;
+    @FindBy(xpath = "//android.view.View[@content-desc='view cart']")
+    WebElement viewCartBtn;
 
     @Override
     public boolean productDescriptionPageDisplayed() {
@@ -33,8 +32,9 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        navigateBackProductListedPage.click();
-        searchOptionInProductListedPage.click();
+        if (ConfigReader.getConfigValue("application.type").equals("mobile")) {
+            viewCartBtn.click();
+        }
     }
 
     @Override

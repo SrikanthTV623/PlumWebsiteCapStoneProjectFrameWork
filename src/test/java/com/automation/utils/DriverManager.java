@@ -18,7 +18,7 @@ public class DriverManager {
         if(ConfigReader.getConfigValue("application.type").equals("mobile")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
-            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.original.mobile"));
+            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
             capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
             capabilities.setCapability("app", ConfigReader.getConfigValue("app.path"));
             capabilities.setCapability("appActivity", "com.esmagico.plum.MainActivity");

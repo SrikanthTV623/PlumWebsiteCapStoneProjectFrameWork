@@ -10,26 +10,38 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     //@FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/(android.view.View)[1]")
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']/../android.view.View/android.view.View/android.view.View[1]")
-    WebElement itemFieldClick;
+    WebElement selectProductField;
 
-    @FindBy(xpath = "//android.view.View[@content-desc=\"view cart\"]")
-    WebElement viewCartBtn;
+    @FindBy(xpath = "//android.view.View[@content-desc=\"cart\"]/../android.widget.ImageView[1]")
+    WebElement cartScreenToNavigatesBack;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc]/../../..//following-sibling::android.widget.ImageView)[1]")
+    WebElement productDescScreenToNavigatesBack;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc]/../android.widget.ImageView)[1]")
+    WebElement productScreenToNavigatesBack;
 
     @Override
-    public void verifySearchedProductPageIsDisplayed() {
+    public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
         String searchedProductXpath = "//android.view.View[@content-desc='%s']";
-        String productName = ConfigReader.getConfigValue("search.value");
-        driver.findElement(By.xpath(String.format(searchedProductXpath, productName))).isDisplayed();
+        driver.findElement(By.xpath(String.format(searchedProductXpath, productValue))).isDisplayed();
     }
 
     @Override
     public void clicksOnItem() {
-        itemFieldClick.click();
+        selectProductField.click();
+    }
+
+    @Override
+    public void navigatesForNextProductSearching() {
+        cartScreenToNavigatesBack.click();
+        productDescScreenToNavigatesBack.click();
+        productScreenToNavigatesBack.click();
     }
 
     @Override
     public void clickOnShoppingCartIcon() {
-        viewCartBtn.click();
+
     }
 
     @Override
