@@ -2,13 +2,15 @@ package com.automation.pages.ui;
 
 public interface ProductPage {
 
-    void verifySearchedProductPageIsDisplayed();
-
     void clicksOnItem();
+
+    void navigatesForNextProductSearching();
 
     void clickOnShoppingCartIcon();
 
     boolean verifySelectedProductPage();
+
+    void verifySearchedProductScreenIsDisplayedInApp(String productValue);
 
     void clickOnSortBy();
 

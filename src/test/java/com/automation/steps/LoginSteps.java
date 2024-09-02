@@ -34,4 +34,9 @@ public class LoginSteps {
     public void verifyUserIsLoggedInAndPrintTheWelcomeMessageToConsole() {
         Assert.assertTrue(loginPage.isLoggedInSuccessfully());
     }
+
+    @Then("verify user is logged in by clicking on profile")
+    public void verifyUserIsLoggedInByClickingOnProfile() {
+        Assert.assertTrue(loginPage.isLoggedInSuccessfully());
+    }
 }

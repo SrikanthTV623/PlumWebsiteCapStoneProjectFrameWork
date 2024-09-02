@@ -55,6 +55,4 @@ public class ProductDescriptionSteps {
     public void verifyUserReviewHasBeenAdded(String userName) {
         Assert.assertEquals(productDescriptionPage.verifyReviewIsAdded(), ConfigReader.getConfigValue(userName));
     }
-
-
 }

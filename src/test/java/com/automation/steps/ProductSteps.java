@@ -11,6 +11,7 @@ import org.junit.Assert;
 
 public class ProductSteps {
     ProductPage productPage;
+    String envType= ConfigReader.getConfigValue("application.type");
 
     public ProductSteps() {
         String env= ConfigReader.getConfigValue("application.type");
@@ -23,9 +24,13 @@ public class ProductSteps {
 
     @Then("verify user is on searched product page")
     public void verifyUserIsOnSearchedProductPage() {
-        String env= ConfigReader.getConfigValue("application.type");
-        if (env.equals("mobile")) {
-            productPage.verifySearchedProductPageIsDisplayed();
+
+    }
+
+    @Then("verify user is on searched {string} product page")
+    public void verifyUserIsOnSearchedProductPage(String productKey) {
+        if (envType.equals("mobile")) {
+            productPage.verifySearchedProductScreenIsDisplayedInApp(ConfigReader.getConfigValue(productKey));
         }
     }
 
@@ -34,11 +39,15 @@ public class ProductSteps {
         productPage.clicksOnItem();
     }
 
+    @And("navigates next to search next product")
+    public void navigatesNextToSearchNextProduct() {
+
+    }
+
     @And("clicks on the shopping cart icon")
     public void clicksOnTheShoppingCartIcon() {
         productPage.clickOnShoppingCartIcon();
     }
-
 
     @Then("verify user is on product page")
     public void verifyUserIsOnProductPage() {
@@ -115,5 +124,4 @@ public class ProductSteps {
     public void printNamesOfAllOutOfStockProducts() {
         productPage.printOutOfStockProductList();
     }
-
 }

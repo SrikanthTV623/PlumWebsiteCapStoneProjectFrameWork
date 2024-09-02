@@ -14,7 +14,7 @@ public class WebCartPage extends WebBasePage implements CartPage {
     @FindBy(xpath = "//a[@aria-label='Remove']")
     WebElement removeBtn;
 
-    @FindBy(xpath = "//div[@id='cart-icon-bubble']/div/span")
+    @FindBy(xpath = "//div[@id='cart-icon-bubble']/div/span[1]")
     WebElement cartCount;
 
     @FindBy(xpath = "//cart-items[@id='cart-items']/div/p")
@@ -98,20 +98,4 @@ public class WebCartPage extends WebBasePage implements CartPage {
 
         return validationMessageTxt;
     }
-
-    /*
-    //p[@class='expected_cart' and (text()='Delivery by ' or text()='Enter a valid pincode')]
-
-    public String findPinCodeIsValidOrNot() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        WebElement deliveryMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Delivery by ' or text()='Enter a valid pincode']"))); // Adjust selector as needed
-
-        String validationMessageTxt = deliveryMessage.getText().toLowerCase().split("\n")[0];
-        System.out.println(validationMessageTxt);
-
-        return validationMessageTxt;
-    }
-
-     */
-
 }

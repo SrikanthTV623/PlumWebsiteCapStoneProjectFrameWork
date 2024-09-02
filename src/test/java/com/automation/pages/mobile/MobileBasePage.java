@@ -1,7 +1,9 @@
 package com.automation.pages.mobile;
 
+import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
@@ -18,6 +20,8 @@ public class MobileBasePage {
 
     WebDriver driver;
     WebDriverWait wait;
+
+    String envType= ConfigReader.getConfigValue("application.type");
 
     MobileBasePage() {
         driver = DriverManager.getDriver();
@@ -54,6 +58,17 @@ public class MobileBasePage {
         }
     }
 
+    public String getContentDescriptionOfAnElement(WebElement element) {
+        // Ensure the element is displayed and enabled before getting the attribute
+        if (element.isDisplayed() && element.isEnabled()) {
+            String contentDesc = element.getAttribute("content-desc");
+            System.out.println("Content-desc: " + contentDesc);
+            return contentDesc;
+        } else {
+            throw new RuntimeException("Element is not displayed or enabled.");
+        }
+    }
+
     public void scrollOrSwipe(int startX, int startY, int endX, int endY) {
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
         Sequence sequence = new Sequence(finger1, 1)
@@ -66,4 +81,23 @@ public class MobileBasePage {
         ((AppiumDriver)driver).perform(Collections.singletonList(sequence));
     }
 
+    public void performScrollToMovePage() {
+        // Scroll Logic
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+
+        scrollOrSwipe(width / 2, height / 2, width / 2, 0);
+    }
+
+    public void performScrollTillElementVisible(WebElement element) {
+        // Scroll Logic
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+
+        while (!isPresent(element)) {
+            scrollOrSwipe(width / 2, height / 2, width / 2, 0);
+        }
+    }
 }
