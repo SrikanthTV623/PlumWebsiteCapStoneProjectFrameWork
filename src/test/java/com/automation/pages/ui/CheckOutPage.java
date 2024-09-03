@@ -4,6 +4,8 @@ public interface CheckOutPage {
 
     void enterPhoneNo();
 
+    void enterRequiredDetails();
+
     boolean isPaymentOptionDisplayed();
 
     void selectCashOnDelivery();

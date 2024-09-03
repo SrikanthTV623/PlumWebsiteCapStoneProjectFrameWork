@@ -34,7 +34,7 @@ Feature: Apply Filter Button Validate Alphabet Sorting In Plum Goodness Website
 
     Examples:
       | category | products | validateProductName | typeOfFilter | subTypeOfFilter |
-#      | haircare | hair mask | Hair Mask           | Ratings      | 4               |
+     # | haircare | hair mask | Hair Mask           | Ratings      | 4               |
       | makeup   | nails    | Nail                | Ratings      | 3               |
 #      | haircare | hair mask | Hair Mask           |
 #      | makeup   | nail      | Nail                |

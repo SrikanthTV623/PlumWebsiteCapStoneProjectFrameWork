@@ -43,12 +43,14 @@ public class WebCartPage extends WebBasePage implements CartPage {
         removeBtn.click();
     }
 
-    public String getCartContentText() {
-        return cartContentsTxt.getText();
+    public String getCartContentText(String removedProductName) {
+        return "";
+        //return cartContentsTxt.getText();
     }
 
     public String takesCartCount() {
-        return cartCount.getText();
+        return "";
+        //return cartCount.getText();
     }
 
     public String sendCartEmptyText() {

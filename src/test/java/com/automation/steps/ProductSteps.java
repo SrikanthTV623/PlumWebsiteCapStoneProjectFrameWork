@@ -41,7 +41,7 @@ public class ProductSteps {
 
     @And("navigates next to search next product")
     public void navigatesNextToSearchNextProduct() {
-
+        productPage.navigatesForNextProductSearching();
     }
 
     @And("clicks on the shopping cart icon")
