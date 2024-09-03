@@ -3,8 +3,12 @@ package com.automation.pages.mobile;
 import com.automation.pages.ui.ProductPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MobileProductPage extends MobileBasePage implements ProductPage {
 
@@ -49,6 +53,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         return false;
     }
 
+
     @Override
     public void clickOnSortBy() {
 
@@ -86,7 +91,8 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public boolean verifyProductName(String productName) {
-        return false;
+        String firstProductNameXpath = "//android.view.View[contains(@content-desc,'%s')]";
+        return driver.findElement(By.xpath(String.format(firstProductNameXpath, productName))).isDisplayed();
     }
 
     @Override
@@ -117,5 +123,52 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     @Override
     public void printOutOfStockProductList() {
 
+    }
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']")
+    WebElement filterBtn;
+
+    @Override
+    public void clickOnFilter() {
+        filterBtn.click();
+    }
+
+
+    @Override
+    public void clickOnTypeOfFilter(String typeOfFilter) {
+        String typeOfFilterXpath = "//android.view.View[@content-desc='%s']";
+        WebElement typeOfFilterBtn = driver.findElement(By.xpath(String.format(typeOfFilterXpath, typeOfFilter)));
+        typeOfFilterBtn.click();
+    }
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='apply filter']")
+    WebElement applyFilterBtn;
+
+    @Override
+    public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
+        String subTypeOfFilterXpath = "//android.widget.CheckBox[@content-desc='%s and above']";
+        WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath, subTypeOfFilter)));
+        subTypeOfFilterBtn.click();
+        applyFilterBtn.click();
+    }
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'products')]")
+    WebElement totalProducts;
+
+    @Override
+    public boolean verifyProductsSorted(String sortType) {
+        String totalProductsTxt = getContentDescriptionOfAnElement(totalProducts);
+        int totalProducts = Integer.parseInt(totalProductsTxt.split(" ")[0]);
+//        System.out.println(totalProducts);
+        for (int i = 0; i < totalProducts / 2; i++) {
+            List<WebElement> productNames = driver.findElements(By.xpath("//android.view.View[@content-desc='add to cart']/.."));
+            System.out.println(getContentDescriptionOfAnElement(productNames.get(0)));
+            System.out.println(getContentDescriptionOfAnElement(productNames.get(1)));
+            Dimension dimension = driver.manage().window().getSize();
+            int width = dimension.getWidth();
+            int height = dimension.getHeight();
+            scrollOrSwipe(width/2,height-100,width/2,0);
+        }
+        return false;
     }
 }

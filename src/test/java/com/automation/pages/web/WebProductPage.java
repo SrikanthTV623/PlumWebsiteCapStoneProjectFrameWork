@@ -221,4 +221,24 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         System.out.println(outOfStockProductNames);
     }
 
+    @Override
+    public void clickOnFilter() {
+
+    }
+
+    @Override
+    public void clickOnTypeOfFilter(String typeOfFilter) {
+
+    }
+
+    @Override
+    public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
+
+    }
+
+    @Override
+    public boolean verifyProductsSorted(String sortType) {
+        return false;
+    }
+
 }
