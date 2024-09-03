@@ -164,10 +164,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
             List<WebElement> productNames = driver.findElements(By.xpath("//android.view.View[@content-desc='add to cart']/.."));
             System.out.println(getContentDescriptionOfAnElement(productNames.get(0)));
             System.out.println(getContentDescriptionOfAnElement(productNames.get(1)));
-            Dimension dimension = driver.manage().window().getSize();
-            int width = dimension.getWidth();
-            int height = dimension.getHeight();
-            scrollOrSwipe(width/2,height-100,width/2,0);
+            performScrollToMovePage();
         }
         return false;
     }

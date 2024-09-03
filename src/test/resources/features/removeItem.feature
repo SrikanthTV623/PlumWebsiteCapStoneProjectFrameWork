@@ -13,8 +13,6 @@ Feature: Validate Remove Button In Plum Goodness Website
     And user views the cart contents
     When user clicks on remove button next to an item
     Then verify shopping cart is empty
-    #Then the item should be removed from the cart
-    #And the cart should display the updated cart count
 
 
   @mobile
@@ -32,10 +30,8 @@ Feature: Validate Remove Button In Plum Goodness Website
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
-    #When clicks on the shopping cart icon
     And user views the cart contents
     When user clicks on remove button next to an item
-    Then verify shopping cart is empty
-    #Then the item should be removed from the cart
-    #And the cart should display the updated cart count
+    Then the item "search.value1" should be removed from the cart
+    And the cart should display the updated cart count
 

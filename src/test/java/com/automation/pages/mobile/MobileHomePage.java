@@ -27,6 +27,9 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='my profile']")
     WebElement profileLoginOptionBeforeLogin;
 
+    @FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'trending at plum')]")
+    WebElement trendingAtPlumForScroll;
+
 
     @Override
     public void openWebsite() {
@@ -70,16 +73,9 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     @Override
     public void selectProductFromDropDown(String productType) {
-        String productCategoryXpath="//android.view.View[@content-desc='%s']";
-
+        performScrollTillElementVisible(trendingAtPlumForScroll);
+        String productCategoryXpath="//android.widget.ImageView[@content-desc=\"experience the joy of\"]//following-sibling::android.view.View//android.view.View[@content-desc='%s']";
         WebElement productCategory=driver.findElement(By.xpath(String.format(productCategoryXpath,productType)));
-        //performScrollTillElementVisible(productCategory);
-        if(!productCategory.isDisplayed()){
-            Dimension dimension = driver.manage().window().getSize();
-            int width = dimension.getWidth();
-            int height = dimension.getHeight();
-            scrollOrSwipe(width/2,height/2,width/2,0);
-        }
         productCategory.click();
     }
 

@@ -23,6 +23,7 @@ Feature: Validate Add To Cart Button In Plum Goodness Website
     When user clicks the Add to Cart button
     Then verify item is added into cart and should displays "(1 item)"
 
+  @web
   Scenario: User searches for products, adds multiple products to the cart, and verifies the cart value
     When the user enters "search.value1" into the search bar
     Then verify user is on searched product page

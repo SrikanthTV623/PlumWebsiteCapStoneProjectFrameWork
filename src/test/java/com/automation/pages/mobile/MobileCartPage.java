@@ -6,47 +6,47 @@ import org.openqa.selenium.support.FindBy;
 
 public class MobileCartPage extends MobileBasePage implements CartPage {
 
-    @FindBy(xpath = "//android.view.View[@content-desc='view cart']")
-    WebElement viewCartBtn;
-
     //@FindBy(xpath = "//android.view.View[@content-desc=\"view cart\"]/..//android.view.View//android.widget.ImageView[@content-desc]")
     @FindBy(xpath = "//android.view.View[@content-desc='cart']/following-sibling::android.view.View[1]")
     WebElement cartCount;
 
+    @FindBy(xpath = "//android.view.View[@content-desc=\"cart\"]//following-sibling::android.view.View/android.view.View//android.view.View[@content-desc][1]")
+    WebElement cartContentField;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc=\"1\"])[1]//following-sibling::android.widget.ImageView")//android.view.View[@content-desc="cart"]//following-sibling::android.view.View/android.view.View//android.view.View[@content-desc][1]
+    WebElement removeIcon;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='remove']")
+    WebElement removeButtonInDialogBox;
+
+    @FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'order summary')]")
+    WebElement orderSummaryField;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='checkout']")
+    WebElement checkOutBtn;
+
     @Override
     public boolean cartContentsIsDisplayed() {
-        return false;
+        return cartContentField.isDisplayed();
     }
 
     @Override
     public void clickOnRemoveButton() {
-
+        removeIcon.click();
+        removeButtonInDialogBox.click();
     }
 
     @Override
-    public String getCartContentText() {
-        return "";
+    public String getCartContentText(String removedProductName) {
+        String cartContextTxtDisplayed = "//android.view.View[contains(@content-desc,'%s')]";
+        return cartContextTxtDisplayed;
     }
 
     @Override
     public String takesCartCount() {
-        //System.out.println(cartCount.getAttribute("content-desc"));
         String cartCountNumberText = getContentDescriptionOfAnElement(cartCount);
         return cartCountNumberText;
-        //return cartCount.getAttribute("content-desc");
     }
-
-    public String getCartCountDescription() {
-        // Ensure the element is displayed and enabled before getting the attribute
-        if (cartCount.isDisplayed() && cartCount.isEnabled()) {
-            String contentDesc = cartCount.getAttribute("content-desc");
-            System.out.println("Content-desc: " + contentDesc);
-            return contentDesc;
-        } else {
-            throw new RuntimeException("Element is not displayed or enabled.");
-        }
-    }
-
 
     @Override
     public String sendCartEmptyText() {
@@ -55,6 +55,8 @@ public class MobileCartPage extends MobileBasePage implements CartPage {
 
     @Override
     public boolean validatingTheCartPriceIsMatchingWithCalculatedPrice() {
+        performScrollTillElementVisible(orderSummaryField);
+        performScrollToMovePage();
         return false;
     }
 
@@ -65,7 +67,7 @@ public class MobileCartPage extends MobileBasePage implements CartPage {
 
     @Override
     public void clicksOnCheckOutButton() {
-
+        checkOutBtn.click();
     }
 
     @Override
