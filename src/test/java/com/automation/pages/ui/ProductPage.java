@@ -40,4 +40,11 @@ public interface ProductPage {
 
     void printOutOfStockProductList();
 
+    void clickOnFilter();
+
+    void clickOnTypeOfFilter(String typeOfFilter);
+
+    void clickOnSubTypeOfFilter(String subTypeOfFilter);
+
+    boolean verifyProductsSorted(String sortType);
 }

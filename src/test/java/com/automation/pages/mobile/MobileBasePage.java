@@ -78,7 +78,16 @@ public class MobileBasePage {
                 .addAction(finger1.createPointerMove(Duration.ofSeconds(1), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-        ((AppiumDriver)driver).perform(Collections.singletonList(sequence));
+        ((AppiumDriver) driver).perform(Collections.singletonList(sequence));
+    }
+
+    public void performScrollToMoveFullPage() {
+        // Scroll Logic
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+
+        scrollOrSwipe(width / 2, height/4, width / 2, 100);
     }
 
     public void performScrollToMovePage() {

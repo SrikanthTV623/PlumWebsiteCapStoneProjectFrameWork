@@ -1,6 +1,8 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.HomePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,14 +61,26 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         }
     }
 
+
     @Override
     public void selectProductCategory(String productCategory) {
-
+        String productCategoryXpath="//android.view.View[@content-desc='%s']";
+        driver.findElement(By.xpath(String.format(productCategoryXpath,productCategory))).click();
     }
 
     @Override
     public void selectProductFromDropDown(String productType) {
+        String productCategoryXpath="//android.view.View[@content-desc='%s']";
 
+        WebElement productCategory=driver.findElement(By.xpath(String.format(productCategoryXpath,productType)));
+        //performScrollTillElementVisible(productCategory);
+        if(!productCategory.isDisplayed()){
+            Dimension dimension = driver.manage().window().getSize();
+            int width = dimension.getWidth();
+            int height = dimension.getHeight();
+            scrollOrSwipe(width/2,height/2,width/2,0);
+        }
+        productCategory.click();
     }
 
     @Override

@@ -77,6 +77,8 @@ public class ProductSteps {
             Assert.assertTrue(productPage.verifyProductsPricesSortedLowToHigh());
         } else if (sortType.equals("High to Low")) {
             Assert.assertTrue(productPage.verifyProductsPricesSortedHighToLow());
+        }else {
+            Assert.assertTrue(productPage.verifyProductsSorted(sortType));
         }
     }
 
@@ -123,5 +125,25 @@ public class ProductSteps {
     @And("print names of all out of stock products")
     public void printNamesOfAllOutOfStockProducts() {
         productPage.printOutOfStockProductList();
+    }
+
+    @Then("verify user is on selected product screen {string}")
+    public void verifyUserIsOnSelectedProductScreen(String productName) {
+        productPage.verifyProductName(productName);
+    }
+
+    @When("user clicks on filters")
+    public void userClicksOnFilters() {
+        productPage.clickOnFilter();
+    }
+
+    @And("selects {string} from the filters menu")
+    public void selectsFromTheFiltersMenu(String typeOfFilter) {
+        productPage.clickOnTypeOfFilter(typeOfFilter);
+    }
+
+    @And("selects {string}")
+    public void selects(String subTypeOfFilter) {
+        productPage.clickOnSubTypeOfFilter(subTypeOfFilter);
     }
 }
