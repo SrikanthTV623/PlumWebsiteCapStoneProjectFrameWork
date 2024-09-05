@@ -68,13 +68,22 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @Override
     public void selectProductCategory(String productCategory) {
         String productCategoryXpath="//android.view.View[@content-desc='%s']";
-        driver.findElement(By.xpath(String.format(productCategoryXpath,productCategory))).click();
+        WebElement product=driver.findElement(By.xpath(String.format(productCategoryXpath,productCategory)));
+        product.click();
     }
 
+     @FindBy(xpath = "//android.widget.HorizontalScrollView")
+      WebElement bestOfFragrances;
     @Override
     public void selectProductFromDropDown(String productType) {
-        performScrollTillElementVisible(trendingAtPlumForScroll);
-        String productCategoryXpath="//android.widget.ImageView[@content-desc=\"experience the joy of\"]//following-sibling::android.view.View//android.view.View[@content-desc='%s']";
+        String productCategoryXpath = "";
+        if(productType.equals("orchid-you-not")){
+            performScrollTillElementVisible(bestOfFragrances);
+            productCategoryXpath = "//android.view.View[@content-desc='%s']";
+        }else {
+            performScrollTillElementVisible(trendingAtPlumForScroll);
+            productCategoryXpath = "//android.widget.ImageView[@content-desc='experience the joy of']//following-sibling::android.view.View//android.view.View[@content-desc='%s']";
+        }
         WebElement productCategory=driver.findElement(By.xpath(String.format(productCategoryXpath,productType)));
         productCategory.click();
     }
