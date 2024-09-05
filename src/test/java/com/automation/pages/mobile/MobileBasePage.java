@@ -87,7 +87,7 @@ public class MobileBasePage {
         int width = dimension.getWidth();
         int height = dimension.getHeight();
 
-        scrollOrSwipe(width / 2, height-100, width / 2, 0);
+        scrollOrSwipe(width / 2, height-1000, width / 2, 400);
     }
 
     public void performScrollToMovePage() {

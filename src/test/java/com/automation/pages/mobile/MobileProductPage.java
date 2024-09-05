@@ -89,10 +89,12 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     }
 
+    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]")
+    WebElement firstProduct;
     @Override
     public boolean verifyProductName(String productName) {
-        String firstProductNameXpath = "//android.view.View[contains(@content-desc,'%s')]";
-        return driver.findElement(By.xpath(String.format(firstProductNameXpath, productName))).isDisplayed();
+        System.out.println(getContentDescriptionOfAnElement(firstProduct));
+        return getContentDescriptionOfAnElement(firstProduct).contains(productName);
     }
 
     @Override
@@ -146,8 +148,10 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
-        String subTypeOfFilterXpath = "//android.widget.CheckBox[@content-desc='%s and above']";
-        WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath, subTypeOfFilter)));
+        //String subTypeOfFilterXpath = "//android.widget.CheckBox[contains(@content-desc,'%s and above')]";
+        String subTypeOfFilterXpath = "//android.widget.CheckBox[contains(@content-desc,'3 and above')]";
+       // WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath, subTypeOfFilter)));
+        WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(subTypeOfFilterXpath));
         subTypeOfFilterBtn.click();
         applyFilterBtn.click();
     }
@@ -160,11 +164,14 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         String totalProductsTxt = getContentDescriptionOfAnElement(totalProducts);
         int totalProducts = Integer.parseInt(totalProductsTxt.split(" ")[0]);
 //        System.out.println(totalProducts);
+        int prodNo=1;
         for (int i = 0; i < totalProducts / 2; i++) {
-            List<WebElement> productNames = driver.findElements(By.xpath("//android.view.View[@content-desc='add to cart']/.."));
-            System.out.println(getContentDescriptionOfAnElement(productNames.get(0)));
-            System.out.println(getContentDescriptionOfAnElement(productNames.get(1)));
-            performScrollToMovePage();
+            WebElement prod=driver.findElement(By.xpath(String.format("(//android.view.View[@content-desc='add to cart']/..)[%s]",prodNo)));
+            if(prod.isDisplayed()){
+                System.out.println(getContentDescriptionOfAnElement(prod));
+                performScrollToMoveFullPage();
+                prodNo=2;
+            }
         }
         return false;
     }
