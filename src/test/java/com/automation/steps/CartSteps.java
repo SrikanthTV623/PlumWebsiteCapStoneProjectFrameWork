@@ -63,9 +63,8 @@ public class CartSteps {
         }
     }
 
-
-    @Then("verify cart contains correct products count and cart value")
-    public void verifyCartContainsCorrectProductsCountAndCartValue() {
+    @Then("verify the total cart value is correct based on product prices")
+    public void verifyTheTotalCartValueIsCorrectBasedOnProductPrices() {
         Assert.assertTrue(cartPage.validatingTheCartPriceIsMatchingWithCalculatedPrice());
     }
 
@@ -82,6 +81,10 @@ public class CartSteps {
 
     @Then("then validate whether pin code is valid or not")
     public void thenValidateWhetherPinCodeIsValidOrNot() {
-        Assert.assertEquals("delivery by", cartPage.findPinCodeIsValidOrNot());
+        if(ConfigReader.getConfigValue("application.type").contains("mobile")){
+            Assert.assertTrue(cartPage.findPinCodeIsValidOrNot().contains("delivery by"));
+        }else{
+            Assert.assertEquals("delivery by", cartPage.findPinCodeIsValidOrNot());
+        }
     }
 }

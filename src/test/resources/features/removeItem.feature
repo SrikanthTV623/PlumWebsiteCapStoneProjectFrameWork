@@ -24,12 +24,14 @@ Feature: Validate Remove Button In Plum Goodness Website
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
+    When clicks on the shopping cart icon
     And navigates next to search next product
     When the user enters "search.value2" into the search bar
     Then verify user is on searched "search.value2" product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
+    When clicks on the shopping cart icon
     And user views the cart contents
     When user clicks on remove button next to an item
     Then the item "search.value1" should be removed from the cart

@@ -1,5 +1,6 @@
 Feature: Validate Pin Code for Delivery of the Order
 
+  @web @mobile @srikanth
   Scenario Outline: Validating the PinCode
     Given user opens website
     Then verify user is on the Plum Goodness homepage

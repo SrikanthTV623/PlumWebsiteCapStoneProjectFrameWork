@@ -28,6 +28,9 @@ public class CheckOutSteps {
     @And("enters phoneNo and address")
     public void entersPhoneNoAndAddress() {
         checkOutPage.enterPhoneNo();
+        if(ConfigReader.getConfigValue("application.type").contains("mobile")){
+            checkOutPage.enterRequiredDetails();
+        }
         //checkOutPage.enterRequiredDetails();
     }
 
