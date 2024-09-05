@@ -25,6 +25,10 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     @FindBy(xpath = "(//android.view.View[@content-desc]/../android.widget.ImageView)[1]")
     WebElement productScreenToNavigatesBack;
 
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[4]")
+    //@FindBy(xpath = "//android.widget.ImageView[@content-desc='1']")
+    WebElement shoppingCartIcon;
+
     @Override
     public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
         String searchedProductXpath = "//android.view.View[@content-desc='%s']";
@@ -33,6 +37,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clicksOnItem() {
+        waitForElementToBeVisible(selectProductField);
         selectProductField.click();
     }
 
@@ -45,7 +50,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clickOnShoppingCartIcon() {
-
+        shoppingCartIcon.click();
     }
 
     @Override

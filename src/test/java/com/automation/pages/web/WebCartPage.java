@@ -90,7 +90,7 @@ public class WebCartPage extends WebBasePage implements CartPage {
 
     public String findPinCodeIsValidOrNot() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

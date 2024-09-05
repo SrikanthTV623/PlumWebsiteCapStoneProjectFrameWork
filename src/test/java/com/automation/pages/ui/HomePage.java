@@ -9,7 +9,7 @@ public interface HomePage {
 
     void clickOnLoginLogoBtn();
 
-    void enterValueOnSearchBar(String configValue);
+    void enterValueOnSearchBar(String searchValue);
 
     void selectProductCategory(String category);
 

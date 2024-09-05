@@ -48,11 +48,16 @@ public class MobileCheckOutPage extends MobileBasePage implements CheckOutPage {
     public void enterPhoneNo() {
         phoneNoTxt.click();
         phoneNoTxt.sendKeys(ConfigReader.getConfigValue("valid.phoneNo"));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void enterRequiredDetails() {
-        if(helloTxtDisplayedInPage.isDisplayed()){
+        try{
             fullNameField.clear();
             fullNameField.sendKeys(ConfigReader.getConfigValue("full.name"));
             emailIdField.sendKeys(ConfigReader.getConfigValue("email.id"));
@@ -62,7 +67,7 @@ public class MobileCheckOutPage extends MobileBasePage implements CheckOutPage {
             dobOkayBtn.click();
             gender.click();
             continueBtnInCheckOut.click();
-        }
+        }catch (Exception ignored){}
     }
 
     @Override

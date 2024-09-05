@@ -21,6 +21,8 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
 
     @Override
     public boolean productDescriptionPageDisplayed() {
+        waitForElementToBeVisible(itemDescriptionTxt);
+        waitForElementToBeVisible(addToCartBtn);
         return itemDescriptionTxt.isDisplayed() && addToCartBtn.isDisplayed();
     }
 
@@ -28,13 +30,16 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
     public void clickOnAddToCartBtn() {
         addToCartBtn.click();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(7000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        /*
         if (ConfigReader.getConfigValue("application.type").equals("mobile")) {
             viewCartBtn.click();
         }
+
+         */
     }
 
     @Override
