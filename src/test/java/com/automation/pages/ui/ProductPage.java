@@ -47,4 +47,8 @@ public interface ProductPage {
     void clickOnSubTypeOfFilter(String subTypeOfFilter);
 
     boolean verifyProductsSorted(String sortType);
+
+    default void clicksOnFirstProduct() {
+
+    }
 }

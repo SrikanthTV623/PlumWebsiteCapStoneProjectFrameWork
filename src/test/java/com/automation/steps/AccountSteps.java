@@ -60,4 +60,19 @@ public class AccountSteps {
     public void verifyUserHasSuccessfullyCancelledTheOrder() {
         Assert.assertEquals("Your order has been canceled!", accountPage.verifyOrderCancellation());
     }
+
+    @When("user store the profile name and navigate back to home page")
+    public void userStoreTheProfileNameAndNavigateBackToHomePage() {
+
+    }
+
+    @When("user store the profile name as {string}")
+    public void userStoreTheProfileNameAs(String usernameKey) {
+        accountPage.storeTheUserName(usernameKey);
+    }
+
+    @And("navigate back to home page")
+    public void navigateBackToHomePage() {
+        accountPage.navigateToHomePage();
+    }
 }

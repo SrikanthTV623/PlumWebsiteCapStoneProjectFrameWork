@@ -67,4 +67,14 @@ public class WebAccountPage extends WebBasePage implements AccountPage {
         System.out.println(orderCancellationMsg.getText());
         return orderCancellationMsg.getText();
     }
+
+    @Override
+    public void storeTheUserName(String usernameKey) {
+
+    }
+
+    @Override
+    public void navigateToHomePage() {
+
+    }
 }

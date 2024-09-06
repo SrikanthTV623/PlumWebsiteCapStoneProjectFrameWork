@@ -16,4 +16,7 @@ public interface AccountPage {
 
     String verifyOrderCancellation();
 
+    void storeTheUserName(String usernameKey);
+
+    void navigateToHomePage();
 }
