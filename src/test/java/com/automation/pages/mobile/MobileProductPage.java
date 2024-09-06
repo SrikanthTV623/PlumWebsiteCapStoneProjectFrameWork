@@ -179,4 +179,9 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         }
         return false;
     }
+
+    @Override
+    public void clicksOnFirstProduct() {
+        firstProduct.click();
+    }
 }

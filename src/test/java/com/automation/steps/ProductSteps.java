@@ -146,4 +146,9 @@ public class ProductSteps {
     public void selects(String subTypeOfFilter) {
         productPage.clickOnSubTypeOfFilter(subTypeOfFilter);
     }
+
+    @When("user clicks on the first product from product page")
+    public void userClicksOnTheFirstProductFromProductPage() {
+        productPage.clicksOnFirstProduct();
+    }
 }
