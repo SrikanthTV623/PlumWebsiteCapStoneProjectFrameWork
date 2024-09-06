@@ -4,6 +4,7 @@ Feature: Place and Cancel the order In Plum Goodness Website
     Given user opens website
     Then verify user is on the Plum Goodness homepage
 
+  @web @savita
   Scenario: Verify user can search for a product, place and cancel the order
     When the user enters "search.value" into the search bar
     Then verify user is on searched product page

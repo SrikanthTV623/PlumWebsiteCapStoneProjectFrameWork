@@ -3,6 +3,7 @@ package com.automation.pages.mobile;
 import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,7 +30,7 @@ public class MobileBasePage {
     MobileBasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     public boolean isPresent(WebElement element) {
@@ -124,6 +125,35 @@ public class MobileBasePage {
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         ((AppiumDriver) driver).perform(Collections.singletonList(sequence));
+    }
+
+    public void tapOnElement(int x, int y) {
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence sequence = new Sequence(finger, 1)
+                .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), x, y))
+                .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger, Duration.ofSeconds(2)))
+                .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        ((AppiumDriver) driver).perform(Collections.singletonList(sequence));
+    }
+
+    public void tapOnElementByXPath(WebElement element, double widthPercentage, double heightPercentage) {
+        // Get element's size and position
+        int elementWidth = element.getSize().getWidth();
+        int elementHeight = element.getSize().getHeight();
+        int elementX = element.getLocation().getX();
+        int elementY = element.getLocation().getY();
+
+        System.out.println(elementWidth+" "+ elementHeight +" "+ elementX +" "+ elementY);
+
+        // Calculate the coordinates for the tap
+        int tapX = elementX + (int) (elementWidth * widthPercentage);
+        int tapY = elementY + (int) (elementHeight * heightPercentage);
+
+        System.out.println(tapX +" "+ tapY);
+
+        tapOnElement(tapX,tapY);
     }
 
     public void performScrollToMoveFullPage() {

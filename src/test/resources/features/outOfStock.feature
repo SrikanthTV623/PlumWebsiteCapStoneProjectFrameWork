@@ -1,6 +1,7 @@
 Feature: Search for Out-of-Stock Products In Plum Goodness Website
 
 
+  @web @srikanth
   Scenario: Search for out-of-stock items and verify the out-of-stock message
     Given user opens website
     Then verify user is on the Plum Goodness homepage

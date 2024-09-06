@@ -1,5 +1,6 @@
 Feature: Write a Review for a product in Plum Goodness Website
 
+  @web @savita
   Scenario: Write a review for the product
     Given user opens website
     Then verify user is on the Plum Goodness homepage
@@ -17,7 +18,7 @@ Feature: Write a Review for a product in Plum Goodness Website
     And user clicks on submit review
     Then verify user "valid.name" review has been added
 
-  @mobile
+  @mobile @savita
   Scenario: Verify user can login to plum application and write a review for the product
     Given user opens website
     Then verify user is on the Plum Goodness homepage

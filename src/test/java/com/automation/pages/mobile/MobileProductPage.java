@@ -1,14 +1,9 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductPage;
-import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MobileProductPage extends MobileBasePage implements ProductPage {
 
@@ -28,6 +23,12 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[4]")
     //@FindBy(xpath = "//android.widget.ImageView[@content-desc='1']")
     WebElement shoppingCartIcon;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]")
+    WebElement firstProductInSearchedResults;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']")
+    WebElement filterBtn;
 
     @Override
     public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
@@ -94,12 +95,16 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     }
 
-    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]")
-    WebElement firstProduct;
     @Override
-    public boolean verifyProductName(String productName) {
-        System.out.println(getContentDescriptionOfAnElement(firstProduct));
-        return getContentDescriptionOfAnElement(firstProduct).contains(productName);
+    public boolean verifyProductName(String validatedProductName) {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        waitForElementToBeVisible(firstProductInSearchedResults);
+        //System.out.println(getContentDescriptionOfAnElement(firstProductInSearchedResults));
+        return getContentDescriptionOfAnElement(firstProductInSearchedResults).contains(validatedProductName);
     }
 
     @Override
@@ -132,9 +137,6 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     }
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']")
-    WebElement filterBtn;
-
     @Override
     public void clickOnFilter() {
         filterBtn.click();
@@ -153,12 +155,9 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
-        //String subTypeOfFilterXpath = "//android.widget.CheckBox[contains(@content-desc,'%s and above')]";
-        String subTypeOfFilterXpath = "//android.widget.CheckBox[contains(@content-desc,'3 and above')]";
-       // WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath, subTypeOfFilter)));
-        WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(subTypeOfFilterXpath));
-        subTypeOfFilterBtn.click();
-        applyFilterBtn.click();
+        String subTypeOfFilterXpath = "//android.view.View//android.view.View//android.widget.CheckBox[@content-desc='%s']";
+        WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath,subTypeOfFilter)));
+        tapOnElementByXPath(subTypeOfFilterBtn,0.1,0.6);
     }
 
     @FindBy(xpath = "//android.view.View[contains(@content-desc,'products')]")

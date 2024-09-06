@@ -18,12 +18,12 @@ public class DriverManager {
         if(ConfigReader.getConfigValue("application.type").equals("mobile")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
-            //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.srikanth.mobile"));
-            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
+            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.srikanth.mobile"));
+            //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
             //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.savita.mobile"));
             capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
-           // capabilities.setCapability("app", ConfigReader.getConfigValue("app.srikanth.path"));
-            capabilities.setCapability("app", ConfigReader.getConfigValue("app.savita.path"));
+            capabilities.setCapability("app", ConfigReader.getConfigValue("app.srikanth.path"));
+            //capabilities.setCapability("app", ConfigReader.getConfigValue("app.savita.path"));
             capabilities.setCapability("appActivity", "com.esmagico.plum.MainActivity");
             capabilities.setCapability("appPackage", "com.esmagico.plum");
             capabilities.setCapability("autoGrantPermissions", true);
