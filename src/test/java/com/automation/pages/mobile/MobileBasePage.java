@@ -87,7 +87,7 @@ public class MobileBasePage {
         return total;
     }
 
-    private double extractPriceFromProductDescription(String text) {
+    public double extractPriceFromProductDescription(String text) {
         // Example description: "Green Tea Day-Light Sunscreen Gel SPF 35 PA+++ \n₹474.00 \n₹575.00 \n you save ₹101.00"
         Pattern pattern = Pattern.compile("₹([0-9,.]+)");
         Matcher matcher = pattern.matcher(text);
@@ -96,7 +96,7 @@ public class MobileBasePage {
         if (matcher.find()) {
             price = Double.parseDouble(matcher.group(1).replace(",", ""));
         }
-        System.out.println("Extracted Price From Product Description: "+price);
+        System.out.println("Extracted Price From Product Description: " + price);
         return price;
     }
 
@@ -127,33 +127,25 @@ public class MobileBasePage {
         ((AppiumDriver) driver).perform(Collections.singletonList(sequence));
     }
 
-    public void tapOnElement(int x, int y) {
+    public void tapOnElementByXPath(WebElement element) {
+        Dimension dimension = driver.manage().window().getSize();
+        int pageX = element.getLocation().getX();
+        int pagey = element.getLocation().getY();
+        int eleHeight = element.getSize().getHeight();
+        int eleWidth = element.getSize().getWidth();
+
+        int x = pageX + 5;
+        int y = pagey + eleHeight;
+
+        //System.out.println(x + " " + y);
+
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence sequence = new Sequence(finger, 1)
                 .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), x, y))
                 .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
-                .addAction(new Pause(finger, Duration.ofSeconds(2)))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         ((AppiumDriver) driver).perform(Collections.singletonList(sequence));
-    }
-
-    public void tapOnElementByXPath(WebElement element, double widthPercentage, double heightPercentage) {
-        // Get element's size and position
-        int elementWidth = element.getSize().getWidth();
-        int elementHeight = element.getSize().getHeight();
-        int elementX = element.getLocation().getX();
-        int elementY = element.getLocation().getY();
-
-        System.out.println(elementWidth+" "+ elementHeight +" "+ elementX +" "+ elementY);
-
-        // Calculate the coordinates for the tap
-        int tapX = elementX + (int) (elementWidth * widthPercentage);
-        int tapY = elementY + (int) (elementHeight * heightPercentage);
-
-        System.out.println(tapX +" "+ tapY);
-
-        tapOnElement(tapX,tapY);
     }
 
     public void performScrollToMoveFullPage() {

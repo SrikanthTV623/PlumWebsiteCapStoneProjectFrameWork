@@ -56,7 +56,9 @@ Feature: Apply Filter Button Validate Alphabet Sorting In Plum Goodness Website
 
     Examples:
       | category | typeofProduct | validateProductName | typeOfFilter | subTypeOfFilter |
+      #| haircare | serums        | Serum               | Price        | 500-1000        |
       | haircare | serums        | Serum               | Price        | 0-500           |
+
 
 
 

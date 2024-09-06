@@ -68,7 +68,6 @@ public class ProductSteps {
 
     @Then("verify products are sorted {string} accordingly")
     public void verifyProductsAreSortedAccordingly(String sortType) {
-        //sortType=ConfigReader.getConfigValue(sortType);
         if (sortType.equals("A-Z")) {
             Assert.assertTrue(productPage.verifyProductsSortedATOZ());
         } else if (sortType.equals("Z-A")) {
@@ -77,7 +76,9 @@ public class ProductSteps {
             Assert.assertTrue(productPage.verifyProductsPricesSortedLowToHigh());
         } else if (sortType.equals("High to Low")) {
             Assert.assertTrue(productPage.verifyProductsPricesSortedHighToLow());
-        }else {
+        } else if (sortType.equals("500-1000 || 0-500")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
+        } else {
             Assert.assertTrue(productPage.verifyProductsSorted(sortType));
         }
     }
