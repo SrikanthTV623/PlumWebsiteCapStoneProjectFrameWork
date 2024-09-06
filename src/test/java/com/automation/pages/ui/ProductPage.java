@@ -2,53 +2,151 @@ package com.automation.pages.ui;
 
 public interface ProductPage {
 
-    void clicksOnItem();
+    default void clicksOnItem() {
 
-    void navigatesForNextProductSearching();
+    }
 
-    void clickOnShoppingCartIcon();
+    default void navigatesForNextProductSearching() {
 
-    boolean verifySelectedProductPage();
+    }
 
-    void verifySearchedProductScreenIsDisplayedInApp(String productValue);
+    default void clickOnShoppingCartIcon() {
 
-    void clickOnSortBy();
+    }
 
-    void sortBy(String sortByValue);
+    default boolean verifySelectedProductPage() {
+        return false;
+    }
 
-    boolean verifyProductsSortedATOZ();
+    ;
 
-    boolean verifyProductsSortedZTOA();
+    default void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
 
-    boolean verifyProductsPricesSortedLowToHigh();
+    }
 
-    boolean verifyProductsPricesSortedHighToLow();
+    ;
 
-    void printProductList();
+    default void clickOnSortBy() {
 
-    boolean verifyProductName(String configValue);
+    }
 
-    void clickOnPriceFilter();
+    ;
 
-    void settingPriceRange(String fromPrice, String toPrice);
+    default void sortBy(String sortByValue) {
 
-    boolean verifyProductsPricesSortedSpecifiedRange();
+    }
 
-    void getProductNameAndDescriptionText();
+    ;
 
-    String checkOutOfStockButton();
+    default boolean verifyProductsSortedATOZ() {
 
-    void printOutOfStockProductList();
+        return false;
+    }
 
-    void clickOnFilter();
+    ;
 
-    void clickOnTypeOfFilter(String typeOfFilter);
+    default boolean verifyProductsSortedZTOA() {
 
-    void clickOnSubTypeOfFilter(String subTypeOfFilter);
+        return false;
+    }
 
-    boolean verifyProductsSorted(String sortType);
+    ;
+
+    default boolean verifyProductsPricesSortedLowToHigh() {
+
+        return false;
+    }
+
+    ;
+
+    default boolean verifyProductsPricesSortedHighToLow() {
+
+        return false;
+    }
+
+    ;
+
+    default void printProductList() {
+
+    }
+
+    ;
+
+    default boolean verifyProductName(String configValue) {
+
+        return false;
+    }
+
+    ;
+
+    default void clickOnPriceFilter() {
+
+    }
+
+    ;
+
+    default void settingPriceRange(String fromPrice, String toPrice) {
+
+    }
+
+    ;
+
+    default boolean verifyProductsPricesSortedSpecifiedRange() {
+
+        return false;
+    }
+
+    ;
+
+    default void getProductNameAndDescriptionText() {
+
+    }
+
+    ;
+
+    default String checkOutOfStockButton() {
+
+        return "";
+    }
+
+    ;
+
+    default void printOutOfStockProductList() {
+
+    }
+
+    ;
+
+    default void clickOnFilter() {
+
+    }
+
+    ;
+
+    default void clickOnTypeOfFilter(String typeOfFilter) {
+
+    }
+
+    ;
+
+    default void clickOnSubTypeOfFilter(String subTypeOfFilter) {
+
+    }
+
+    ;
+
+    default boolean verifyProductsSorted(String sortType) {
+
+        return false;
+    }
+
+    ;
 
     default void clicksOnFirstProduct() {
+
+    }
+
+    default void navigateToHomePage() {
 
     }
 }

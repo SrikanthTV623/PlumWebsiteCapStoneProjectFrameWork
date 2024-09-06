@@ -1,27 +1,54 @@
 package com.automation.pages.ui;
 
 public interface HomePage {
-    void openWebsite();
+    default void openWebsite() {
 
-    boolean verifyHomePage();
+    }
 
-    void clickOnLoginButton();
+    default boolean verifyHomePage() {
+        return false;
+    }
 
-    void clickOnLoginLogoBtn();
+    default void clickOnLoginButton() {
 
-    void enterValueOnSearchBar(String searchValue);
+    }
 
-    void selectProductCategory(String category);
+    default void clickOnLoginLogoBtn() {
 
-    void selectProductFromDropDown(String productType);
+    }
 
-    void selectProductCategoryAndType(String productCategory, String productType);
+    default void enterValueOnSearchBar(String searchValue) {
 
-    void selectSpecifiedProductFromDropDown(String specifiedProduct);
+    }
 
-    void gettingSearchValueFromTextFile();
+    default void selectProductCategory(String category) {
 
-    void validateSearchResultsForSearchedItem();
+    }
 
-    void clickOnOrderHistory();
+    default void selectProductFromDropDown(String productType) {
+
+    }
+
+    default void selectProductCategoryAndType(String productCategory, String productType) {
+
+    }
+
+    default void selectSpecifiedProductFromDropDown(String specifiedProduct) {
+
+    }
+
+    default void gettingSearchValueFromTextFile() {
+
+    }
+
+    default void validateSearchResultsForSearchedItem(){
+    };
+
+    default void clickOnOrderHistory() {
+
+    }
+
+    default void searchTheProduct(){
+
+    };
 }

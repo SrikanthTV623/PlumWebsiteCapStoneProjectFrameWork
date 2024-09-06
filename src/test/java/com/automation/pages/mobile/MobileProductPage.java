@@ -1,6 +1,7 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,46 +68,17 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         shoppingCartIcon.click();
     }
 
+
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[1]")
+    WebElement plumLogo;
+
     @Override
-    public boolean verifySelectedProductPage() {
-        return false;
+    public void navigateToHomePage() {
+        plumLogo.click();
     }
 
 
-    @Override
-    public void clickOnSortBy() {
-
-    }
-
-    @Override
-    public void sortBy(String sortByValue) {
-
-    }
-
-    @Override
-    public boolean verifyProductsSortedATOZ() {
-        return false;
-    }
-
-    @Override
-    public boolean verifyProductsSortedZTOA() {
-        return false;
-    }
-
-    @Override
-    public boolean verifyProductsPricesSortedLowToHigh() {
-        return false;
-    }
-
-    @Override
-    public boolean verifyProductsPricesSortedHighToLow() {
-        return false;
-    }
-
-    @Override
-    public void printProductList() {
-
-    }
 
     @Override
     public boolean verifyProductName(String validatedProductName) {
