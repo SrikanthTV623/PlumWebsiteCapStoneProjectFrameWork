@@ -1,6 +1,7 @@
 Feature: Data Driven Functionality In Plum Goodness Website
 
 
+  @web @srikanth
   Scenario Outline: Verify user can select different category and sub-category products
     Given user opens website
     Then verify user is on the Plum Goodness homepage

@@ -7,15 +7,15 @@ Feature: Do Login and Verify User is logged In Or Not
     Then verify user is on login page
     When user enters a valid phone number "valid.phoneNo" and OTP
 
-  @web
+  @web @savita
   Scenario: Verify user can login to plum account
     Then verify user is logged in and print the welcome message to console
 
-  @mobile
+  @mobile @savita
   Scenario: Verify user can login to plum application
     Then verify user is logged in by clicking on profile
 
-  @mobile
+  @mobile @savita
   Scenario: User login, search and add product to cart and do checkout in app
     When the user enters "search.value" into the search bar
     Then verify user is on searched "search.value" product page

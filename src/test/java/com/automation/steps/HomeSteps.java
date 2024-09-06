@@ -69,6 +69,11 @@ public class HomeSteps {
         homePage.selectSpecifiedProductFromDropDown(specifiedProduct);
     }
 
+    @When("selects product category {string} and product type {string}")
+    public void selectsProductCategoryAndProductType(String productCategory, String productType) {
+        homePage.selectProductCategoryAndType(productCategory,productType);
+    }
+
     @When("user searches for search product names from text file")
     public void userSearchesForSearchProductNamesFromTextFile() {
         homePage.gettingSearchValueFromTextFile();
@@ -83,5 +88,4 @@ public class HomeSteps {
     public void clicksOnOrderHistory() {
         homePage.clickOnOrderHistory();
     }
-
 }

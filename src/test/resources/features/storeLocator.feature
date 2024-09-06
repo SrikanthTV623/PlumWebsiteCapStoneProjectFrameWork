@@ -7,6 +7,7 @@ Feature: Find out Stores available in different locations Through Plum Goodness 
     And user selects product type "store-locator" from the drop down
     Then verify user is on "store locator"
 
+  @web @savita
   Scenario Outline: Verify user can get the store locations based on the city name
     When user clicks on "<cityName>"
     And print all the store locations

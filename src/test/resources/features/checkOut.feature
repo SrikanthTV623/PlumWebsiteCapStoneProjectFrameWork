@@ -11,7 +11,7 @@ Feature: Validate Check-Out Process In Plum Goodness Website
     When clicks on the shopping cart icon
     Then verify item is added into cart and should displays "1"
 
-  @web
+  @web @savita
   Scenario: User searches for a product, adds it to the cart and do checkout
     And user views the cart contents
     And clicks on checkout button
@@ -19,7 +19,7 @@ Feature: Validate Check-Out Process In Plum Goodness Website
     Then verify payment option is displayed
 
 
-  @mobile
+  @mobile @srikanth
   Scenario: User searches for a product, adds it to the cart and do checkout in app
     And user views the cart contents
     And clicks on checkout button

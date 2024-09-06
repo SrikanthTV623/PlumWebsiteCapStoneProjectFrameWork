@@ -1,5 +1,6 @@
 Feature:Validate Searched and Displayed Products are matching
 
+  @web @savita
   Scenario: Validating whether searched item and displayed items are same
     Given user opens website
     Then verify user is on the Plum Goodness homepage
@@ -10,7 +11,7 @@ Feature:Validate Searched and Displayed Products are matching
     And get product list
     Then verify searched product "validate.product.name" and displayed product names are same
 
-  @mobile
+  @mobile @savita
   Scenario: Validating whether searched item and displayed items are same on plum app
     Given user opens website
     Then verify user is on the Plum Goodness homepage

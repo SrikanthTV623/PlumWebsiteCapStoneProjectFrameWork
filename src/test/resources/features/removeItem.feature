@@ -1,6 +1,6 @@
 Feature: Validate Remove Button In Plum Goodness Website
 
-  @web
+  @web @srikanth
   Scenario: User removes an item from the cart
     Given user opens website
     Then verify user is on the Plum Goodness homepage
@@ -15,7 +15,7 @@ Feature: Validate Remove Button In Plum Goodness Website
     Then verify shopping cart is empty
 
 
-  @mobile
+  @mobile @srikanth
   Scenario: User removes an item from the cart and verify count
     Given user opens website
     Then verify user is on the Plum Goodness homepage

@@ -15,6 +15,8 @@ public interface HomePage {
 
     void selectProductFromDropDown(String productType);
 
+    void selectProductCategoryAndType(String productCategory, String productType);
+
     void selectSpecifiedProductFromDropDown(String specifiedProduct);
 
     void gettingSearchValueFromTextFile();

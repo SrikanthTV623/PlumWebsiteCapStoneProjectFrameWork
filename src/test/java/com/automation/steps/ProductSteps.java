@@ -128,8 +128,8 @@ public class ProductSteps {
     }
 
     @Then("verify user is on selected product screen {string}")
-    public void verifyUserIsOnSelectedProductScreen(String productName) {
-        productPage.verifyProductName(productName);
+    public void verifyUserIsOnSelectedProductScreen(String validatedProductName) {
+        productPage.verifyProductName(validatedProductName);
     }
 
     @When("user clicks on filters")
