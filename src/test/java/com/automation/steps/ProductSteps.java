@@ -24,7 +24,7 @@ public class ProductSteps {
 
     @Then("verify user is on searched product page")
     public void verifyUserIsOnSearchedProductPage() {
-
+        Assert.assertTrue(productPage.verifySelectedProductPage());
     }
 
     @Then("verify user is on searched {string} product page")
@@ -151,5 +151,10 @@ public class ProductSteps {
     @When("user clicks on the first product from product page")
     public void userClicksOnTheFirstProductFromProductPage() {
         productPage.clicksOnFirstProduct();
+    }
+
+    @And("navigate back to home page from product page")
+    public void navigateBackToHomePageFromProductPage() {
+
     }
 }

@@ -7,3 +7,10 @@ Feature: Take Search Keys from Text File and perform the Search Operations
     Then verify user is on the Plum Goodness homepage
     When user searches for search product names from text file
     Then search results should display products related to all searched value
+
+  @mobile @savita
+  Scenario: Search for products using keywords from text file in plum app
+    Given user opens website
+    Then verify user is on the Plum Goodness homepage
+    When user searches for search product names from text file
+    Then search results should display products related to all searched value

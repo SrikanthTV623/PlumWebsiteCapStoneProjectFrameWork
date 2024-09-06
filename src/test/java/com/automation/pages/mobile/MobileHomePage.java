@@ -1,19 +1,15 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.HomePage;
+import com.automation.utils.ConfigReader;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,10 +51,6 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         return plumLogo.isDisplayed() && searchBoxField.isDisplayed();
     }
 
-    @Override
-    public void clickOnLoginButton() {
-
-    }
 
     @Override
     public void clickOnLoginLogoBtn() {
@@ -112,20 +104,17 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         performScrollToMovePage();
 
         String productTypeXpath = "";
-        if(productCategory.equals("haircare")){
+        if (productCategory.equals("haircare")) {
             productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         }
 
-        WebElement productTypeFormattedXpath = driver.findElement(By.xpath(String.format(productTypeXpath,productType)));
+        WebElement productTypeFormattedXpath = driver.findElement(By.xpath(String.format(productTypeXpath, productType)));
         productTypeFormattedXpath.click();
     }
 
-    @Override
-    public void selectSpecifiedProductFromDropDown(String specifiedProductType) {
 
-    }
+    public static List<String> keywords = new ArrayList<>();
 
-    List<String> keywords = new ArrayList<>();
     @Override
     public void gettingSearchValueFromTextFile() {
         String filePath = "src/test/resources/files/searchItems.txt";
@@ -143,25 +132,26 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     }
 
-
     @Override
     public void validateSearchResultsForSearchedItem() {
         for (String keyword : keywords) {
             searchBoxField.click();
             searchBoxTxt.click();
             searchBoxTxt.sendKeys(keyword);
-
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement searchResults = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='usf_container']//ul//li[1]//p[@class='card__title font-bold mb-1']/a")));
-            String searchResultsText = searchResults.getText().toLowerCase();
-            System.out.println(keyword);
-            System.out.println(searchResultsText);
-            Assert.assertTrue(searchResultsText.contains(keyword));
+            ConfigReader.setConfigValue("keywordKey", keyword);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            WebElement firstProduct = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
+            String contentDes = getContentDescriptionOfAnElement(firstProduct).toLowerCase();
+            String searchedProduct = ConfigReader.getConfigValue("keywordKey");
+            System.out.println(contentDes);
+            System.out.println(searchedProduct);
+            System.out.println();
+            Assert.assertTrue(contentDes.contains(searchedProduct));
+            plumLogo.click();
         }
-    }
-
-    @Override
-    public void clickOnOrderHistory() {
-
     }
 }
