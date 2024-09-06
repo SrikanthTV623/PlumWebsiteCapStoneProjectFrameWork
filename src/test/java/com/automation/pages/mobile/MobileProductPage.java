@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     //@FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/(android.view.View)[1]")
@@ -29,6 +33,15 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='FILTERS']")
     WebElement filterBtn;
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='apply filter']")
+    WebElement applyFilterOptionInFilterPage;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart'] | //android.widget.ImageView[@content-desc='add to cart'])/..")
+    List <WebElement> listOfSearchedProducts;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'products')]")
+    WebElement totalProductsCount;
 
     @Override
     public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
@@ -103,7 +116,6 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
             throw new RuntimeException(e);
         }
         waitForElementToBeVisible(firstProductInSearchedResults);
-        //System.out.println(getContentDescriptionOfAnElement(firstProductInSearchedResults));
         return getContentDescriptionOfAnElement(firstProductInSearchedResults).contains(validatedProductName);
     }
 
@@ -119,6 +131,21 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public boolean verifyProductsPricesSortedSpecifiedRange() {
+        List<Double> priceValues = new ArrayList<>();
+
+        String totalProductsTxt = getContentDescriptionOfAnElement(totalProductsCount);
+        int totalProductsCount = Integer.parseInt(totalProductsTxt.split(" ")[0]);
+
+        for(WebElement price : listOfSearchedProducts){
+            double priceText = extractPriceFromProductDescription(getContentDescriptionOfAnElement(price));
+            System.out.println(priceText);
+            priceValues.add(priceText);
+            System.out.println(priceValues);
+            if(totalProductsCount>3){
+                performScrollToMovePage();
+            }
+        }
+
         return false;
     }
 
@@ -150,22 +177,17 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         typeOfFilterBtn.click();
     }
 
-    @FindBy(xpath = "//android.widget.Button[@content-desc='apply filter']")
-    WebElement applyFilterBtn;
-
     @Override
     public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
         String subTypeOfFilterXpath = "//android.view.View//android.view.View//android.widget.CheckBox[@content-desc='%s']";
         WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath,subTypeOfFilter)));
-        tapOnElementByXPath(subTypeOfFilterBtn,0.1,0.6);
+        tapOnElementByXPath(subTypeOfFilterBtn);
+        applyFilterOptionInFilterPage.click();
     }
-
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'products')]")
-    WebElement totalProducts;
 
     @Override
     public boolean verifyProductsSorted(String sortType) {
-        String totalProductsTxt = getContentDescriptionOfAnElement(totalProducts);
+        String totalProductsTxt = getContentDescriptionOfAnElement(totalProductsCount);
         int totalProducts = Integer.parseInt(totalProductsTxt.split(" ")[0]);
 //        System.out.println(totalProducts);
         int prodNo=1;
@@ -182,6 +204,6 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clicksOnFirstProduct() {
-        firstProduct.click();
+        firstProductInSearchedResults.click();
     }
 }
