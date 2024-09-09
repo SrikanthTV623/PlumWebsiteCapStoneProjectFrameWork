@@ -15,6 +15,8 @@ import java.util.List;
 
 public class MobileHomePage extends MobileBasePage implements HomePage {
 
+    public static List<String> keywords = new ArrayList<>();
+
     @FindBy(xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']")
     WebElement allowNotificationPopUp;
 
@@ -30,7 +32,10 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.EditText")
     WebElement searchBoxTxt;
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='my profile']")
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[5]")
+    WebElement wishListBtn;
+
+    @FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'my profile')]")
     WebElement profileLoginOptionBeforeLogin;
 
     @FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'trending at plum')]")
@@ -39,6 +44,20 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='view more']")
     WebElement viewMoreButton;
 
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='shop']")
+    WebElement shopButton;
+
+    @FindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'shop by concern')]")
+    WebElement shopOnConcernInShop;
+
+    @FindBy(xpath = "//android.widget.HorizontalScrollView")
+    WebElement bestOfFragrances;
+
+    @FindBy(xpath = "//android.view.View[@content-desc=\"super deals\"]")
+    WebElement superDealsInWishListScreen;
+
+    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]")
+    WebElement firstProductWishListButton;
 
     @Override
     public void openWebsite() {
@@ -48,13 +67,16 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     @Override
     public boolean verifyHomePage() {
-        return plumLogo.isDisplayed() && searchBoxField.isDisplayed();
+        waitForElementToBeVisible(plumLogo);
+        waitForElementToBeVisible(searchBoxField);
+        return searchBoxField.isDisplayed();
     }
 
 
     @Override
     public void clickOnLoginLogoBtn() {
-        profileLoginOptionBeforeLogin.click();
+        driver.findElement(By.xpath("//android.widget.ImageView[contains(@content-desc,'my profile')]")).click();
+        //profileLoginOptionBeforeLogin.click();
     }
 
     @Override
@@ -76,15 +98,14 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         product.click();
     }
 
-    @FindBy(xpath = "//android.widget.HorizontalScrollView")
-    WebElement bestOfFragrances;
-
     @Override
     public void selectProductFromDropDown(String productType) {
         String productTypeXpath = "";
         if (productType.equals("orchid-you-not")) {
             performScrollTillElementVisible(bestOfFragrances);
             productTypeXpath = "//android.view.View[@content-desc='%s']";
+        } else if (productType.equals("beard")) {
+            productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         } else {
             //makeup-nails
             performScrollTillElementVisible(trendingAtPlumForScroll);
@@ -111,9 +132,6 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         WebElement productTypeFormattedXpath = driver.findElement(By.xpath(String.format(productTypeXpath, productType)));
         productTypeFormattedXpath.click();
     }
-
-
-    public static List<String> keywords = new ArrayList<>();
 
     @Override
     public void gettingSearchValueFromTextFile() {
@@ -214,5 +232,50 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @Override
     public void clickOnFindProduct() {
         findProductBtn.click();
+    }
+
+    public void selectsFirstProductAndAddedToWishlist(){
+        for (String keyword : keywords) {
+            for(int i=1;i<=5;i++){
+                searchBoxField.click();
+                searchBoxTxt.click();
+                searchBoxTxt.sendKeys(keyword);
+                ConfigReader.setConfigValue("searchedValueKey", keyword);
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                WebElement clicksFirstProductWishlistBtn = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]"));
+                tapOnElementByXPath(clicksFirstProductWishlistBtn);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                wishListBtn.click();
+                if(i==3){
+                    performScrollTillElementVisible(superDealsInWishListScreen);
+                }
+                WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)["+i+"]"));
+                waitForElementToBeVisible(searchValueProductInWishList);
+                String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList).toLowerCase();
+                String searchedProductName = ConfigReader.getConfigValue("searchedValueKey");
+                System.out.println(contentDesOfProduct);
+                System.out.println(searchedProductName);
+                System.out.println("======================================================");
+                Assert.assertTrue(contentDesOfProduct.contains(searchedProductName));
+                WebElement navigateBackFromWishlistPage = driver.findElement(By.xpath("//android.view.View[@content-desc='my wishlist']/../android.widget.ImageView[1]"));
+                navigateBackFromWishlistPage.click();
+                plumLogo.click();
+            }
+        }
+    }
+
+    public void clickOnShopButton(String scrollElementName){
+        shopButton.click();
+        if(scrollElementName.contains("shopOnConcern")){
+            performScrollTillElementVisible(shopOnConcernInShop);
+        }
     }
 }

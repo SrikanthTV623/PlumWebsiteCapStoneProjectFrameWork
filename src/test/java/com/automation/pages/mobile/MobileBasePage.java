@@ -25,8 +25,6 @@ public class MobileBasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    String envType = ConfigReader.getConfigValue("application.type");
-
     MobileBasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);

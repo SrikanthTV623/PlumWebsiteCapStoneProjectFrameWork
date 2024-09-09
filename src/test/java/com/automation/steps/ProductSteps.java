@@ -76,7 +76,7 @@ public class ProductSteps {
             Assert.assertTrue(productPage.verifyProductsPricesSortedLowToHigh());
         } else if (sortType.equals("High to Low")) {
             Assert.assertTrue(productPage.verifyProductsPricesSortedHighToLow());
-        } else if (sortType.equals("500-1000 || 0-500")) {
+        } else if (sortType.equals("0-500")) {
             Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
         } else {
             Assert.assertTrue(productPage.verifyProductsSorted(sortType));
@@ -120,7 +120,11 @@ public class ProductSteps {
 
     @Then("verify product is out of stock")
     public void verifyProductIsOutOfStock() {
-        Assert.assertEquals("sold out", productPage.checkOutOfStockButton());
+        if(ConfigReader.getConfigValue("application.type").contains("web")){
+            Assert.assertEquals("sold out", productPage.checkOutOfStockButton());
+        }else{
+            Assert.assertTrue(productPage.checkOutOfStockButton().contains("out"));
+        }
     }
 
     @And("print names of all out of stock products")

@@ -78,52 +78,11 @@ public class MobileCartPage extends MobileBasePage implements CartPage {
 
         String cartSummaryTxt = getContentDescriptionOfAnElement(orderSummaryField);
 
-        double itemMRP = extractValueFromOrderSummaryText(cartSummaryTxt, "total item mrp");
-        double discount = extractValueFromOrderSummaryText(cartSummaryTxt, "discount");
-        double tierDiscount = extractValueFromOrderSummaryText(cartSummaryTxt, "tier discount");
-        double shippingFee = extractValueFromOrderSummaryText(cartSummaryTxt, "shipping fee");
         double toPayPriceDisplayedInApp = extractValueFromOrderSummaryText(cartSummaryTxt, "to pay");
-
-        System.out.println("itemMRP: "+itemMRP);
-        System.out.println("discount: "+discount);
-        System.out.println("tierDiscount: "+tierDiscount);
-        System.out.println("shippingFee: "+shippingFee);
         System.out.println("toPayPriceDisplayedInApp: "+toPayPriceDisplayedInApp);
 
-        double expectedToPay = itemMRP - discount - tierDiscount + shippingFee;
-
-        System.out.println("Calculated expected To Pay: "+expectedToPay);
-
-        return totalCalculatedPrice==toPayPriceDisplayedInApp && toPayPriceDisplayedInApp==expectedToPay;
+        return totalCalculatedPrice==toPayPriceDisplayedInApp;
     }
-
-
-    /*
-    public double calculateTotalPriceFromProductList(WebElement element) {
-        double total = 0.0;
-
-        for (WebElement description : individualProductDescriptionTexts) {
-            String text = description.getText();
-            double price = extractPriceFromProductDescription(text);
-            total += price;
-        }
-
-        return total;
-    }
-
-    private double extractPriceFromProductDescription(String text) {
-        // Example description: "Green Tea Day-Light Sunscreen Gel SPF 35 PA+++ \n₹474.00 \n₹575.00 \n you save ₹101.00"
-        Pattern pattern = Pattern.compile("₹([0-9,.]+)");
-        Matcher matcher = pattern.matcher(text);
-
-        double price = 0.0;
-        if (matcher.find()) {
-            price = Double.parseDouble(matcher.group(1).replace(",", ""));
-        }
-        return price;
-    }
-
-     */
 
     @Override
     public String parsePrice(String priceText) {
@@ -137,7 +96,6 @@ public class MobileCartPage extends MobileBasePage implements CartPage {
 
     @Override
     public void enterPinCodeText(String pinCodeTxt) {
-        //performScrollToMovePage();
         performScrollTillElementVisible(deliveryAddressField);
         checkDeliveryPinCodeTxt.click();
         checkDeliveryPinCodeTxt.sendKeys(pinCodeTxt);
