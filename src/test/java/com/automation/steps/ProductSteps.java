@@ -157,4 +157,9 @@ public class ProductSteps {
     public void navigateBackToHomePageFromProductPage() {
 
     }
+
+    @Then("verify user is on the required {string}")
+    public void verifyUserIsOnTheRequired(String productType) {
+        Assert.assertTrue(productPage.verifyProductName(productType));
+    }
 }

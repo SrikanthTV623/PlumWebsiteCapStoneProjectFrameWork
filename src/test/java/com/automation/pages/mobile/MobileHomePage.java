@@ -154,4 +154,65 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
             plumLogo.click();
         }
     }
+
+    @Override
+    public void clickOnSearchToNavigateToProductFinder() {
+        searchBoxField.click();
+    }
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='i have']/android.widget.Button")
+    WebElement concernDropdownBtn;
+
+    @Override
+    public void selectConcernFromDropDown(String concern) {
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        concernDropdownBtn.click();
+        clickOnDropDown(concern);
+    }
+
+    public void clickOnDropDown(String dropdownEle) {
+        List<WebElement> concernDropDown = driver.findElements(By.xpath("//android.view.View/android.view.View/android.view.View/android.view.View[@content-desc]"));
+        List<String> concernDropDownNames = concernDropDown.stream().map(ele -> ele.getAttribute("content-desc")).toList();
+        System.out.println(concernDropDownNames);
+        while (true) {
+            if (concernDropDownNames.contains(dropdownEle)) {
+                driver.findElement(By.xpath("//android.view.View/android.view.View/android.view.View/android.view.View[@content-desc='" + dropdownEle + "']")).click();
+                break;
+            } else {
+                int x = concernDropDown.get(concernDropDown.size() - 1).getLocation().getX() + concernDropDown.get(concernDropDown.size() - 1).getSize().getWidth() / 2;
+                int y = concernDropDown.get(concernDropDown.size() - 1).getLocation().getY();
+
+                scrollOrSwipe(x, y, x, y - 500);
+                concernDropDown = driver.findElements(By.xpath("//android.view.View/android.view.View/android.view.View/android.view.View[@content-desc]"));
+                concernDropDownNames = concernDropDown.stream().map(ele -> ele.getAttribute("content-desc")).toList();
+                System.out.println(concernDropDownNames);
+            }
+        }
+    }
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='looking for']/android.widget.Button")
+    WebElement productTypeDropdownBtn;
+
+    @Override
+    public void selectProductTypeFromDropDown(String productType) {
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        productTypeDropdownBtn.click();
+        clickOnDropDown(productType);
+    }
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='find product']")
+    WebElement findProductBtn;
+
+    @Override
+    public void clickOnFindProduct() {
+        findProductBtn.click();
+    }
 }

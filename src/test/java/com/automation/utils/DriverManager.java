@@ -19,8 +19,8 @@ public class DriverManager {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
             //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.srikanth.mobile"));
-            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
-            //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.savita.mobile"));
+            //capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
+            capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name.savita.mobile"));
             capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
             //capabilities.setCapability("app", ConfigReader.getConfigValue("app.srikanth.path"));
             capabilities.setCapability("app", ConfigReader.getConfigValue("app.savita.path"));
