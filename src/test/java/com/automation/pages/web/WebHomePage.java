@@ -65,11 +65,6 @@ public class WebHomePage extends WebBasePage implements HomePage {
         product.click();
     }
 
-    @Override
-    public void selectProductCategoryAndType(String productCategory, String productType) {
-
-    }
-
     public void selectSpecifiedProductFromDropDown(String specifiedProductType) {
         String productXpath = "//a[contains(text(),'%s')]";
         WebElement product = driver.findElement(By.xpath(String.format(productXpath, specifiedProductType)));

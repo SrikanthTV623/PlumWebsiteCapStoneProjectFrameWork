@@ -2,35 +2,23 @@ package com.automation.pages.ui;
 
 public interface ProductPage {
 
-    default void clicksOnItem() {
-
-    }
+    void clicksOnItem();
 
     default void navigatesForNextProductSearching() {
 
     }
 
-    default void clickOnShoppingCartIcon() {
+    void clickOnShoppingCartIcon();
 
-    }
-
-    default boolean verifySelectedProductPage() {
-        return false;
-    }
-
-    ;
+    boolean verifySelectedProductPage();
 
     default void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
 
     }
 
-    ;
-
     default void clickOnSortBy() {
 
     }
-
-    ;
 
     default void sortBy(String sortByValue) {
 
@@ -143,10 +131,6 @@ public interface ProductPage {
     ;
 
     default void clicksOnFirstProduct() {
-
-    }
-
-    default void navigateToHomePage() {
 
     }
 }

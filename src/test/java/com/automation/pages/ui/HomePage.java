@@ -1,33 +1,21 @@
 package com.automation.pages.ui;
 
 public interface HomePage {
-    default void openWebsite() {
+    void openWebsite();
 
-    }
-
-    default boolean verifyHomePage() {
-        return false;
-    }
+    boolean verifyHomePage();
 
     default void clickOnLoginButton() {
 
     }
 
-    default void clickOnLoginLogoBtn() {
+    void clickOnLoginLogoBtn();
 
-    }
+    void enterValueOnSearchBar(String searchValue);
 
-    default void enterValueOnSearchBar(String searchValue) {
+    void selectProductCategory(String category);
 
-    }
-
-    default void selectProductCategory(String category) {
-
-    }
-
-    default void selectProductFromDropDown(String productType) {
-
-    }
+    void selectProductFromDropDown(String productType);
 
     default void selectProductCategoryAndType(String productCategory, String productType) {
 
@@ -37,20 +25,21 @@ public interface HomePage {
 
     }
 
-    default void gettingSearchValueFromTextFile() {
+    void gettingSearchValueFromTextFile();
 
-    }
-
-    default void validateSearchResultsForSearchedItem(){
-    };
+    void validateSearchResultsForSearchedItem();
 
     default void clickOnOrderHistory() {
 
     }
 
-    default void searchTheProduct(){
+    default void clickOnShopButton(String scrollElementName) {
 
-    };
+    }
+
+    default void selectsFirstProductAndAddedToWishlist(){
+
+    }
 
     default void clickOnSearchToNavigateToProductFinder(){};
 

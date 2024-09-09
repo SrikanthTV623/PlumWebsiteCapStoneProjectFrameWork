@@ -61,11 +61,6 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         itemFieldClick.click();
     }
 
-    @Override
-    public void navigatesForNextProductSearching() {
-
-    }
-
     public void clickOnShoppingCartIcon() {
         shoppingCartIcon.click();
     }

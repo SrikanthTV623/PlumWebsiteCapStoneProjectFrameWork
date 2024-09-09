@@ -33,12 +33,6 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        /*
-        if (ConfigReader.getConfigValue("application.type").equals("mobile")) {
-            viewCartBtn.click();
-        }
-
-         */
     }
 
     @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/..//following-sibling::android.view.View/android.view.View/android.view.View[1]")

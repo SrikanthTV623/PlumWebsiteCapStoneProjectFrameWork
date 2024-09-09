@@ -89,7 +89,14 @@ public class HomeSteps {
         homePage.clickOnOrderHistory();
     }
 
-
+    @When("user clicks on shop option and scroll {string}")
+    public void userClicksOnShopOptionAndScroll(String scrollElementName) {
+        homePage.clickOnShopButton(scrollElementName);
+    }
+    @And("selects first product added to wishlist and verify products are added to wishlist")
+    public void selectsFirstProductAddedToWishlistAndVerifyProductsAreAddedToWishlist() {
+        homePage.selectsFirstProductAndAddedToWishlist();
+    }
     @When("user navigates to product finder by clicking on search")
     public void userNavigatesToProductFinderByClickingOnSearch() {
         homePage.clickOnSearchToNavigateToProductFinder();
@@ -104,7 +111,6 @@ public class HomeSteps {
     public void userSelectsFromLookingForDropdown(String productType) {
         homePage.selectProductTypeFromDropDown(productType);
     }
-
 
     @And("user clicks on find product")
     public void userClicksOnFindProduct() {
