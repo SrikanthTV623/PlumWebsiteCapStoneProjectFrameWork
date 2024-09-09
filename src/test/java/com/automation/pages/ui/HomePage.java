@@ -51,4 +51,14 @@ public interface HomePage {
     default void searchTheProduct(){
 
     };
+
+    default void clickOnSearchToNavigateToProductFinder(){};
+
+    default void selectConcernFromDropDown(String concern) {
+        
+    }
+
+    default void selectProductTypeFromDropDown(String productType){};
+
+    default void clickOnFindProduct(){};
 }

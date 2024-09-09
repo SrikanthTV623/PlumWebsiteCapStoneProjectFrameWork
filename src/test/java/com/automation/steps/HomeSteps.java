@@ -90,5 +90,24 @@ public class HomeSteps {
     }
 
 
+    @When("user navigates to product finder by clicking on search")
+    public void userNavigatesToProductFinderByClickingOnSearch() {
+        homePage.clickOnSearchToNavigateToProductFinder();
+    }
 
+    @And("user selects {string} from I have dropdown")
+    public void userSelectsFromIHaveDropdown(String concern) {
+        homePage.selectConcernFromDropDown(concern);
+    }
+
+    @And("user selects {string} from looking for dropdown")
+    public void userSelectsFromLookingForDropdown(String productType) {
+        homePage.selectProductTypeFromDropDown(productType);
+    }
+
+
+    @And("user clicks on find product")
+    public void userClicksOnFindProduct() {
+        homePage.clickOnFindProduct();
+    }
 }
