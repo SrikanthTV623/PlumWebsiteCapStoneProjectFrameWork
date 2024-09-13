@@ -49,7 +49,6 @@ public class HomeSteps {
 
     @When("user selects product category {string}")
     public void userSelectsProductCategory(String category) {
-        //homePage.selectProductCategory(ConfigReader.getConfigValue(category));
         homePage.selectProductCategory(category);
     }
 
@@ -60,7 +59,6 @@ public class HomeSteps {
 
     @And("user selects product type {string} from the drop down")
     public void userSelectsProductTypeFromTheDropDown(String productType) {
-        // homePage.selectProductFromDropDown(ConfigReader.getConfigValue(productType));
         homePage.selectProductFromDropDown(productType);
     }
 

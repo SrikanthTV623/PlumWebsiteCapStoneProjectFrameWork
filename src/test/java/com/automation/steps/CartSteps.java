@@ -1,10 +1,7 @@
 package com.automation.steps;
 
-import com.automation.pages.mobile.MobileAccountPage;
 import com.automation.pages.mobile.MobileCartPage;
-import com.automation.pages.ui.AccountPage;
 import com.automation.pages.ui.CartPage;
-import com.automation.pages.web.WebAccountPage;
 import com.automation.pages.web.WebCartPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;

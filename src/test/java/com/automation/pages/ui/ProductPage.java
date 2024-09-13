@@ -133,4 +133,8 @@ public interface ProductPage {
     default void clicksOnFirstProduct() {
 
     }
+
+    default boolean verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(String sortType){
+        return false;
+    }
 }
