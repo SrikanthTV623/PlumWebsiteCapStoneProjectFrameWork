@@ -13,8 +13,14 @@ Feature: Apply Price & Rating Filter In Plum Goodness Application
 
     Examples:
       | category | typeofProduct | validateProductName | typeOfFilter | subTypeOfFilter |
-      #| haircare | serums        | Serum               | Price        | 500-1000        |
       | haircare | serums        | Serum               | Price        | 0-500           |
+      | haircare | serums        | Serum               | Price        | 500-1000        |
+      | haircare | conditioner   | Conditioner         | Price        | 0-500           |
+      | bodycare | body butters  | Body Butter         | Price        | 0-499           |
+      | bodycare | hand creams   | Hand Cream          | Price        | 0-499           |
+      | bodycare | hand creams   | Hand Cream          | Price        | 1000-1499       |
+      | bodycare | body mists    | Body Mist           | Price        | 500-999         |
+      | bodycare | body mists    | Body Mist           | Price        | 1000-1499       |
 
 
   @mobile @savita

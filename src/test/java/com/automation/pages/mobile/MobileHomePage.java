@@ -29,6 +29,9 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='search ']")
     WebElement searchBoxField;
 
+    @FindBy(xpath = "//android.view.View[@content-desc='home']")
+    WebElement homeLogo;
+
     @FindBy(xpath = "//android.widget.EditText")
     WebElement searchBoxTxt;
 
@@ -59,6 +62,15 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]")
     WebElement firstProductWishListButton;
 
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='find product']")
+    WebElement findProductBtn;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='looking for']/android.widget.Button")
+    WebElement productTypeDropdownBtn;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='i have']/android.widget.Button")
+    WebElement concernDropdownBtn;
+
     @Override
     public void openWebsite() {
         clickOnElementIfPresent(allowNotificationPopUp);
@@ -67,9 +79,9 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     @Override
     public boolean verifyHomePage() {
-        waitForElementToBeVisible(plumLogo);
         waitForElementToBeVisible(searchBoxField);
-        return searchBoxField.isDisplayed();
+        waitForElementToBeVisible(homeLogo);
+        return searchBoxField.isDisplayed() && homeLogo.isDisplayed();
     }
 
 
@@ -127,6 +139,8 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         String productTypeXpath = "";
         if (productCategory.equals("haircare")) {
             productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
+        } else if (productCategory.equals("bodycare")) {
+            productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         }
 
         WebElement productTypeFormattedXpath = driver.findElement(By.xpath(String.format(productTypeXpath, productType)));
@@ -173,13 +187,48 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         }
     }
 
+    public void selectsFirstProductAndAddedToWishlist() {
+        for (String keyword : keywords) {
+            for (int i = 1; i <= 5; i++) {
+                searchBoxField.click();
+                searchBoxTxt.click();
+                searchBoxTxt.sendKeys(keyword);
+                ConfigReader.setConfigValue("searchedValueKey", keyword);
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                WebElement clicksFirstProductWishlistBtn = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]"));
+                tapOnElementByXPath(clicksFirstProductWishlistBtn);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                wishListBtn.click();
+                if (i == 3) {
+                    performScrollTillElementVisible(superDealsInWishListScreen);
+                }
+                WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[" + i + "]"));
+                waitForElementToBeVisible(searchValueProductInWishList);
+                String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList).toLowerCase();
+                String searchedProductName = ConfigReader.getConfigValue("searchedValueKey");
+                System.out.println(contentDesOfProduct);
+                System.out.println(searchedProductName);
+                System.out.println("======================================================");
+                Assert.assertTrue(contentDesOfProduct.contains(searchedProductName));
+                WebElement navigateBackFromWishlistPage = driver.findElement(By.xpath("//android.view.View[@content-desc='my wishlist']/../android.widget.ImageView[1]"));
+                navigateBackFromWishlistPage.click();
+                plumLogo.click();
+            }
+        }
+    }
+
     @Override
     public void clickOnSearchToNavigateToProductFinder() {
         searchBoxField.click();
     }
-
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='i have']/android.widget.Button")
-    WebElement concernDropdownBtn;
 
     @Override
     public void selectConcernFromDropDown(String concern) {
@@ -212,9 +261,6 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         }
     }
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='looking for']/android.widget.Button")
-    WebElement productTypeDropdownBtn;
-
     @Override
     public void selectProductTypeFromDropDown(String productType) {
         try {
@@ -226,55 +272,14 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         clickOnDropDown(productType);
     }
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='find product']")
-    WebElement findProductBtn;
-
     @Override
     public void clickOnFindProduct() {
         findProductBtn.click();
     }
 
-    public void selectsFirstProductAndAddedToWishlist(){
-        for (String keyword : keywords) {
-            for(int i=1;i<=5;i++){
-                searchBoxField.click();
-                searchBoxTxt.click();
-                searchBoxTxt.sendKeys(keyword);
-                ConfigReader.setConfigValue("searchedValueKey", keyword);
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                WebElement clicksFirstProductWishlistBtn = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]"));
-                tapOnElementByXPath(clicksFirstProductWishlistBtn);
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                wishListBtn.click();
-                if(i==3){
-                    performScrollTillElementVisible(superDealsInWishListScreen);
-                }
-                WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)["+i+"]"));
-                waitForElementToBeVisible(searchValueProductInWishList);
-                String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList).toLowerCase();
-                String searchedProductName = ConfigReader.getConfigValue("searchedValueKey");
-                System.out.println(contentDesOfProduct);
-                System.out.println(searchedProductName);
-                System.out.println("======================================================");
-                Assert.assertTrue(contentDesOfProduct.contains(searchedProductName));
-                WebElement navigateBackFromWishlistPage = driver.findElement(By.xpath("//android.view.View[@content-desc='my wishlist']/../android.widget.ImageView[1]"));
-                navigateBackFromWishlistPage.click();
-                plumLogo.click();
-            }
-        }
-    }
-
-    public void clickOnShopButton(String scrollElementName){
+    public void clickOnShopButton(String scrollElementName) {
         shopButton.click();
-        if(scrollElementName.contains("shopOnConcern")){
+        if (scrollElementName.contains("shopOnConcern")) {
             performScrollTillElementVisible(shopOnConcernInShop);
         }
     }

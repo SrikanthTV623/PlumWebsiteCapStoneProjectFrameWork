@@ -1,12 +1,14 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductPage;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MobileProductPage extends MobileBasePage implements ProductPage {
@@ -96,23 +98,35 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     }
 
     @Override
-    public boolean verifyProductsPricesSortedSpecifiedRange() {
+    public boolean verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(String sortType) {
         List<Double> priceValues = new ArrayList<>();
 
         String totalProductsTxt = getContentDescriptionOfAnElement(totalProductsCount);
         int totalProductsCount = Integer.parseInt(totalProductsTxt.split(" ")[0]);
 
-        for(WebElement price : listOfSearchedProducts){
-            double priceText = extractPriceFromProductDescription(getContentDescriptionOfAnElement(price));
-            System.out.println(priceText);
-            priceValues.add(priceText);
-            System.out.println(priceValues);
-            if(totalProductsCount>3){
-                performScrollToMovePage();
-            }
+        if(totalProductsCount>=3){
+            performScrollToMovePage();
         }
 
-        return false;
+        for(WebElement price : listOfSearchedProducts) {
+            double priceText = extractPriceFromProductDescription(getContentDescriptionOfAnElement(price));
+            priceValues.add(priceText);
+        }
+
+        System.out.println(priceValues);
+        System.out.println(sortType);
+
+        double startingPriceOfFilter = Double.parseDouble(sortType.split("-")[0]);
+        double endingPriceOfFilter = Double.parseDouble(sortType.split("-")[1]);
+
+        System.out.println(startingPriceOfFilter+" "+endingPriceOfFilter);
+
+        for(double productPriceValue:priceValues){
+            if(!(productPriceValue>=startingPriceOfFilter && productPriceValue<=endingPriceOfFilter)){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

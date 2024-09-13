@@ -5,7 +5,9 @@ public interface CartPage {
 
     void clickOnRemoveButton();
 
-    String getCartContentText(String removedProductName);
+    default String getCartContentText(String removedProductName) {
+        return "";
+    }
 
     String takesCartCount();
 

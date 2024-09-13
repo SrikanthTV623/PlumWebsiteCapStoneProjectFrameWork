@@ -29,9 +29,7 @@ public class ProductSteps {
 
     @Then("verify user is on searched {string} product page")
     public void verifyUserIsOnSearchedProductPage(String productKey) {
-        if (envType.equals("mobile")) {
-            productPage.verifySearchedProductScreenIsDisplayedInApp(ConfigReader.getConfigValue(productKey));
-        }
+        productPage.verifySearchedProductScreenIsDisplayedInApp(ConfigReader.getConfigValue(productKey));
     }
 
     @When("user clicks on a product from the search results")
@@ -77,7 +75,15 @@ public class ProductSteps {
         } else if (sortType.equals("High to Low")) {
             Assert.assertTrue(productPage.verifyProductsPricesSortedHighToLow());
         } else if (sortType.equals("0-500")) {
-            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRange());
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(sortType));
+        } else if (sortType.equals("500-999")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(sortType));
+        } else if (sortType.equals("500-1000")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(sortType));
+        } else if (sortType.equals("0-499")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(sortType));
+        } else if (sortType.equals("1000-1499")) {
+            Assert.assertTrue(productPage.verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(sortType));
         } else {
             Assert.assertTrue(productPage.verifyProductsSorted(sortType));
         }

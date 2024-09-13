@@ -1,6 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.ui.ProductPage;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,9 @@ public class WebProductPage extends WebBasePage implements ProductPage {
 
     @FindBy(xpath = "//div[@id='usf_container']//ul//li[1]")
     WebElement itemFieldClick;
+
+    @FindBy(xpath = "//li[1]//a[@class='card-link text-current js-prod-link']")
+    WebElement firstProductNameToVerify;
 
     @FindBy(xpath = "//div[@class='header__icons flex justify-end mis-auto js-closes-menu']/a[3]")
     WebElement shoppingCartIcon;
@@ -54,7 +58,8 @@ public class WebProductPage extends WebBasePage implements ProductPage {
 
     @Override
     public void verifySearchedProductScreenIsDisplayedInApp(String productValue) {
-
+        String productNameToVerify = firstProductNameToVerify.getText().toLowerCase();
+        Assert.assertTrue(productNameToVerify.contains(productValue));
     }
 
     public void clicksOnItem() {
