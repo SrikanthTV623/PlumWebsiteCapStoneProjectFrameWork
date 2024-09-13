@@ -84,7 +84,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
             throw new RuntimeException(e);
         }
         waitForElementToBeVisible(firstProductInSearchedResults);
-        return getContentDescriptionOfAnElement(firstProductInSearchedResults).contains(validatedProductName);
+        return getContentDescriptionOfAnElement(firstProductInSearchedResults).toLowerCase().contains(validatedProductName.toLowerCase());
     }
 
     @Override
@@ -168,27 +168,39 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
 
     @Override
     public void clickOnSubTypeOfFilter(String subTypeOfFilter) {
-        String subTypeOfFilterXpath = "//android.view.View//android.view.View//android.widget.CheckBox[@content-desc='%s']";
+        String subTypeOfFilterXpath = "//android.view.View//android.view.View//android.widget.CheckBox[contains(@content-desc,'%s')]";
         WebElement subTypeOfFilterBtn = driver.findElement(By.xpath(String.format(subTypeOfFilterXpath,subTypeOfFilter)));
         tapOnElementByXPath(subTypeOfFilterBtn);
         applyFilterOptionInFilterPage.click();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public boolean verifyProductsSorted(String sortType) {
         String totalProductsTxt = getContentDescriptionOfAnElement(totalProductsCount);
         int totalProducts = Integer.parseInt(totalProductsTxt.split(" ")[0]);
-//        System.out.println(totalProducts);
-        int prodNo=1;
-        for (int i = 0; i < totalProducts / 2; i++) {
-            WebElement prod=driver.findElement(By.xpath(String.format("(//android.view.View[@content-desc='add to cart']/..)[%s]",prodNo)));
-            if(prod.isDisplayed()){
-                System.out.println(getContentDescriptionOfAnElement(prod));
-                performScrollToMoveFullPage();
-                prodNo=2;
+        if(totalProducts==1){
+            WebElement product=driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
+            double rating = Double.parseDouble(getContentDescriptionOfAnElement(product).substring(0, 3));
+            if (!(rating >= Double.parseDouble(sortType))) {
+                return false;
             }
         }
-        return false;
+        else if(totalProducts>=2){
+            performScrollToMovePage();
+            List<WebElement> products=driver.findElements(By.xpath("//android.view.View[@content-desc='add to cart']/.."));
+            for (WebElement product : products) {
+                double rating = Double.parseDouble(getContentDescriptionOfAnElement(product).substring(0, 3));
+                if (!(rating >= Double.parseDouble(sortType))){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override

@@ -107,6 +107,7 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     public void selectProductCategory(String productCategory) {
         String productCategoryXpath = "//android.view.View[@content-desc='%s']";
         WebElement product = driver.findElement(By.xpath(String.format(productCategoryXpath, productCategory)));
+        waitForElementToBeVisible(product);
         product.click();
     }
 
@@ -118,10 +119,12 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
             productTypeXpath = "//android.view.View[@content-desc='%s']";
         } else if (productType.equals("beard")) {
             productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
-        } else {
+        } else if(productType.equals("nails")){
             //makeup-nails
             performScrollTillElementVisible(trendingAtPlumForScroll);
             productTypeXpath = "//android.widget.ImageView[@content-desc='experience the joy of']//following-sibling::android.view.View//android.view.View[@content-desc='%s']";
+        }else if (productType.equals("hair mask")){
+            productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         }
         WebElement productCategory = driver.findElement(By.xpath(String.format(productTypeXpath, productType)));
         productCategory.click();

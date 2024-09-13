@@ -193,8 +193,9 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         for (WebElement priceElement : productsPricesList) {
             String priceText = priceElement.getText().replace("₹", "").replace("Rs. ", "").replace(",", "");
             double priceValue = Double.parseDouble(priceText);
+            System.out.println(priceValue);
 
-            if (priceValue < minPrice || priceValue > maxPrice) {
+            if (priceValue>minPrice && priceValue<maxPrice){
                 return false;
             }
         }

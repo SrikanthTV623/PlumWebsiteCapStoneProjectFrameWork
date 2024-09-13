@@ -1,5 +1,6 @@
 Feature: Validate Cart Value In Plum Goodness Application
 
+  @mobile @savita
   Scenario Outline: Verify user can find product based on concern
     Given user opens website
     Then verify user is on the Plum Goodness homepage

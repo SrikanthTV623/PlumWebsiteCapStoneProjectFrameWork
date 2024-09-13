@@ -36,9 +36,10 @@ Feature: Apply Price & Rating Filter In Plum Goodness Application
     Then verify products are sorted "<subTypeOfFilter>" accordingly
 
     Examples:
-      | category | products | validateProductName | typeOfFilter | subTypeOfFilter |
-     # | haircare | hair mask | Hair Mask           | Ratings      | 4               |
-      | makeup   | nails    | Nail                | Ratings      | 3               |
-#      | haircare | hair mask | Hair Mask           |
-#      | makeup   | nail      | Nail                |
+      | category  | products     | validateProductName | typeOfFilter | subTypeOfFilter |
+      | haircare  | hair mask    | Hair Mask           | Ratings      | 3               |
+      | makeup    | nails        | Nail                | Ratings      | 4               |
+#      | skincare  | sunscreens   | Sun                 | Ratings      | 5               |
+#      | bodycare  | body butters | Body Butter         | Ratings      | 3               |
+#      | fragrance | perfumes     | Perfume             | Ratings      | 3               |
 
