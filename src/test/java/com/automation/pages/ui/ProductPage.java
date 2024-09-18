@@ -99,11 +99,7 @@ public interface ProductPage {
 
     ;
 
-    default void printOutOfStockProductList() {
-
-    }
-
-    ;
+    void printOutOfStockProductList();
 
     default void clickOnFilter() {
 

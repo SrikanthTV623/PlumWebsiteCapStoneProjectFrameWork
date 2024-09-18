@@ -5,7 +5,7 @@ Feature: Write a Review for a product in Plum Goodness Website
     Given user opens website
     Then verify user is on the Plum Goodness homepage
     When the user enters "search.babyCare" into the search bar
-    Then verify user is on searched product page
+    Then verify user is on searched "search.babyCare" product page
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user scroll and clicks on write review button
@@ -19,7 +19,7 @@ Feature: Write a Review for a product in Plum Goodness Website
     Then verify user "valid.name" review has been added
 
   @mobile @savita
-  Scenario: Verify user can login to plum application and write a review for the product
+  Scenario: Write a review for the product in application
     Given user opens website
     Then verify user is on the Plum Goodness homepage
     When user clicks on the login logo

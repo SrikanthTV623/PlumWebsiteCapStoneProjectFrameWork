@@ -59,9 +59,6 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
     @FindBy(xpath = "//android.view.View[@content-desc=\"super deals\"]")
     WebElement superDealsInWishListScreen;
 
-    @FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]")
-    WebElement firstProductWishListButton;
-
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='find product']")
     WebElement findProductBtn;
 
@@ -117,13 +114,17 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         if (productType.equals("orchid-you-not")) {
             performScrollTillElementVisible(bestOfFragrances);
             productTypeXpath = "//android.view.View[@content-desc='%s']";
-        } else if (productType.equals("beard")) {
+        } else if (productType.equals("eau de toilette")) {
             productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         } else if(productType.equals("nails")){
             //makeup-nails
             performScrollTillElementVisible(trendingAtPlumForScroll);
             productTypeXpath = "//android.widget.ImageView[@content-desc='experience the joy of']//following-sibling::android.view.View//android.view.View[@content-desc='%s']";
         }else if (productType.equals("hair mask")){
+            productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
+        }else if (productType.equals("body butters")){
+            productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
+        }else if (productType.equals("perfumes")){
             productTypeXpath = "//android.view.View[contains(@content-desc,'%s')]";
         }
         WebElement productCategory = driver.findElement(By.xpath(String.format(productTypeXpath, productType)));
@@ -192,7 +193,7 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
 
     public void selectsFirstProductAndAddedToWishlist() {
         for (String keyword : keywords) {
-            for (int i = 1; i <= 5; i++) {
+            for (int i = 1; i < 5; i++) {
                 searchBoxField.click();
                 searchBoxTxt.click();
                 searchBoxTxt.sendKeys(keyword);
@@ -202,14 +203,12 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                WebElement clicksFirstProductWishlistBtn = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]/android.view.View[2]"));
-                tapOnElementByXPath(clicksFirstProductWishlistBtn);
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                wishListBtn.click();
+                WebElement clickOnFirstProduct = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
+                clickOnFirstProduct.click();
+                WebElement firstProductWishlistBtn = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc=\"add to cart\"]/..//following-sibling::android.view.View)[last()]"));
+                firstProductWishlistBtn.click();
+                WebElement wishListBtnInProductListedScreen = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc=\"add to cart\"]/..//following-sibling::android.widget.ImageView)[3]"));
+                wishListBtnInProductListedScreen.click();
                 if (i == 3) {
                     performScrollTillElementVisible(superDealsInWishListScreen);
                 }
@@ -223,7 +222,8 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
                 Assert.assertTrue(contentDesOfProduct.contains(searchedProductName));
                 WebElement navigateBackFromWishlistPage = driver.findElement(By.xpath("//android.view.View[@content-desc='my wishlist']/../android.widget.ImageView[1]"));
                 navigateBackFromWishlistPage.click();
-                plumLogo.click();
+                WebElement selectPlumLogoInProductListedPage = driver.findElement(By.xpath("//android.view.View[contains(@content-desc,'products')]/../android.widget.ImageView[1]"));
+                selectPlumLogoInProductListedPage.click();
             }
         }
     }

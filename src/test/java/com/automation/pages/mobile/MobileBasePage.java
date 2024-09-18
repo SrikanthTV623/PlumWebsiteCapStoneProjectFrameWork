@@ -1,9 +1,7 @@
 package com.automation.pages.mobile;
 
-import com.automation.utils.ConfigReader;
 import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

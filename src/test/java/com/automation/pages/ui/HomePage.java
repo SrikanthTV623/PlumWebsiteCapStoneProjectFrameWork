@@ -49,5 +49,5 @@ public interface HomePage {
 
     default void selectProductTypeFromDropDown(String productType){};
 
-    default void clickOnFindProduct(){};
+    default void clickOnFindProduct(){}
 }

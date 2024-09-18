@@ -16,14 +16,13 @@ public class ProductDescriptionSteps {
     ProductDescriptionPage productDescriptionPage ;
 
     public ProductDescriptionSteps() {
-        String env= ConfigReader.getConfigValue("application.type");
+        String env= System.getProperty("env");
         if (env.equals("web")) {
             productDescriptionPage = new WebProductDescriptionPage();
         } else {
             productDescriptionPage = new MobileProductDescriptionPage();
         }
     }
-    
 
     @Then("user should be redirected to the product details page")
     public void userShouldBeRedirectedToTheProductDetailsPage() {
@@ -33,6 +32,16 @@ public class ProductDescriptionSteps {
     @When("user clicks the Add to Cart button")
     public void userClicksTheAddToCartButton() {
         productDescriptionPage.clickOnAddToCartBtn();
+    }
+
+    @When("user clicks on wishlist button")
+    public void userClicksOnWishlistButton() {
+        productDescriptionPage.clickOnWishListBtn();
+    }
+
+    @And("user clicks on wishlist icon which is visible on product screen")
+    public void userClicksOnWishlistIconWhichIsVisibleOnProductScreen() {
+        productDescriptionPage.clickOnWishListIcon();
     }
 
     @When("user scroll and clicks on write review button")
@@ -56,4 +65,8 @@ public class ProductDescriptionSteps {
         Assert.assertEquals(productDescriptionPage.verifyReviewIsAdded(), ConfigReader.getConfigValue(userName));
     }
 
+    @Then("verify searched product {string} is added into wishlist")
+    public void verifySearchedProductIsAddedIntoWishlist(String validateProductNameKey) {
+        productDescriptionPage.verifyProductIsAddedToWishlist(validateProductNameKey);
+    }
 }

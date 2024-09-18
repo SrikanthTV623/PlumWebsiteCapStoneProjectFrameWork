@@ -12,7 +12,7 @@ public class LoginSteps {
     LoginPage loginPage;
 
     public LoginSteps() {
-        String env= ConfigReader.getConfigValue("application.type");
+        String env= System.getProperty("env");
         if (env.equals("web")) {
             loginPage = new WebLoginPage();
         } else {

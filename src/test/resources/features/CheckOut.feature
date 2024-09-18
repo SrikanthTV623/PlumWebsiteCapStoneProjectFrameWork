@@ -11,8 +11,8 @@ Feature: Validate Check-Out Process In Plum Goodness Website
     When user clicks on a product from the search results
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
-    When clicks on the shopping cart icon
     Then verify item is added into cart and should displays "1"
+    When clicks on the shopping cart icon
     And user views the cart contents
     And clicks on checkout button
     And enters phoneNo and address

@@ -13,7 +13,8 @@ public class AccountSteps {
     AccountPage accountPage;
 
     public AccountSteps() {
-        String env=ConfigReader.getConfigValue("application.type");
+        //String env=ConfigReader.getConfigValue("application.type");
+        String env= System.getProperty("env");
         if (env.equals("web")) {
             accountPage = new WebAccountPage();
         } else {

@@ -1,6 +1,6 @@
 Feature: Apply Price Filter In Plum Goodness Website
 
-  @web @srikanth
+  @web @srikanth @price-range-filter
   Scenario: User filters products by a specific price range
     Given user opens website
     Then verify user is on the Plum Goodness homepage
