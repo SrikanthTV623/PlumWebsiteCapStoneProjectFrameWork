@@ -14,4 +14,15 @@ public interface ProductDescriptionPage {
     void clickOnSubmitReviewButton();
 
     String verifyReviewIsAdded();
+
+    default void clickOnWishListBtn(){
+
+    }
+
+    default void clickOnWishListIcon(){
+
+    }
+
+    default void verifyProductIsAddedToWishlist(String validateProductNameKey){
+    }
 }

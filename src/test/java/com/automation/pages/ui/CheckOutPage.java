@@ -8,7 +8,9 @@ public interface CheckOutPage {
 
     boolean isPaymentOptionDisplayed();
 
-    void selectCashOnDelivery();
+    default void selectCashOnDelivery(){
+
+    }
 
     boolean verifyOrderIsPlaced();
 

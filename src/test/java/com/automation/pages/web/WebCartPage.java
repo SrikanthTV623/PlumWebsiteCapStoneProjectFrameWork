@@ -79,6 +79,7 @@ public class WebCartPage extends WebBasePage implements CartPage {
     }
 
     public void enterPinCodeText(String pinCodeTxt) {
+        scrollToSpecificAmount();
         enterPinCodeTxtInCart.sendKeys(pinCodeTxt);
     }
 

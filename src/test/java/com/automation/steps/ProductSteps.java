@@ -11,10 +11,9 @@ import org.junit.Assert;
 
 public class ProductSteps {
     ProductPage productPage;
-    String envType= ConfigReader.getConfigValue("application.type");
 
     public ProductSteps() {
-        String env= ConfigReader.getConfigValue("application.type");
+        String env= System.getProperty("env");
         if (env.equals("web")) {
             productPage = new WebProductPage();
         } else {

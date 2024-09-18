@@ -2,6 +2,8 @@ package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductDescriptionPage;
 import com.automation.utils.ConfigReader;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,20 +11,43 @@ import java.util.List;
 
 public class MobileProductDescriptionPage extends MobileBasePage implements ProductDescriptionPage {
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='add to cart']/..//android.view.View[@content-desc]")
-    WebElement itemDescriptionTxt;
-
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='add to cart']")
     WebElement addToCartBtn;
 
     @FindBy(xpath = "//android.view.View[@content-desc='view cart']")
     WebElement viewCartBtn;
 
+    @FindBy(xpath = "(//android.widget.ImageView[@content-desc='add to cart']/..//following-sibling::android.view.View)[last()]")
+    WebElement firstProductWishlistBtn;
+
+    @FindBy(xpath = "(//android.widget.ImageView[@content-desc='add to cart']/..//following-sibling::android.widget.ImageView)[3]")
+    WebElement wishListBtnInProductListedScreen;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/..//following-sibling::android.view.View/android.view.View/android.view.View[1]")
+    WebElement firstReview;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]")
+    WebElement writeReviewBtn;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'you are rating this product')]/android.widget.ImageView[6]")
+    WebElement fiveStarRating;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/android.widget.EditText[1]")
+    WebElement reviewTitle;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/android.widget.EditText[2]")
+    WebElement review;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='submit']")
+    WebElement submitBtn;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='rate a product']/following-sibling::android.view.View")
+    WebElement reviewSuccessMsg;
+
     @Override
     public boolean productDescriptionPageDisplayed() {
-        waitForElementToBeVisible(itemDescriptionTxt);
         waitForElementToBeVisible(addToCartBtn);
-        return itemDescriptionTxt.isDisplayed() && addToCartBtn.isDisplayed();
+        return addToCartBtn.isDisplayed();
     }
 
     @Override
@@ -35,23 +60,26 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
         }
     }
 
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/..//following-sibling::android.view.View/android.view.View/android.view.View[1]")
-    WebElement firstReview;
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]")
-    WebElement writeReviewBtn;
+    public void clickOnWishListBtn(){
+        firstProductWishlistBtn.click();
+    }
+
+    public void clickOnWishListIcon(){
+        wishListBtnInProductListedScreen.click();
+    }
+
+    public void verifyProductIsAddedToWishlist(String validateProductNameKey){
+        WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
+        waitForElementToBeVisible(searchValueProductInWishList);
+        String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList);
+        Assert.assertTrue("Product not added to wishlist", contentDesOfProduct.toLowerCase().contains(validateProductNameKey.toLowerCase()));
+    }
 
     @Override
     public void scrollAndClickOnWriteReviewButton() {
         performScrollTillElementVisible(firstReview);
         writeReviewBtn.click();
     }
-
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'you are rating this product')]/android.widget.ImageView[6]")
-    WebElement fiveStarRating;
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/android.widget.EditText[1]")
-    WebElement reviewTitle;
-    @FindBy(xpath = "//android.view.View[contains(@content-desc,'write a review')]/android.widget.EditText[2]")
-    WebElement review;
 
     @Override
     public void addReviewData(List<String> reviewData) {
@@ -62,16 +90,11 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
         review.sendKeys(ConfigReader.getConfigValue(reviewData.get(1)));
     }
 
-    @FindBy(xpath = "//android.view.View[@content-desc='submit']")
-    WebElement submitBtn;
-
     @Override
     public void clickOnSubmitReviewButton() {
         submitBtn.click();
     }
 
-    @FindBy(xpath = "//android.view.View[@content-desc='rate a product']/following-sibling::android.view.View")
-    WebElement reviewSuccessMsg;
     @Override
     public String verifyReviewIsAdded() {
         try {

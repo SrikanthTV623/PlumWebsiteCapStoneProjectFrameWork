@@ -33,10 +33,10 @@ public class WebCheckOutPage extends WebBasePage implements CheckOutPage {
     @FindBy(xpath = "//button[@id='continue-button']")
     WebElement continueBtn;
 
-    @FindBy(xpath = "//div[@class='payment-btn-group svelte-hzxz3n']/button[1]")
+    @FindBy(xpath = "//div[@class='payment-btn-group svelte-1yo52pf']/button[1]")
     WebElement paymentOption;
 
-    @FindBy(xpath = "//div[@class='payment-btn-group svelte-hzxz3n']/button//span[contains(text(),'Cash on Delivery')]")
+    @FindBy(xpath = "//div[@class='payment-btn-group svelte-1yo52pf']/button//span[contains(text(),'Cash on Delivery')]")
     WebElement cashOnDelivery;
 
     @FindBy(xpath = "//div[@class='os-header__heading']//span")

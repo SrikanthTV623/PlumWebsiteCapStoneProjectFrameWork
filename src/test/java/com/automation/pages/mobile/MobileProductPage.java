@@ -1,14 +1,11 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.ProductPage;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class MobileProductPage extends MobileBasePage implements ProductPage {

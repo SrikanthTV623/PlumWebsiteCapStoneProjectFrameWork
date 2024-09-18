@@ -173,6 +173,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
 
     public void clickOnPriceFilter() {
         scrollToElement(priceRangeFilter);
+        waitForElementToBeClickable(priceRangeFilter);
         priceRangeFilter.click();
     }
 
@@ -183,7 +184,6 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         minimumPriceField.click();
         minimumPriceField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
         minimumPriceField.sendKeys(fromPriceValue);
-
     }
 
     public boolean verifyProductsPricesSortedSpecifiedRange() {

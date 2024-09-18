@@ -18,7 +18,10 @@ Feature: Validate Add To Wishlist Button In Plum Goodness Website
     When user clicks on the login logo
     Then verify user is on login page
     When user enters a valid phone number "valid.phoneNo" and OTP
-    When user searches for search product names from text file
-    And selects first product added to wishlist and verify products are added to wishlist
-
-
+    When the user enters "search.value" into the search bar
+    Then verify user is on searched "search.value" product page
+    When user clicks on a product from the search results
+    Then user should be redirected to the product details page
+    When user clicks on wishlist button
+    And user clicks on wishlist icon which is visible on product screen
+    Then verify searched product "search.value" is added into wishlist

@@ -1,7 +1,6 @@
 package com.automation.pages.mobile;
 
 import com.automation.pages.ui.CheckOutPage;
-import com.automation.pages.web.WebAccountPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -73,11 +72,6 @@ public class MobileCheckOutPage extends MobileBasePage implements CheckOutPage {
     @Override
     public boolean isPaymentOptionDisplayed() {
         return cashOnDeliveryOption.isDisplayed();
-    }
-
-    @Override
-    public void selectCashOnDelivery() {
-
     }
 
     @Override
