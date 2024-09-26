@@ -27,7 +27,6 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     //@FindBy(xpath = "//android.widget.ImageView[@content-desc='1']")
     WebElement shoppingCartIcon;
 
-    //@FindBy(xpath = "(//android.view.View[@content-desc='add to cart']/..)[1]")
     @FindBy(xpath = "(//android.view.View[@content-desc='notify me']/..)[1] | (//android.view.View[@content-desc='add to cart']/..)[1]")
     WebElement firstProductInSearchedResults;
 
@@ -106,7 +105,7 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
         }
 
         for(WebElement price : listOfSearchedProducts) {
-            double priceText = extractPriceFromProductDescription(getContentDescriptionOfAnElement(price));
+            double priceText = extractSecondPriceFromProductDescription(getContentDescriptionOfAnElement(price));
             priceValues.add(priceText);
         }
 
@@ -203,5 +202,28 @@ public class MobileProductPage extends MobileBasePage implements ProductPage {
     @Override
     public void clicksOnFirstProduct() {
         firstProductInSearchedResults.click();
+    }
+
+    List<WebElement> listOfFragranceNames = driver.findElements(By.xpath("(//android.view.View[@content-desc='notify me']/..) | (//android.view.View[@content-desc='add to cart']/..)"));
+
+    @Override
+    public void printProductList() {
+        List<String> fragranceProductsNames = new ArrayList<>();
+        for (WebElement product : listOfFragranceNames) {
+            fragranceProductsNames.add(getContentDescriptionOfAnElement(product));
+        }
+        System.out.println(fragranceProductsNames);
+    }
+
+    public boolean verifySearchedProductAndDisplayedProductNamesAreSame(String productName){
+        for (WebElement product : listOfFragranceNames) {
+            String individualProductName = getContentDescriptionOfAnElement(product);
+            System.out.println("individualProductName: "+individualProductName);
+            System.out.println("searched product name:"+productName);
+            if (!individualProductName.contains(productName)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

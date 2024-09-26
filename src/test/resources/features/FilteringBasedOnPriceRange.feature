@@ -8,5 +8,5 @@ Feature: Apply Price Filter In Plum Goodness Website
     And user selects product type "shampoo" from the drop down
     Then verify user is on product page
     When user clicks on price range filter
-    And user sets price range between "200.0" and "800.0"
+    And user sets price range between "500.0" and "700.0"
     Then displayed products should have prices within the specified range

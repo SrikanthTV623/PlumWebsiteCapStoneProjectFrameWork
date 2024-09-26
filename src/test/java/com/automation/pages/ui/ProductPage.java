@@ -54,11 +54,7 @@ public interface ProductPage {
 
     ;
 
-    default void printProductList() {
-
-    }
-
-    ;
+     void printProductList();
 
     default boolean verifyProductName(String configValue) {
 
@@ -131,6 +127,10 @@ public interface ProductPage {
     }
 
     default boolean verifyProductsPricesSortedSpecifiedRangeBasedOnFilterSelected(String sortType){
+        return false;
+    }
+
+    default boolean verifySearchedProductAndDisplayedProductNamesAreSame(String productName){
         return false;
     }
 }

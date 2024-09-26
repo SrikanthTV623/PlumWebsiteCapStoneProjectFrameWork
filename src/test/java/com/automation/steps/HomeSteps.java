@@ -14,6 +14,7 @@ public class HomeSteps {
     HomePage homePage;
 
     public HomeSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             homePage = new WebHomePage();
@@ -91,10 +92,7 @@ public class HomeSteps {
     public void userClicksOnShopOptionAndScroll(String scrollElementName) {
         homePage.clickOnShopButton(scrollElementName);
     }
-    @And("selects first product added to wishlist and verify products are added to wishlist")
-    public void selectsFirstProductAddedToWishlistAndVerifyProductsAreAddedToWishlist() {
-        homePage.selectsFirstProductAndAddedToWishlist();
-    }
+
     @When("user navigates to product finder by clicking on search")
     public void userNavigatesToProductFinderByClickingOnSearch() {
         homePage.clickOnSearchToNavigateToProductFinder();
@@ -113,5 +111,10 @@ public class HomeSteps {
     @And("user clicks on find product")
     public void userClicksOnFindProduct() {
         homePage.clickOnFindProduct();
+    }
+
+    @And("user apply swipe and select type of fragrance {string}")
+    public void userApplySwipeAndSelectTypeOfFragrance(String typeOfFragranceName) {
+        homePage.selectFragranceTypeByApplyingSwipe(typeOfFragranceName);
     }
 }

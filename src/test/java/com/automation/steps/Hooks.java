@@ -32,13 +32,16 @@ public class Hooks {
         }
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(20000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
+
         DriverManager.getDriver().quit();
     }
+
+
 
     @BeforeAll
     public static void setUpAll() {
@@ -51,6 +54,8 @@ public class Hooks {
     public static void cleanUpAll() {
         ExtentReportManager.flush();
     }
+
+
 }
 
 

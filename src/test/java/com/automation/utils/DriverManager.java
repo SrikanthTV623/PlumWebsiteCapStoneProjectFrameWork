@@ -4,7 +4,6 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
@@ -16,6 +15,7 @@ public class DriverManager {
 
     public static void createDriver() {
 
+        //if(ConfigReader.getConfigValue("application.type").equals("mobile")) {
         if(System.getProperty("env").equals("mobile")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));

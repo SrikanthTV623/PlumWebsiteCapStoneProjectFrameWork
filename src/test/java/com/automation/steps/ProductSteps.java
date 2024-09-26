@@ -13,6 +13,7 @@ public class ProductSteps {
     ProductPage productPage;
 
     public ProductSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             productPage = new WebProductPage();
@@ -95,7 +96,11 @@ public class ProductSteps {
 
     @Then("verify searched product {string} and displayed product names are same")
     public void verifySearchedProductAndDisplayedProductNamesAreSame(String productName) {
-        Assert.assertTrue(productPage.verifyProductName(ConfigReader.getConfigValue(productName)));
+        if(ConfigReader.getConfigValue("application.type").contains("web")) {
+            Assert.assertTrue(productPage.verifyProductName(ConfigReader.getConfigValue(productName)));
+        }else {
+            Assert.assertTrue(productPage.verifySearchedProductAndDisplayedProductNamesAreSame(productName));
+        }
     }
 
     @When("user clicks on price range filter")

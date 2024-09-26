@@ -1,4 +1,4 @@
-Feature: Validate Product Finder In Application
+Feature: Validate Product Finder Option In Application
 
   @mobile @savita
   Scenario Outline: Verify user can find product based on concern
@@ -16,4 +16,3 @@ Feature: Validate Product Finder In Application
       | Pimples & Acne | Night Creams       | Night      |
       | Excess Oil     | Face Scrubs        | Face Scrub |
       | Blemishes      | Toners & Mists     | Toner      |
-      | Dull Skin      | Face Serums & Oils | Face Serum |

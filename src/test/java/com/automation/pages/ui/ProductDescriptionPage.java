@@ -23,6 +23,7 @@ public interface ProductDescriptionPage {
 
     }
 
-    default void verifyProductIsAddedToWishlist(String validateProductNameKey){
+    default boolean verifyProductIsAddedToWishlist(String validateProductNameKey){
+        return false;
     }
 }

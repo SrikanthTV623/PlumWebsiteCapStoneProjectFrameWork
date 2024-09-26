@@ -191,43 +191,6 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         }
     }
 
-    public void selectsFirstProductAndAddedToWishlist() {
-        for (String keyword : keywords) {
-            for (int i = 1; i < 5; i++) {
-                searchBoxField.click();
-                searchBoxTxt.click();
-                searchBoxTxt.sendKeys(keyword);
-                ConfigReader.setConfigValue("searchedValueKey", keyword);
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                WebElement clickOnFirstProduct = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
-                clickOnFirstProduct.click();
-                WebElement firstProductWishlistBtn = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc=\"add to cart\"]/..//following-sibling::android.view.View)[last()]"));
-                firstProductWishlistBtn.click();
-                WebElement wishListBtnInProductListedScreen = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc=\"add to cart\"]/..//following-sibling::android.widget.ImageView)[3]"));
-                wishListBtnInProductListedScreen.click();
-                if (i == 3) {
-                    performScrollTillElementVisible(superDealsInWishListScreen);
-                }
-                WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[" + i + "]"));
-                waitForElementToBeVisible(searchValueProductInWishList);
-                String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList).toLowerCase();
-                String searchedProductName = ConfigReader.getConfigValue("searchedValueKey");
-                System.out.println(contentDesOfProduct);
-                System.out.println(searchedProductName);
-                System.out.println("======================================================");
-                Assert.assertTrue(contentDesOfProduct.contains(searchedProductName));
-                WebElement navigateBackFromWishlistPage = driver.findElement(By.xpath("//android.view.View[@content-desc='my wishlist']/../android.widget.ImageView[1]"));
-                navigateBackFromWishlistPage.click();
-                WebElement selectPlumLogoInProductListedPage = driver.findElement(By.xpath("//android.view.View[contains(@content-desc,'products')]/../android.widget.ImageView[1]"));
-                selectPlumLogoInProductListedPage.click();
-            }
-        }
-    }
-
     @Override
     public void clickOnSearchToNavigateToProductFinder() {
         searchBoxField.click();
@@ -285,5 +248,34 @@ public class MobileHomePage extends MobileBasePage implements HomePage {
         if (scrollElementName.contains("shopOnConcern")) {
             performScrollTillElementVisible(shopOnConcernInShop);
         }
+    }
+
+    public void selectFragranceTypeByApplyingSwipe(String typeOfFragranceName){
+        performScrollTillElementVisible(bestOfFragrances);
+
+        List<WebElement> displayCards = driver.findElements(By.xpath("//android.widget.ImageView[contains(@content-desc, 'shop by fragrance')]/android.view.View[2]/android.view.View/android.view.View[@content-desc]"));
+
+        // Swipe Logic
+        List<String> displayTitles = displayCards.stream().map(ele-> ele.getAttribute("content-desc")).toList();
+
+        while (!displayTitles.contains(typeOfFragranceName)) {
+            int x = displayCards.get(displayTitles.size()-1).getLocation().getX();
+            int y = displayCards.get(displayTitles.size()-1).getLocation().getY();
+            int cardWidth = displayCards.get(displayTitles.size()-1).getSize().getWidth();
+            System.out.println("card width : "+cardWidth);
+            int cardHeight = displayCards.get(displayTitles.size()-1).getSize().getHeight();
+            System.out.println("card height : "+cardHeight);
+
+            scrollOrSwipe(x, y + cardHeight /2, 0, y + cardHeight / 2);
+
+            displayCards = driver.findElements(By.xpath("//android.widget.ImageView[contains(@content-desc, 'shop by fragrance')]/android.view.View[2]/android.view.View/android.view.View[@content-desc]"));
+            displayTitles = displayCards.stream().map(ele-> ele.getAttribute("content-desc")).toList();
+
+            System.out.println("display Titles : " + displayTitles);
+        }
+
+        String fragranceNameXpath = "//android.view.View[@content-desc='%s']";
+        driver.findElement(By.xpath(String.format(fragranceNameXpath,typeOfFragranceName))).click();
+
     }
 }
