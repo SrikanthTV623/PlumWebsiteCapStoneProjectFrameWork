@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>PlumWebsiteCapStoneProjectFrameWork</td>
               <td>1</td>
-            <td>18 Sep 2024, 14:37</td>
+            <td>19 Sep 2024, 15:20</td>
     </tr>
   </tbody>
 </table>
@@ -129,9 +129,9 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Apply Price Filter In Plum Goodness Website</td>
-                    <td      class="passed"    >5</td>
+                    <td      class="passed"    >7</td>
           <td      class="failed"    >1</td>
-          <td     class="skipped"   >2</td>
+          <td >0</td>
           <td >0</td>
           <td >0</td>
           <td class="total">8</td>
@@ -140,7 +140,7 @@ $(document).ready(function() {
           <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="14609135100">14s 609ms</td>
+          <td class="duration" data-value="31918191300">31s 918ms</td>
           <td class="failed">Failed</td>
         </tr>
         </tbody>
@@ -191,6 +191,7 @@ $(document).ready(function() {
       <b>Tags:</b>
            <a href="report-tag_web.html">@web</a>
            <a href="report-tag_srikanth.html">@srikanth</a>
+           <a href="report-tag_price-range-filter.html">@price-range-filter</a>
       </div>
 
 
@@ -228,7 +229,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
                           <span class="location name">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">4s 835ms</span>
+  <span class="lead-duration duration">3s 839ms</span>
 
           </div>
 
@@ -263,7 +264,7 @@ $(document).ready(function() {
   <span class="keyword indention">Given</span>
   <span class="name">user opens website</span>
   
-  <span class="lead-duration duration">7s 731ms</span>
+  <span class="lead-duration duration">10s 114ms</span>
 
   </div>
 
@@ -284,7 +285,7 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on the Plum Goodness homepage</span>
   
-  <span class="lead-duration duration">310ms</span>
+  <span class="lead-duration duration">141ms</span>
 
   </div>
 
@@ -305,7 +306,7 @@ $(document).ready(function() {
   <span class="keyword indention">When</span>
   <span class="name">user selects product category &quot;hair&quot;</span>
   
-  <span class="lead-duration duration">123ms</span>
+  <span class="lead-duration duration">134ms</span>
 
   </div>
 
@@ -326,7 +327,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">user selects product type &quot;shampoo&quot; from the drop down</span>
   
-  <span class="lead-duration duration">4s 966ms</span>
+  <span class="lead-duration duration">6s 218ms</span>
 
   </div>
 
@@ -347,7 +348,49 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">verify user is on product page</span>
   
-  <span class="lead-duration duration">167ms</span>
+  <span class="lead-duration duration">155ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">user clicks on price range filter</span>
+  
+  <span class="lead-duration duration">466ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">user sets price range between &quot;500.0&quot; and &quot;700.0&quot;</span>
+  
+  <span class="lead-duration duration">4s 595ms</span>
 
   </div>
 
@@ -365,10 +408,10 @@ $(document).ready(function() {
           <div class="step">
         
 <div class="brief failed">
-  <span class="keyword indention">When</span>
-  <span class="name">user clicks on price range filter</span>
+  <span class="keyword indention">Then</span>
+  <span class="name">displayed products should have prices within the specified range</span>
   
-  <span class="lead-duration duration">1s 310ms</span>
+  <span class="lead-duration duration">10s 092ms</span>
 
   </div>
 
@@ -380,84 +423,16 @@ $(document).ready(function() {
           <a>Error message</a>
       </div>
       <div id="msg-4" class="collapse collapsable-details">
-        <pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;div class=&quot;usf-facet&quot;&gt;...&lt;/div&gt; is not clickable at point (156, 86). Other element would receive the click: &lt;store-header class=&quot;header bg-theme-bg text-theme-text has-motion is-out&quot; data-is-sticky=&quot;true&quot; style=&quot;--header-transition-speed: 300ms&quot;&gt;...&lt;/store-header&gt;
-  (Session info: MicrosoftEdge=128.0.2739.42)
-Build info: version: '4.13.0', revision: 'ba948ece5b*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [b8232655202b8b85337c41cec6198515, clickElement {id=f.A6FBEC12A8D7EFC60601FCF79A7475FA.d.09AA6C191FEC251CDB077BE4828C03B9.e.297}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 128.0.2739.42, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:54240}, msedge: {msedgedriverVersion: 128.0.2739.79 (9fa544bdb74f..., userDataDir: C:\Users\280714\AppData\Loc...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54240/devtoo..., se:cdpVersion: 128.0.2739.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[EdgeDriver: MicrosoftEdge on windows (b8232655202b8b85337c41cec6198515)] -&gt; xpath: //div[@class='usf-facets__body']/div[3]]
-Session ID: b8232655202b8b85337c41cec6198515
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy28.click(Unknown Source)
-	at com.automation.pages.web.WebProductPage.clickOnPriceFilter(WebProductPage.java:176)
-	at com.automation.steps.ProductSteps.userClicksOnPriceRangeFilter(ProductSteps.java:103)
-	at &#10045;.user clicks on price range filter(file:///C:/UST_Java/PlumWebsiteCapStoneProjectFrameWork/src/test/resources/features/FilteringBasedOnPriceRange.feature:10)
+        <pre>java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.automation.steps.ProductSteps.displayedProductsShouldHavePricesWithinTheSpecifiedRange(ProductSteps.java:114)
+	at &#10045;.displayed products should have prices within the specified range(file:///C:/UST_Java/PlumWebsiteCapStoneProjectFrameWork/src/test/resources/features/FilteringBasedOnPriceRange.feature:12)
 </pre>
       </div>
     </div>
   </div>
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief skipped">
-  <span class="keyword indention">And</span>
-  <span class="name">user sets price range between &quot;200.0&quot; and &quot;800.0&quot;</span>
-  
-  <span class="lead-duration duration">000ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-  
-      </div>
-          <div class="step">
-        
-<div class="brief skipped">
-  <span class="keyword indention">Then</span>
-  <span class="name">displayed products should have prices within the specified range</span>
-  
-  <span class="lead-duration duration">000ms</span>
-
-  </div>
-
-        
 
 
         
@@ -492,7 +467,7 @@ Session ID: b8232655202b8b85337c41cec6198515
             <span class="keyword indention">After</span>
                           <span class="location name">com.automation.steps.Hooks.cleanUp(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">11s 834ms</span>
+  <span class="lead-duration duration">21s 202ms</span>
 
           </div>
 
@@ -504,13 +479,13 @@ Session ID: b8232655202b8b85337c41cec6198515
                 <div class="embedding indention">
         <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
       <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_-916832307.png" target="_blank">
+      <a href="embeddings/embedding_949904248.png" target="_blank">
         <span class="download-button glyphicon glyphicon-download-alt"></span>
       </a>
     </div>
     <div id="embedding-6" class="collapse collapsable-details">
       <span class="embedding-content">
-        <img src="embeddings/embedding_-916832307.png">
+        <img src="embeddings/embedding_949904248.png">
       </span>
     </div>
   </div>

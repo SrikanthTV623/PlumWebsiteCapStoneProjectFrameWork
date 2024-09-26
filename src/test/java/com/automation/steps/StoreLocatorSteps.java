@@ -13,6 +13,7 @@ public class StoreLocatorSteps {
     StoreLocatorPage storeLocatorPage;
     
     public StoreLocatorSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             storeLocatorPage = new WebStoreLocatorPage();

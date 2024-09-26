@@ -19,7 +19,8 @@ Feature: Apply Price & Rating Filter In Plum Goodness Application
       | shopOnConcern     | haircare | conditioner   | Conditioner         | Price        | 0-500           |
       | shopOnConcern     | bodycare | body butters  | Body Butter         | Price        | 0-499           |
       | shopOnConcern     | bodycare | hand creams   | Hand Cream          | Price        | 0-499           |
-      | shopOnConcern     | bodycare | hand creams   | Hand Cream          | Price        | 1000-1499       |
+      | shopOnConcern     | bodycare | body oils     | Body Oil            | Price        | 0-500           |
+      | shopOnConcern     | bodycare | body oils     | Body Oil            | Price        | 500-1000        |
       | shopOnConcern     | bodycare | body mists    | Body Mist           | Price        | 500-999         |
       | shopOnConcern     | bodycare | body mists    | Body Mist           | Price        | 1000-1499       |
 

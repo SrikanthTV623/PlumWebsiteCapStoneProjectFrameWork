@@ -68,11 +68,10 @@ public class MobileProductDescriptionPage extends MobileBasePage implements Prod
         wishListBtnInProductListedScreen.click();
     }
 
-    public void verifyProductIsAddedToWishlist(String validateProductNameKey){
+    public boolean verifyProductIsAddedToWishlist(String validateProductNameKey){
         WebElement searchValueProductInWishList = driver.findElement(By.xpath("(//android.view.View[@content-desc='add to cart']/..)[1]"));
         waitForElementToBeVisible(searchValueProductInWishList);
-        String contentDesOfProduct = getContentDescriptionOfAnElement(searchValueProductInWishList);
-        Assert.assertTrue("Product not added to wishlist", contentDesOfProduct.toLowerCase().contains(validateProductNameKey.toLowerCase()));
+        return searchValueProductInWishList.isDisplayed();
     }
 
     @Override

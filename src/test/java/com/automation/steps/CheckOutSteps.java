@@ -17,6 +17,7 @@ public class CheckOutSteps {
     CheckOutPage checkOutPage;
 
     public CheckOutSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             checkOutPage = new WebCheckOutPage();

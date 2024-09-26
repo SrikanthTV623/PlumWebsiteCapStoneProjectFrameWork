@@ -55,12 +55,22 @@ public class ExtentReportManager {
     public static String takeScreenshot() {
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
         File file = ts.getScreenshotAs(OutputType.FILE);
-        String path = "src\\test\\resources\\screenshots\\screenshot" + ++i + ".png";
-        try {
-            FileUtils.copyFile(file, new File(path));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if(System.getProperty("env").equals("mobile")) {
+            String path = "src\\test\\resources\\screenshots\\mobile\\screenshot" + ++i + ".png";
+            try {
+                FileUtils.copyFile(file, new File(path));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return System.getProperty("user.dir") + "\\" + path;
+        }else{
+            String path = "src\\test\\resources\\screenshots\\screenshotOfWeb" + ++i + ".png";
+            try {
+                FileUtils.copyFile(file, new File(path));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return System.getProperty("user.dir") + "\\" + path;
         }
-        return System.getProperty("user.dir") + "\\" + path;
     }
 }

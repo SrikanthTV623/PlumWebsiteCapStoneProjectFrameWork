@@ -96,6 +96,27 @@ public class MobileBasePage {
         return price;
     }
 
+    public double extractSecondPriceFromProductDescription(String text) {
+        // Example description: "Vanilla Vibes Body Oil by Plum BodyLovin\n₹443\nwith\n₹467\n₹550\n(15% off)"
+        Pattern pattern = Pattern.compile("₹([0-9,.]+)");
+        Matcher matcher = pattern.matcher(text);
+
+        double secondPrice = 0.0;
+        int priceCount = 0;
+
+        while (matcher.find()) {
+            priceCount++;
+            // Check if this is the second price
+            if (priceCount == 2) {
+                secondPrice = Double.parseDouble(matcher.group(1).replace(",", ""));
+                break; // Exit the loop after finding the second price
+            }
+        }
+
+        System.out.println("Extracted Second Price From Product Description: " + secondPrice);
+        return secondPrice;
+    }
+
     public double extractValueFromOrderSummaryText(String text, String label) {
         //Pattern pattern1 = Pattern.compile(label + "\\s*\\n(\\₹[0-9,.]+|Free)");
         Pattern pattern = Pattern.compile(Pattern.quote(label) + "\\s*\\n([-₹][0-9,.]+|₹[0-9,.]+|Free)", Pattern.CASE_INSENSITIVE);

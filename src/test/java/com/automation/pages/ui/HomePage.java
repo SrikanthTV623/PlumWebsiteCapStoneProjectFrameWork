@@ -37,10 +37,6 @@ public interface HomePage {
 
     }
 
-    default void selectsFirstProductAndAddedToWishlist(){
-
-    }
-
     default void clickOnSearchToNavigateToProductFinder(){};
 
     default void selectConcernFromDropDown(String concern) {
@@ -50,4 +46,8 @@ public interface HomePage {
     default void selectProductTypeFromDropDown(String productType){};
 
     default void clickOnFindProduct(){}
+
+    default void selectFragranceTypeByApplyingSwipe(String typeOfFragranceName){
+
+    }
 }

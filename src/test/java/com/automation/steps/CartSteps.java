@@ -13,6 +13,7 @@ public class CartSteps {
     CartPage cartPage;
 
     public CartSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             cartPage = new WebCartPage();

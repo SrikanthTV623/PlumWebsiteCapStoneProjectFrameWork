@@ -181,21 +181,32 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         maximumPriceField.click();
         maximumPriceField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
         maximumPriceField.sendKeys(toPriceValue);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         minimumPriceField.click();
         minimumPriceField.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
         minimumPriceField.sendKeys(fromPriceValue);
     }
 
     public boolean verifyProductsPricesSortedSpecifiedRange() {
-        double minPrice = 200.0;
+        double minPrice = 500.0;
         double maxPrice = 800.0;
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         for (WebElement priceElement : productsPricesList) {
             String priceText = priceElement.getText().replace("₹", "").replace("Rs. ", "").replace(",", "");
             double priceValue = Double.parseDouble(priceText);
             System.out.println(priceValue);
 
-            if (priceValue>minPrice && priceValue<maxPrice){
+            if (priceValue < minPrice || priceValue > maxPrice){
                 return false;
             }
         }

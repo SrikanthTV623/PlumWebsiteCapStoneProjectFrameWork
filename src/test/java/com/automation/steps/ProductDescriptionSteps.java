@@ -16,6 +16,7 @@ public class ProductDescriptionSteps {
     ProductDescriptionPage productDescriptionPage ;
 
     public ProductDescriptionSteps() {
+        //String env=ConfigReader.getConfigValue("application.type");
         String env= System.getProperty("env");
         if (env.equals("web")) {
             productDescriptionPage = new WebProductDescriptionPage();
@@ -67,6 +68,6 @@ public class ProductDescriptionSteps {
 
     @Then("verify searched product {string} is added into wishlist")
     public void verifySearchedProductIsAddedIntoWishlist(String validateProductNameKey) {
-        productDescriptionPage.verifyProductIsAddedToWishlist(validateProductNameKey);
+        Assert.assertTrue("Product Is Not Added Into WishList",productDescriptionPage.verifyProductIsAddedToWishlist(validateProductNameKey));
     }
 }
