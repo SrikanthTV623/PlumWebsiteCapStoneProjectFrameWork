@@ -12,6 +12,7 @@ Feature:Validate Searched and Displayed Products are matching
     Then verify searched product "validate.product.name" and displayed product names are same
 
 
+
   @mobile @srikanth @swipe
   Scenario Outline: Validating searched item and displayed items are same on plum application
     Given user opens website
