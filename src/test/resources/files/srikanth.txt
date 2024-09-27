@@ -1,0 +1,76 @@
+Slack : https://app.slack.com/client/T06HKGBV08Y/C072GTXGD96
+
+Stack Route password: Venkateshtv@123
+
+Medi Assist
+USERNAME: 280714@USTG
+PASSWORD: Venkateshtv@123
+
+https://www.geeksforgeeks.org/java-regex-programs/
+
+https://www.geeksforgeeks.org/regular-expressions-in-java/?ref=lbp
+
+MongoDB
+280714
+EOhCZuyeUMd5cm0F
+
+mongodb+srv://280714:EOhCZuyeUMd5cm0F@cluster0.ozegd6o.mongodb.net/
+
+whether u are in uphill or downhill, always keep a big smile on the face... 
+
+
+
+https://www.prudentplus.in/dashboard/benefits/complete-enrollment
+
+ctrl shift p 
+run>rendering
+click down rendering button
+emulate the focused page 
+
+
+GitLab
+email: srikanthtv623@gmail.com
+password: Venkateshtv@623
+
+
+dbank-qa.wedevx.com
+
+Jenkins
+username:SrikanthTV
+email: srikanthtv623@gmail.com
+password: Venkateshtv@623
+
+welcome kit
+email: Srikanth.TV@ust.com
+password: Venkateshtv@623
+
+
+
+https://reqres.in/ 
+
+ctrl + shift + c
+
+
+appium --allow-insecure chromedriver_autodownload
+
+
+
+
+srikanth2000apk@gmail.com
+Srikanth@2000
+
+
+https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:
+
+
+
+
+
+mvn clean install -D cucumber.filter.tags=@remove-cart -Pweb -Denv=web
+above one is to run single senerio
+
+
+ mvn clean install -D cucumber.filter.tags=@web -Pweb -Denv=web   - to run web all feature files
+ mvn clean install -D cucumber.filter.tags=@mobile -Pmobile -Denv=mobile   - to run mobile all feature files
+ 
+
