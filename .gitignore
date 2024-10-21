@@ -3,6 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 CucumberReports/
+src/test/resources/screenshots/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
