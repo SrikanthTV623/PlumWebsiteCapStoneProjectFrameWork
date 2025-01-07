@@ -9,7 +9,7 @@ Feature: Validate Add To Cart Button In Plum Goodness Website
     Then user should be redirected to the product details page
     When user clicks the Add to Cart button
 
-  @web @srikanth
+  @web @srikanth @add-cart-web
   Scenario: User searches for a product and adds it to the cart
     Then verify item is added into cart and should displays "1"
 

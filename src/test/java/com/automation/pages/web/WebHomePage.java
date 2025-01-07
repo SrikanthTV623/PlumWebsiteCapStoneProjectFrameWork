@@ -19,6 +19,12 @@ public class WebHomePage extends WebBasePage implements HomePage {
     WebDriverWait wait;
     List<String> keywords = new ArrayList<>();
 
+    @FindBy(id = "iframe-kp")
+    WebElement iframeWindow;
+
+    @FindBy(id = "close_button")
+    WebElement closeBtnOfIframeWindow;
+
     @FindBy(xpath = "//span[@class='flex']/img")
     WebElement plumLogo;
 
@@ -28,7 +34,7 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//div[@id='icon-kwikpass']")
     WebElement loginBtn;
 
-    @FindBy(xpath = "//input[@id='header-search']")
+    @FindBy(xpath = "//input[@id='st-search']")
     WebElement searchBarField;
 
     @FindBy(xpath = "//div[@id='kwikpass-drawer-desktop']//a")
@@ -36,6 +42,10 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     public void openWebsite() {
         driver.get("https://plumgoodness.com/");
+        waitForElementToBeVisible(iframeWindow);
+        driver.switchTo().frame(iframeWindow);
+        waitForElementToBeClickable(closeBtnOfIframeWindow);
+        driver.switchTo().defaultContent();
     }
 
     public boolean verifyHomePage() {

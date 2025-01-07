@@ -56,7 +56,7 @@ public class ExtentReportManager {
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
         File file = ts.getScreenshotAs(OutputType.FILE);
         if(System.getProperty("env").equals("mobile")) {
-            String path = "src\\test\\resources\\screenshots\\mobile\\screenshot" + ++i + ".png";
+            String path = "src\\test\\resources\\screenshots\\mobile\\screenshotOfMobile" + ++i + ".png";
             try {
                 FileUtils.copyFile(file, new File(path));
             } catch (IOException e) {
@@ -64,7 +64,7 @@ public class ExtentReportManager {
             }
             return System.getProperty("user.dir") + "\\" + path;
         }else{
-            String path = "src\\test\\resources\\screenshots\\screenshotOfWeb" + ++i + ".png";
+            String path = "src\\test\\resources\\screenshots\\web\\screenshotOfWeb" + ++i + ".png";
             try {
                 FileUtils.copyFile(file, new File(path));
             } catch (IOException e) {

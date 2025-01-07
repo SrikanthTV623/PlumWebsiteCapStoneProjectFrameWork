@@ -22,6 +22,32 @@ public class WebBasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
+    public boolean isPresent(WebElement element) {
+        try {
+            setImplicitWait(5);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(30);
+        }
+    }
+
+    public void setImplicitWait(long sec) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
+    }
+
+    public void clickOnElementIfPresent(WebElement element) {
+        if (isPresent(element)) {
+            element.click();
+        }
+    }
+
+    public void waitForElementToBeVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
